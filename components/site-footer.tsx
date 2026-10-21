@@ -15,10 +15,11 @@ export function SiteFooter() {
   const { copy } = useSite();
 
   const links = [
-    { href: "#services", label: copy.footer.services },
-    { href: "#pricing", label: copy.footer.pricing },
-    { href: "#order", label: copy.footer.order },
-    { href: "#faq", label: copy.footer.faq },
+    { href: "/#services", label: copy.footer.services },
+    { href: "/#about", label: copy.footer.about },
+    { href: "/#pricing", label: copy.footer.pricing },
+    { href: "/#order", label: copy.footer.order },
+    { href: "/#faq", label: copy.footer.faq },
   ];
 
   return (
@@ -74,6 +75,20 @@ export function SiteFooter() {
               {SELLER_HANDLE}
               <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
+            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-2 border-t border-border/60 pt-3 text-xs text-muted-foreground">
+              <Link
+                href="/terms"
+                className="transition-colors hover:text-foreground"
+              >
+                {copy.footer.terms}
+              </Link>
+              <Link
+                href="/privacy"
+                className="transition-colors hover:text-foreground"
+              >
+                {copy.footer.privacy}
+              </Link>
+            </div>
           </div>
         </div>
 

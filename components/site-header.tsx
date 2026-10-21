@@ -16,10 +16,11 @@ export function SiteHeader() {
   const { copy } = useSite();
 
   const links = [
-    { href: "#services", label: copy.nav.services },
-    { href: "#process", label: copy.nav.process },
-    { href: "#pricing", label: copy.nav.pricing },
-    { href: "#faq", label: copy.nav.faq },
+    { href: "/#services", label: copy.nav.services },
+    { href: "/#process", label: copy.nav.process },
+    { href: "/#about", label: copy.nav.about },
+    { href: "/#pricing", label: copy.nav.pricing },
+    { href: "/#faq", label: copy.nav.faq },
   ];
 
   return (
@@ -60,7 +61,7 @@ export function SiteHeader() {
           <LanguageToggle />
           <ThemeToggle />
           <Button asChild size="sm" className="rounded-full px-3 sm:px-4">
-            <a href="#order">
+            <a href="/#order">
               <span className="hidden sm:inline">{copy.nav.cta}</span>
               <span className="sm:hidden">{copy.nav.ctaShort}</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

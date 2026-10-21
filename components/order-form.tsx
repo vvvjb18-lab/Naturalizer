@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
+import Link from "next/link";
 import {
   Check,
   CheckCircle2,
@@ -53,6 +54,20 @@ interface OrderResult {
   words: number;
 }
 
+interface QuoteApiResponse {
+  ok: boolean;
+  stored: boolean;
+  quoteId: string;
+  expiresAt: string;
+  pricing: {
+    amount: number;
+    units: number;
+    words: number;
+  };
+}
+
+type QuoteStatus = "idle" | "loading" | "done" | "error";
+
 const languageValues: LanguageValue[] = ["zh", "en", "bilingual"];
 const documentValues: DocumentValue[] = [
   "essay",
@@ -89,12 +104,88 @@ export function OrderSection() {
   const [status, setStatus] = useState<Status>("idle");
   const [result, setResult] = useState<OrderResult | null>(null);
   const [copied, setCopied] = useState(false);
+  const [serverQuote, setServerQuote] = useState<QuoteApiResponse | null>(null);
+  const [quoteStatus, setQuoteStatus] = useState<QuoteStatus>("idle");
+  const [quoteCopied, setQuoteCopied] = useState(false);
 
   const wordCount = Number.parseInt(values.words, 10);
   const quote = useMemo(
     () => calculateQuote(Number.isFinite(wordCount) ? wordCount : 0),
     [wordCount]
   );
+
+  useEffect(() => {
+    if (!Number.isFinite(wordCount) || wordCount < 1) {
+      setServerQuote(null);
+      setQuoteStatus("idle");
+      setQuoteCopied(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    setServerQuote(null);
+    setQuoteCopied(false);
+    setQuoteStatus("loading");
+
+    const timer = setTimeout(async () => {
+      try {
+        const response = await fetch("/api/quote", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            words: wordCount,
+            language: values.language,
+            documentType: values.documentType,
+          }),
+          signal: controller.signal,
+        });
+
+        const data = (await response.json().catch(() => ({}))) as {
+          ok?: boolean;
+          stored?: boolean;
+          quoteId?: string;
+          expiresAt?: string;
+          pricing?: QuoteApiResponse["pricing"];
+        };
+
+        if (!response.ok || !data.ok || !data.quoteId || !data.pricing) {
+          throw new Error("Quote request failed");
+        }
+
+        const nextQuote: QuoteApiResponse = {
+          ok: true,
+          stored: Boolean(data.stored),
+          quoteId: data.quoteId,
+          expiresAt: data.expiresAt ?? "",
+          pricing: data.pricing,
+        };
+
+        setServerQuote(nextQuote);
+        setQuoteStatus("done");
+
+        try {
+          const key = "naturalizer-quotes";
+          const previous = JSON.parse(window.localStorage.getItem(key) ?? "[]");
+          const records = Array.isArray(previous) ? previous : [];
+          window.localStorage.setItem(
+            key,
+            JSON.stringify([nextQuote, ...records].slice(0, 10))
+          );
+        } catch {
+          // The quote remains usable even if browser storage is unavailable.
+        }
+      } catch (error) {
+        if ((error as Error).name === "AbortError") return;
+        setServerQuote(null);
+        setQuoteStatus("error");
+      }
+    }, 450);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [wordCount, values.language, values.documentType]);
 
   const languageLabel =
     copy.order.fields.languageOptions[languageValues.indexOf(values.language)];
@@ -193,21 +284,16 @@ export function OrderSection() {
     }
   }
 
-  async function copySummary() {
-    if (!result) return;
-
-    const summary = buildSummary(result);
-
+  async function writeClipboard(text: string) {
     try {
-      await navigator.clipboard.writeText(summary);
-      setCopied(true);
-      return;
+      await navigator.clipboard.writeText(text);
+      return true;
     } catch {
       // Fallback for browsers without the async clipboard API.
     }
 
     const textarea = document.createElement("textarea");
-    textarea.value = summary;
+    textarea.value = text;
     textarea.setAttribute("readonly", "");
     textarea.style.position = "fixed";
     textarea.style.opacity = "0";
@@ -215,7 +301,36 @@ export function OrderSection() {
     textarea.select();
     const success = document.execCommand("copy");
     document.body.removeChild(textarea);
+    return success;
+  }
+
+  async function copySummary() {
+    if (!result) return;
+    const success = await writeClipboard(buildSummary(result));
     setCopied(success);
+  }
+
+  async function copyQuoteSummary() {
+    if (quote.words < 1) return;
+
+    const summary = [
+      `Naturalizer — ${copy.order.quote.title}`,
+      serverQuote
+        ? `${copy.order.quote.id}: ${serverQuote.quoteId}`
+        : null,
+      `${copy.order.fields.language}: ${languageLabel}`,
+      `${copy.order.fields.documentType}: ${documentLabel}`,
+      `${copy.order.fields.words}: ${quote.words}`,
+      `${copy.order.quote.total}: ${formatHKD(
+        serverQuote?.pricing.amount ?? quote.amount,
+        locale
+      )}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const success = await writeClipboard(summary);
+    setQuoteCopied(success);
   }
 
   function resetOrder() {
@@ -224,6 +339,9 @@ export function OrderSection() {
     setResult(null);
     setStatus("idle");
     setCopied(false);
+    setServerQuote(null);
+    setQuoteStatus("idle");
+    setQuoteCopied(false);
   }
 
   return (
@@ -672,9 +790,42 @@ export function OrderSection() {
                       </p>
                     ) : null}
 
-                    <p className="mt-3 border-t border-primary/15 pt-3 text-[11px] leading-relaxed text-muted-foreground">
+                    <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
                       {copy.order.quote.note}
                     </p>
+
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-primary/15 pt-3">
+                      <p
+                        className="text-[11px] text-muted-foreground"
+                        aria-live="polite"
+                        title={copy.order.quote.saveNote}
+                      >
+                        {serverQuote
+                          ? `${copy.order.quote.id}: ${serverQuote.quoteId}`
+                          : quoteStatus === "loading"
+                            ? copy.order.quote.saving
+                            : quoteStatus === "error"
+                              ? copy.order.quote.saveError
+                              : null}
+                      </p>
+
+                      {quote.words > 0 ? (
+                        <button
+                          type="button"
+                          onClick={copyQuoteSummary}
+                          className="inline-flex items-center gap-1.5 text-[11px] font-medium text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          {quoteCopied ? (
+                            <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                          ) : (
+                            <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+                          )}
+                          {quoteCopied
+                            ? copy.order.quote.copied
+                            : copy.order.quote.copy}
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
 
                   <div className="sm:col-span-2">
@@ -699,6 +850,22 @@ export function OrderSection() {
                         {errors.consent}
                       </p>
                     ) : null}
+                    <p className="mt-2 pl-7 text-xs leading-relaxed text-muted-foreground">
+                      {copy.order.fields.legalPrefix}{" "}
+                      <Link
+                        href="/terms"
+                        className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                      >
+                        {copy.order.fields.termsLink}
+                      </Link>{" "}
+                      {copy.order.fields.and}{" "}
+                      <Link
+                        href="/privacy"
+                        className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                      >
+                        {copy.order.fields.privacyLink}
+                      </Link>
+                    </p>
                   </div>
 
                   {errors.form ? (

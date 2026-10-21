@@ -5,6 +5,7 @@ import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { OrderSection } from "@/components/order-form";
 import { Pricing } from "@/components/pricing";
+import { Trust } from "@/components/trust";
 import { WhyDirect } from "@/components/why-direct";
 
 /**
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <Features />
       <HowItWorks />
+      <Trust />
       <WhyDirect />
       <Pricing />
       <OrderSection />

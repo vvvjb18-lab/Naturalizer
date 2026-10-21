@@ -10,6 +10,7 @@ The site is built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Shadcn
 - Structured order form with client-side validation
 - Optional webhook delivery for automated order handling
 - Carousell listing and seller links as a fallback channel
+- Bilingual terms of service and privacy policy
 
 ## Pricing
 
@@ -38,6 +39,16 @@ npm run build       # Production build
 npm run start       # Serve the production build
 ```
 
+## Quote generation
+
+The order calculator calls `POST /api/quote` after a short debounce. The endpoint returns a structured quote with:
+
+- a `quoteId` and 14-day expiry
+- words, billable units, unit price, minimum price, and final estimate
+- language and document type
+
+The browser keeps the latest 10 quotes in `localStorage` under `naturalizer-quotes` and includes the quote ID in the copyable summary. If `QUOTE_WEBHOOK_URL` is configured, the quote is also sent to that endpoint as a `quote.created` event. Vercel functions cannot persist quotes to a local file, so no fake server-side storage is used when the webhook is absent.
+
 ## Order automation
 
 The form posts to `POST /api/orders`. The server validates the payload, calculates the quote again, and then:
@@ -49,9 +60,10 @@ For local development, create `.env.local`:
 
 ```bash
 ORDER_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/your-webhook-id/
+QUOTE_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/your-quote-webhook-id/
 ```
 
-The same variable can be added in Vercel under **Project Settings → Environment Variables**. It works with Zapier, Make, or any endpoint that accepts JSON.
+The same variables can be added in Vercel under **Project Settings → Environment Variables**. They work with Zapier, Make, or any endpoint that accepts JSON.
 
 Example payload:
 
@@ -87,8 +99,11 @@ Orders are not stored by the site itself. Configure the webhook destination to p
 ```text
 app/
   api/orders/route.ts  Order validation and optional webhook forwarding
+  api/quote/route.ts   Structured quote IDs and optional quote archiving
   layout.tsx           Metadata, theme bootstrap, global chrome
   page.tsx             Landing-page composition
+  terms/page.tsx       Terms of service route
+  privacy/page.tsx     Privacy policy route
   globals.css          Shadcn tokens, light and dark themes
   icon.svg             Favicon
 components/
@@ -98,9 +113,11 @@ components/
   hero.tsx             Hero, sample revision, price entry point
   features.tsx         Service pillars
   how-it-works.tsx     Three-step order process
+  trust.tsx            About and service commitments
   why-direct.tsx       Website vs Carousell comparison
   pricing.tsx          Three word-count price points
   order-form.tsx       Quote calculator, order form, success state
+  legal-page.tsx       Bilingual legal document layout
   faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action
   site-footer.tsx      Footer, Carousell links, disclaimer
@@ -109,6 +126,7 @@ lib/
   i18n.ts              Chinese and English copy
   pricing.ts           Shared quote calculation and HKD formatting
   site.ts              Carousell URLs and seller handle
+  legal.ts             Terms and privacy copy in both languages
   utils.ts             cn() class merge helper
 ```
 
@@ -121,11 +139,13 @@ git commit -m "Build Naturalizer order site"
 gh repo create naturalizer --public --source=. --remote=origin --push
 ```
 
-Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js is detected automatically. Add `ORDER_WEBHOOK_URL` if automated delivery is required. No other environment variables are needed.
+Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js is detected automatically. Add `ORDER_WEBHOOK_URL` and/or `QUOTE_WEBHOOK_URL` if automated delivery or quote archiving is required. No other environment variables are needed.
 
 ## Service boundaries
 
 This is an editing service, not a ghostwriting service. The site states that it cannot guarantee any AI detector result. Turnitin is a third-party trademark. Carousell remains an alternative contact channel; final pricing and availability are confirmed when an order is accepted.
+
+The terms and privacy text in `lib/legal.ts` is a practical starting point, not legal advice. Have a Hong Kong solicitor review it before launch, and update it whenever the workflow, payment method, data retention, or subcontractors change.
 
 ## Dependency note
 

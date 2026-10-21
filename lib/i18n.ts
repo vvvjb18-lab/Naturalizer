@@ -16,6 +16,7 @@ const zh = {
   nav: {
     services: "服務",
     process: "流程",
+    about: "關於",
     pricing: "定價",
     faq: "FAQ",
     cta: "立即報價",
@@ -142,6 +143,38 @@ const zh = {
     cta: "用此方案下單",
     note: "600 字或以上以每 600 字為一單位估算，未滿一單位按一單位計。實際價格及交稿安排以接單確認為準。",
   },
+  trust: {
+    eyebrow: "關於我們",
+    title: "把服務說清楚，才值得把文字交給你。",
+    description:
+      "Naturalizer 專注中英雙語學術文字修訂。每份訂單會按確認的字數、語言及交期處理，交付前由團隊成員進行人手審閱。",
+    items: [
+      {
+        title: "人手審閱",
+        description:
+          "每份修訂在交付前由團隊成員檢查，確保內容與格式符合確認範圍。",
+      },
+      {
+        title: "先確認報價與範圍",
+        description:
+          "按字數計算，開工前確認價格、交期及修改輪次。",
+      },
+      {
+        title: "文件保密",
+        description:
+          "只由完成訂單所需的團隊成員接觸，交付後按私隱政策處理及刪除工作副本。",
+      },
+      {
+        title: "不誤導的承諾",
+        description:
+          "不代寫，不保證成績、錄取或任何 AI 檢測分數；Turnitin 報告只作第三方參考。",
+      },
+    ],
+    note: "服務範圍、退款及資料處理，請參閱",
+    terms: "服務條款",
+    privacy: "私隱政策",
+    and: "及",
+  },
   whyDirect: {
     eyebrow: "為何在官網下單",
     title: "問價、整理需求、下單，一次完成。",
@@ -207,6 +240,10 @@ const zh = {
         "例如：只修訂第 2 章、保留特定術語、需要中英雙語對照……",
       consent:
         "我確認稿件由本人撰寫，並理解此服務只提供文字修訂，不保證任何 AI 檢測結果。",
+      legalPrefix: "提交即表示你同意",
+      termsLink: "服務條款",
+      privacyLink: "私隱政策",
+      and: "及",
     },
     quote: {
       title: "你的估算",
@@ -215,6 +252,12 @@ const zh = {
       total: "估算總額",
       minimumApplied: "已套用不足 600 字的最低價格",
       empty: "輸入字數後顯示報價",
+      id: "報價編號",
+      saving: "建立報價編號…",
+      saveError: "未能建立報價編號；仍可複製即時估算。",
+      saveNote: "報價編號保存在此瀏覽器。",
+      copy: "複製報價摘要",
+      copied: "已複製",
       note: "尚未包括特殊格式或加急需求；最終安排以確認稿件後為準。",
     },
     submit: "建立訂單",
@@ -301,16 +344,19 @@ const zh = {
   footer: {
     tagline: "中英雙語學術論文自然化與人手修訂。",
     services: "服務",
+    about: "關於我們",
     pricing: "定價",
     order: "下單",
     faq: "FAQ",
     contact: "聯絡",
+    terms: "服務條款",
+    privacy: "私隱政策",
     carousell: "Carousell 商品頁",
     seller: "Carousell 賣家",
     payment: "付款",
     paymentValue: "Alipay HK",
     disclaimer:
-      "本服務只提供文字修訂，不提供代寫，亦不保證任何 AI 檢測器結果。Turnitin 為其各自所有者的商標。",
+      "Naturalizer 為獨立人手編輯服務，與 Turnitin LLC 無官方關聯。本服務只提供文字修訂，不提供代寫，亦不保證任何成績、學術結果或 AI 檢測器結果。Turnitin 為 Turnitin LLC 的註冊商標。",
     copyright: "Naturalizer. All rights reserved.",
   },
 };
@@ -335,6 +381,7 @@ const en: Dictionary = {
   nav: {
     services: "Service",
     process: "Process",
+    about: "About",
     pricing: "Pricing",
     faq: "FAQ",
     cta: "Get a quote",
@@ -466,6 +513,38 @@ const en: Dictionary = {
     cta: "Start with this option",
     note: "From 600 words, quotes are calculated in 600-word units, rounded up. Final pricing and turnaround are confirmed when the order is accepted.",
   },
+  trust: {
+    eyebrow: "About us",
+    title: "A clear service, before we touch your draft.",
+    description:
+      "Naturalizer focuses on academic editing in Chinese and English. Every order is handled within the agreed word count, language, and deadline, with human review before delivery.",
+    items: [
+      {
+        title: "Human review",
+        description:
+          "A team member checks every revision before delivery to confirm it matches the agreed scope.",
+      },
+      {
+        title: "Confirm the quote and scope",
+        description:
+          "Pricing is based on word count; price, turnaround, and revision rounds are confirmed before work begins.",
+      },
+      {
+        title: "Confidential handling",
+        description:
+          "Only team members needed for the order access your file. Working copies are handled and deleted under the privacy policy.",
+      },
+      {
+        title: "No misleading promises",
+        description:
+          "We do not ghostwrite, guarantee grades, admission outcomes, or AI detector scores. Turnitin reports are third-party references.",
+      },
+    ],
+    note: "For scope, refunds, and data handling, see the",
+    terms: "Terms",
+    privacy: "Privacy Policy",
+    and: "and",
+  },
   whyDirect: {
     eyebrow: "Why order here",
     title: "Quote, brief, and order in one pass.",
@@ -532,6 +611,10 @@ const en: Dictionary = {
         "For example: only revise chapter 2, keep specific terminology, or provide a bilingual version…",
       consent:
         "I confirm this draft is my own work and understand this is an editing service that cannot guarantee any AI detector result.",
+      legalPrefix: "By submitting, you agree to the",
+      termsLink: "Terms",
+      privacyLink: "Privacy Policy",
+      and: "and",
     },
     quote: {
       title: "Your estimate",
@@ -540,6 +623,12 @@ const en: Dictionary = {
       total: "Estimated total",
       minimumApplied: "Minimum price applied for drafts under 600 words",
       empty: "Enter a word count to see your quote",
+      id: "Quote ID",
+      saving: "Creating quote ID…",
+      saveError: "Could not create a quote ID; you can still copy the estimate.",
+      saveNote: "The quote ID is saved in this browser.",
+      copy: "Copy quote summary",
+      copied: "Copied",
       note: "Special formatting or rush requests are not included. Final arrangements are confirmed once the draft is reviewed.",
     },
     submit: "Create order summary",
@@ -628,16 +717,19 @@ const en: Dictionary = {
     tagline:
       "Human-reviewed academic editing in Chinese and English.",
     services: "Service",
+    about: "About",
     pricing: "Pricing",
     order: "Order",
     faq: "FAQ",
     contact: "Contact",
+    terms: "Terms",
+    privacy: "Privacy",
     carousell: "Carousell listing",
     seller: "Carousell seller",
     payment: "Payment",
     paymentValue: "Alipay HK",
     disclaimer:
-      "This is an editing service, not a ghostwriting service. We do not guarantee any AI detector result. Turnitin is a trademark of its respective owner.",
+      "Naturalizer is an independent human editing service and is not affiliated with Turnitin LLC. This is an editing service, not ghostwriting, and we do not guarantee any grade, academic outcome, or AI detector result. Turnitin is a registered trademark of Turnitin LLC.",
     copyright: "Naturalizer. All rights reserved.",
   },
 };
