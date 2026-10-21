@@ -85,7 +85,34 @@ Example payload:
 }
 ```
 
-Orders are not stored by the site itself. Configure the webhook destination to persist or route them. The endpoint does not accept payments; payment is confirmed manually by Alipay HK after the draft and turnaround are agreed.
+Orders are stored in Supabase when it is configured; local development uses `.data/admin.json`. Webhook forwarding is optional. The endpoint does not accept payments; payment is confirmed manually by Alipay HK after the draft and turnaround are agreed.
+
+## Admin dashboard
+
+The private dashboard lives at `/ops`. It is not linked from the public site, is excluded from robots crawling, and requires a signed HTTP-only session.
+
+Features in the first version:
+
+- Orders list with customer, word count, quote, status, and date
+- Quotes list with quote ID, language, document type, amount, and expiry
+- Order detail view with notes and contact details
+- Status updates: new, quoted, confirmed, in progress, delivered, cancelled
+- Local development storage in `.data/admin.json` (gitignored)
+- Supabase storage in production
+- Single-password admin login with a 12-hour signed session
+
+Configure `ADMIN_PASSWORD` and a random `ADMIN_SESSION_SECRET` of at least 32 characters in `.env.local`. The same values belong in Vercel's environment variables. The local password is stored only in `.env.local`, which is not committed.
+
+For production persistence, create a Supabase project, run [`supabase/schema.sql`](supabase/schema.sql) in the SQL editor, and set:
+
+```bash
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
+
+`SUPABASE_SERVICE_ROLE_KEY` must remain server-only. Never prefix it with `NEXT_PUBLIC_`. The public application uses server routes to write orders and quotes; the browser never receives the service role key or reads the tables directly.
+
+This first version deliberately does not include file uploads, multiple admin accounts, role-based permissions, or password reset. Those should be added after the storage and workflow are validated.
 
 ## Bilingual and theme behaviour
 
@@ -98,14 +125,20 @@ Orders are not stored by the site itself. Configure the webhook destination to p
 
 ```text
 app/
-  api/orders/route.ts  Order validation and optional webhook forwarding
-  api/quote/route.ts   Structured quote IDs and optional quote archiving
-  layout.tsx           Metadata, theme bootstrap, global chrome
-  page.tsx             Landing-page composition
-  terms/page.tsx       Terms of service route
-  privacy/page.tsx     Privacy policy route
+  (site)/              Public site layout and pages
+    layout.tsx         Public header, footer, skip link
+    page.tsx           Landing-page composition
+    terms/page.tsx     Terms of service route
+    privacy/page.tsx   Privacy policy route
+  api/orders/route.ts  Order validation, storage, optional webhook forwarding
+  api/quote/route.ts   Structured quote IDs, storage, optional quote webhook
+  ops/                 Private admin route group
+    login/             Password login and server action
+    (dashboard)/       Authenticated dashboard, orders, quotes
+  layout.tsx           Metadata and theme bootstrap
   globals.css          Shadcn tokens, light and dark themes
   icon.svg             Favicon
+  robots.ts            Disallow /ops and /api from crawlers
 components/
   providers.tsx        Language and theme context
   site-controls.tsx    Language and theme buttons
@@ -121,13 +154,20 @@ components/
   faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action
   site-footer.tsx      Footer, Carousell links, disclaimer
+  admin/
+    storage-notice.tsx Configuration notice for missing storage
   ui/                  Button, card, badge, input, textarea, accordion
 lib/
   i18n.ts              Chinese and English copy
   pricing.ts           Shared quote calculation and HKD formatting
   site.ts              Carousell URLs and seller handle
   legal.ts             Terms and privacy copy in both languages
+  admin/session.ts     Admin password verification and signed session
+  admin/store.ts       Local JSON / Supabase persistence layer
+  admin/labels.ts      Status labels and date/amount formatting
   utils.ts             cn() class merge helper
+supabase/
+  schema.sql           Tables, indexes, and RLS for the admin data
 ```
 
 ## Deploy to Vercel
@@ -139,7 +179,22 @@ git commit -m "Build Naturalizer order site"
 gh repo create naturalizer --public --source=. --remote=origin --push
 ```
 
-Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js is detected automatically. Add `ORDER_WEBHOOK_URL` and/or `QUOTE_WEBHOOK_URL` if automated delivery or quote archiving is required. No other environment variables are needed.
+Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js is detected automatically.
+
+Add these environment variables in Vercel:
+
+```bash
+ADMIN_PASSWORD=your-strong-admin-password
+ADMIN_SESSION_SECRET=a-random-string-of-at-least-32-characters
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Optional automation
+ORDER_WEBHOOK_URL=
+QUOTE_WEBHOOK_URL=
+```
+
+Run `supabase/schema.sql` in the Supabase SQL editor before using `/ops` in production.
 
 ## Service boundaries
 

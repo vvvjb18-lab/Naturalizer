@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+import {
+  saveOrder,
+  StorageNotConfiguredError,
+} from "@/lib/admin/store";
 import { calculateQuote } from "@/lib/pricing";
 
 export const runtime = "nodejs";
@@ -87,12 +91,29 @@ export async function POST(request: Request) {
     source: "naturalizer-site",
   };
 
+  let stored = false;
+
+  try {
+    await saveOrder(order);
+    stored = true;
+  } catch (error) {
+    if (!(error instanceof StorageNotConfiguredError)) {
+      console.error("Order storage failed", error);
+    }
+  }
+
   const webhookUrl = process.env.ORDER_WEBHOOK_URL;
 
   if (!webhookUrl) {
     return NextResponse.json(
-      { ok: true, mode: "handoff", orderId, quote: quote.amount },
-      { status: 202 }
+      {
+        ok: true,
+        mode: stored ? "received" : "handoff",
+        orderId,
+        quote: quote.amount,
+        stored,
+      },
+      { status: stored ? 200 : 202 }
     );
   }
 
@@ -110,10 +131,12 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Order webhook failed", error);
 
-    return NextResponse.json(
-      { ok: false, error: "delivery_failed", orderId },
-      { status: 502 }
-    );
+    if (!stored) {
+      return NextResponse.json(
+        { ok: false, error: "delivery_failed", orderId },
+        { status: 502 }
+      );
+    }
   }
 
   return NextResponse.json({
@@ -121,5 +144,6 @@ export async function POST(request: Request) {
     mode: "received",
     orderId,
     quote: quote.amount,
+    stored,
   });
 }

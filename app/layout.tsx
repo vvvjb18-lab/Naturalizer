@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 import { Providers } from "@/components/providers";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Naturalizer｜中英雙語學術論文自然化 · 人手修訂",
@@ -55,17 +53,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <Providers>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-md focus:ring-2 focus:ring-ring"
-          >
-            跳至主要內容 / Skip to content
-          </a>
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

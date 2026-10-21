@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+import {
+  saveQuote,
+  StorageNotConfiguredError,
+} from "@/lib/admin/store";
 import { calculateQuote, PRICING } from "@/lib/pricing";
 
 export const runtime = "nodejs";
@@ -81,10 +85,31 @@ export async function POST(request: Request) {
     source: "naturalizer-site",
   };
 
+  let stored = false;
+
+  try {
+    await saveQuote({
+      quoteId,
+      language,
+      documentType,
+      words: quote.words,
+      units: quote.units,
+      amount: quote.amount,
+      currency: "HKD",
+      createdAt: record.createdAt,
+      expiresAt: record.expiresAt,
+    });
+    stored = true;
+  } catch (error) {
+    if (!(error instanceof StorageNotConfiguredError)) {
+      console.error("Quote storage failed", error);
+    }
+  }
+
   const webhookUrl = process.env.QUOTE_WEBHOOK_URL;
 
   if (!webhookUrl) {
-    return NextResponse.json({ ok: true, stored: false, ...record });
+    return NextResponse.json({ ok: true, stored, ...record });
   }
 
   try {
@@ -103,7 +128,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Quote webhook failed", error);
 
-    // The browser can still keep and share the quote even if archiving fails.
-    return NextResponse.json({ ok: true, stored: false, ...record });
+    // The browser and, where configured, the database still keep the quote.
+    return NextResponse.json({ ok: true, stored, ...record });
   }
 }
