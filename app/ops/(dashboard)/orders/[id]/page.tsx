@@ -14,8 +14,10 @@ import {
 import { requireAdmin } from "@/lib/admin/session";
 import {
   getOrder,
+  listOrderEvents,
   ORDER_STATUSES,
   StorageNotConfiguredError,
+  type AdminOrderEvent,
 } from "@/lib/admin/store";
 import { cn } from "@/lib/utils";
 import { setOrderStatus } from "./actions";
@@ -70,6 +72,15 @@ export default async function OpsOrderPage({
   }
 
   if (!order) notFound();
+
+  let events: AdminOrderEvent[] = [];
+  try {
+    events = await listOrderEvents(order.id);
+  } catch (error) {
+    if (!(error instanceof StorageNotConfiguredError)) {
+      console.error("Could not load order events", error);
+    }
+  }
 
   const rows = [
     { label: "訂單編號", value: order.orderId, mono: true },
@@ -222,6 +233,42 @@ export default async function OpsOrderPage({
           </Card>
         </div>
       </div>
+
+      <Card className="mt-5 p-6 shadow-none">
+        <div className="flex items-center justify-between gap-4">
+          <h2 className="text-sm font-medium text-foreground">狀態紀錄</h2>
+          <span className="text-[11px] text-muted-foreground">
+            {events.length} 次更新
+          </span>
+        </div>
+
+        {events.length === 0 ? (
+          <p className="mt-4 text-sm text-muted-foreground">
+            尚無狀態變更紀錄。第一次更新狀態後，會顯示操作者和時間。
+          </p>
+        ) : (
+          <ol className="mt-5 space-y-4">
+            {events.map((event) => (
+              <li key={event.id} className="flex gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <div className="min-w-0 flex-1 border-b border-border pb-4 last:border-0 last:pb-0">
+                  <p className="text-sm text-foreground">
+                    {event.fromStatus
+                      ? `${ORDER_STATUS_LABELS[event.fromStatus]} → `
+                      : "建立訂單 · "}
+                    <span className="font-medium">
+                      {ORDER_STATUS_LABELS[event.toStatus]}
+                    </span>
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {event.actor} · {formatAdminDate(event.createdAt)}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        )}
+      </Card>
     </div>
   );
 }

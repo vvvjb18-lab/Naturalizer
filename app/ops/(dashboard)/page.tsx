@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, ClipboardList, Clock3 } from "lucide-react";
+import { ArrowUpRight, ClipboardList, Clock3, Download } from "lucide-react";
 
 import { StorageNotice } from "@/components/admin/storage-notice";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,9 @@ import {
 } from "@/lib/admin/labels";
 import { requireAdmin } from "@/lib/admin/session";
 import {
+  isOrderStatus,
   listOrders,
+  ORDER_STATUSES,
   StorageNotConfiguredError,
   type AdminOrder,
 } from "@/lib/admin/store";
@@ -20,7 +22,11 @@ import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
-export default async function OpsOrdersPage() {
+export default async function OpsOrdersPage({
+  searchParams,
+}: {
+  searchParams?: { q?: string; status?: string };
+}) {
   requireAdmin();
 
   let orders: AdminOrder[] = [];
@@ -35,6 +41,28 @@ export default async function OpsOrdersPage() {
       throw error;
     }
   }
+
+  const query = searchParams?.q?.trim() ?? "";
+  const statusFilter =
+    searchParams?.status && isOrderStatus(searchParams.status)
+      ? searchParams.status
+      : null;
+  const filteredOrders = orders.filter((order) => {
+    if (statusFilter && order.status !== statusFilter) return false;
+    if (!query) return true;
+
+    const haystack = [
+      order.orderId,
+      order.name,
+      order.contact,
+      order.notes,
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return haystack.includes(query.toLowerCase());
+  });
+  const hasFilters = Boolean(query || statusFilter);
 
   const newCount = orders.filter((order) => order.status === "new").length;
   const activeCount = orders.filter(
@@ -61,12 +89,20 @@ export default async function OpsOrdersPage() {
             查看新訂單、處理狀態和客戶資料。
           </p>
         </div>
-        <Button asChild variant="outline" size="sm">
-          <Link href="/ops/quotes">
-            查看報價
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </Link>
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href="/ops/export/orders">
+              <Download className="h-3.5 w-3.5" aria-hidden="true" />
+              匯出 CSV
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="sm">
+            <Link href="/ops/quotes">
+              查看報價
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {storageUnavailable ? (
@@ -75,7 +111,41 @@ export default async function OpsOrdersPage() {
         </div>
       ) : (
         <>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <form
+            method="get"
+            className="mt-8 flex flex-col gap-2 rounded-2xl border border-border bg-background p-3 sm:flex-row sm:items-center"
+          >
+            <input
+              type="search"
+              name="q"
+              defaultValue={query}
+              placeholder="搜尋訂單編號、客戶、聯絡方式…"
+              className="flex h-10 min-w-0 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            />
+            <select
+              name="status"
+              defaultValue={statusFilter ?? ""}
+              aria-label="篩選訂單狀態"
+              className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <option value="">全部狀態</option>
+              {ORDER_STATUSES.map((status) => (
+                <option key={status} value={status}>
+                  {ORDER_STATUS_LABELS[status]}
+                </option>
+              ))}
+            </select>
+            <Button type="submit" size="sm">
+              篩選
+            </Button>
+            {hasFilters ? (
+              <Button asChild type="button" variant="ghost" size="sm">
+                <Link href="/ops">清除</Link>
+              </Button>
+            ) : null}
+          </form>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "全部訂單", value: orders.length },
               { label: "待處理", value: newCount },
@@ -99,19 +169,28 @@ export default async function OpsOrdersPage() {
           </div>
 
           <section className="mt-8">
-            <h2 className="text-sm font-medium text-foreground">最近訂單</h2>
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-sm font-medium text-foreground">
+                {hasFilters ? "篩選結果" : "最近訂單"}
+              </h2>
+              <span className="text-[11px] text-muted-foreground">
+                {filteredOrders.length} 張
+              </span>
+            </div>
 
-            {orders.length === 0 ? (
+            {filteredOrders.length === 0 ? (
               <div className="mt-3 flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-background px-6 py-16 text-center">
                 <ClipboardList
                   className="h-8 w-8 text-muted-foreground"
                   aria-hidden="true"
                 />
                 <p className="mt-4 text-sm font-medium text-foreground">
-                  還沒有訂單
+                  {hasFilters ? "沒有符合條件的訂單" : "還沒有訂單"}
                 </p>
                 <p className="mt-1 max-w-sm text-xs leading-relaxed text-muted-foreground">
-                  客戶在網站提交訂單後，會自動出現在這裡。
+                  {hasFilters
+                    ? "試試更短的關鍵字，或清除篩選條件。"
+                    : "客戶在網站提交訂單後，會自動出現在這裡。"}
                 </p>
               </div>
             ) : (
@@ -129,7 +208,7 @@ export default async function OpsOrdersPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
-                    {orders.map((order) => (
+                    {filteredOrders.map((order) => (
                       <tr key={order.id} className="hover:bg-muted/30">
                         <td className="px-4 py-3">
                           <p className="font-mono text-xs text-foreground">

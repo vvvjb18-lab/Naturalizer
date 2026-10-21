@@ -93,14 +93,17 @@ The private dashboard lives at `/ops`. It is not linked from the public site, is
 
 Features in the first version:
 
-- Orders list with customer, word count, quote, status, and date
+- Orders list with search, status filtering, customer, word count, quote, and date
 - Quotes list with quote ID, language, document type, amount, and expiry
-- Order detail view with notes and contact details
+- Order detail view with notes, contact details, and status history
 - Status updates: new, quoted, confirmed, in progress, delivered, cancelled
+- Status events record the acting admin and timestamp
+- CSV export of all orders for records and bookkeeping
 - Local development storage in `.data/admin.json` (gitignored)
 - Supabase storage in production
 - Individual admin accounts managed through `ADMIN_USERS`
 - A 12-hour signed session and the acting admin recorded on status changes
+- Basic security headers and `/ops` noindex rules
 
 Configure `ADMIN_USERS` and a random `ADMIN_SESSION_SECRET` of at least 32 characters in `.env.local`. Each account has an id, display name, username, role, and scrypt password hash. Generate a hash with:
 
@@ -114,16 +117,17 @@ Example (use one JSON line in Vercel):
 ADMIN_USERS=[{"id":"owner","name":"Owner","username":"owner","role":"owner","passwordHash":"scrypt:..."}]
 ```
 
-The local bootstrap credentials are stored in `.admin-accounts.local.txt`, which is gitignored. This is only a starting point; rotate the passwords and replace the hashes when the account holders choose their own. `ADMIN_PASSWORD` remains as a temporary single-password fallback for migration but is ignored whenever `ADMIN_USERS` is configured.
+The local bootstrap credentials are stored in `.admin-accounts.local.txt`, which is gitignored. This is only a starting point; rotate the passwords and replace the hashes when the account holders choose their own. There is no shared-password fallback.
 
 For production persistence, create a Supabase project, run [`supabase/schema.sql`](supabase/schema.sql) in the SQL editor, and set:
-
 ```bash
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 `SUPABASE_SERVICE_ROLE_KEY` must remain server-only. Never prefix it with `NEXT_PUBLIC_`. The public application uses server routes to write orders and quotes; the browser never receives the service role key or reads the tables directly.
+
+The schema is idempotent for tables and indexes, and includes `alter table ... add column if not exists` plus the `order_events` table. Re-run it after upgrading an existing database so the audit timeline works.
 
 This first version deliberately does not include file uploads, fine-grained role permissions, or password reset. Those should be added after the storage and workflow are validated. Account changes are made through `ADMIN_USERS` and a redeploy.
 

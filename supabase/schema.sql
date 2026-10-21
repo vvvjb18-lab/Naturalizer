@@ -52,7 +52,20 @@ create index if not exists orders_created_at_idx
 create index if not exists orders_status_idx
   on public.orders (status);
 
+create table if not exists public.order_events (
+  id uuid primary key default gen_random_uuid(),
+  order_id uuid not null references public.orders(id) on delete cascade,
+  from_status text,
+  to_status text not null,
+  actor text not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists order_events_order_id_idx
+  on public.order_events (order_id, created_at desc);
+
 -- No policies are added: public keys cannot read or write these tables.
 -- The server-only service role used by /api and /ops bypasses RLS.
 alter table public.quotes enable row level security;
 alter table public.orders enable row level security;
+alter table public.order_events enable row level security;

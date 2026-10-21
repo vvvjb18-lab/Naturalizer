@@ -48,6 +48,15 @@ export interface AdminOrder {
   updatedAt?: string | null;
 }
 
+export interface AdminOrderEvent {
+  id: string;
+  orderId: string;
+  fromStatus: OrderStatus | null;
+  toStatus: OrderStatus;
+  actor: string;
+  createdAt: string;
+}
+
 export interface NewQuote {
   quoteId: string;
   language: string;
@@ -81,6 +90,7 @@ type StorageMode = "supabase" | "local" | "disabled";
 interface LocalDatabase {
   orders: AdminOrder[];
   quotes: AdminQuote[];
+  events: AdminOrderEvent[];
 }
 
 const DATA_DIR = path.join(process.cwd(), ".data");
@@ -138,10 +148,11 @@ async function readLocalDatabase(): Promise<LocalDatabase> {
     return {
       orders: Array.isArray(parsed.orders) ? parsed.orders : [],
       quotes: Array.isArray(parsed.quotes) ? parsed.quotes : [],
+      events: Array.isArray(parsed.events) ? parsed.events : [],
     };
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return { orders: [], quotes: [] };
+      return { orders: [], quotes: [], events: [] };
     }
     throw error;
   }
@@ -198,6 +209,21 @@ function mapOrderRow(row: Record<string, unknown>): AdminOrder {
     createdAt: String(row.created_at),
     updatedBy: row.updated_by ? String(row.updated_by) : null,
     updatedAt: row.updated_at ? String(row.updated_at) : null,
+  };
+}
+
+function mapEventRow(row: Record<string, unknown>): AdminOrderEvent {
+  const fromStatus = row.from_status ? String(row.from_status) : null;
+  const toStatus = String(row.to_status);
+
+  return {
+    id: String(row.id),
+    orderId: String(row.order_id),
+    fromStatus:
+      fromStatus && isOrderStatus(fromStatus) ? fromStatus : null,
+    toStatus: isOrderStatus(toStatus) ? toStatus : "new",
+    actor: String(row.actor),
+    createdAt: String(row.created_at),
   };
 }
 
@@ -350,12 +376,35 @@ export async function updateOrderStatus(
   const updatedAt = new Date().toISOString();
 
   if (mode === "supabase") {
-    const { error } = await getSupabase()
+    const client = getSupabase();
+    const { data: existing, error: readError } = await client
+      .from("orders")
+      .select("status")
+      .eq("id", id)
+      .maybeSingle();
+
+    if (readError) throw new Error(readError.message);
+    if (!existing) throw new Error("Order not found");
+
+    const { error } = await client
       .from("orders")
       .update({ status, updated_by: updatedBy, updated_at: updatedAt })
       .eq("id", id);
 
     if (error) throw new Error(error.message);
+
+    const { error: eventError } = await client.from("order_events").insert({
+      order_id: id,
+      from_status: existing.status,
+      to_status: status,
+      actor: updatedBy,
+      created_at: updatedAt,
+    });
+
+    if (eventError) {
+      console.error("Order event write failed", eventError);
+    }
+
     return;
   }
 
@@ -364,9 +413,39 @@ export async function updateOrderStatus(
     const order = data.orders.find((item) => item.id === id);
     if (!order) throw new Error("Order not found");
 
+    const fromStatus = order.status;
     order.status = status;
     order.updatedBy = updatedBy;
     order.updatedAt = updatedAt;
+    data.events.unshift({
+      id: randomUUID(),
+      orderId: order.id,
+      fromStatus,
+      toStatus: status,
+      actor: updatedBy,
+      createdAt: updatedAt,
+    });
     await writeLocalDatabase(data);
   });
+}
+
+export async function listOrderEvents(
+  orderId: string
+): Promise<AdminOrderEvent[]> {
+  const mode = getStorageMode();
+  if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  if (mode === "supabase") {
+    const { data, error } = await getSupabase()
+      .from("order_events")
+      .select("*")
+      .eq("order_id", orderId)
+      .order("created_at", { ascending: false });
+
+    if (error) throw new Error(error.message);
+    return (data ?? []).map(mapEventRow);
+  }
+
+  const data = await readLocalDatabase();
+  return data.events.filter((event) => event.orderId === orderId);
 }

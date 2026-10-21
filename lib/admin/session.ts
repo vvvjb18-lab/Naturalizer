@@ -49,7 +49,7 @@ export function isAdminConfigured() {
   if (!process.env.ADMIN_SESSION_SECRET) return false;
   if (process.env.ADMIN_SESSION_SECRET.length < 32) return false;
 
-  return readAdminUsers().length > 0 || Boolean(process.env.ADMIN_PASSWORD);
+  return readAdminUsers().length > 0;
 }
 
 function timingSafeStringEqual(left: string, right: string) {
@@ -92,16 +92,6 @@ export function verifyAdminCredentials(
     }
 
     return { id: user.id, name: user.name, role: user.role };
-  }
-
-  // Temporary migration fallback for the original single-password setup.
-  const legacyPassword = process.env.ADMIN_PASSWORD;
-  if (
-    legacyPassword &&
-    login === "admin" &&
-    timingSafeStringEqual(password, legacyPassword)
-  ) {
-    return { id: "legacy-admin", name: "Admin", role: "owner" };
   }
 
   return null;
