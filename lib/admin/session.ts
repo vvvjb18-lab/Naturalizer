@@ -22,7 +22,8 @@ interface AdminUser extends AdminIdentity {
 }
 
 function readAdminUsers(): AdminUser[] {
-  const raw = process.env.ADMIN_USERS;
+  const raw =
+    process.env.ADMIN_USERS_FIXED ?? process.env.ADMIN_USERS;
   if (!raw) return [];
 
   try {
