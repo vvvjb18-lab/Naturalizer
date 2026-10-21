@@ -52,7 +52,7 @@ export default function OpsLoginPage({
           <div className="mt-6 rounded-lg border border-amber-300/60 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-800 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-200">
             後台尚未設定。請在 `.env.local` 加入
             <code className="mx-1 rounded bg-black/5 px-1 py-0.5 dark:bg-white/10">
-              ADMIN_PASSWORD
+              ADMIN_USERS
             </code>
             和至少 32 字元的
             <code className="mx-1 rounded bg-black/5 px-1 py-0.5 dark:bg-white/10">
@@ -63,10 +63,27 @@ export default function OpsLoginPage({
         ) : (
           <form action={login} className="mt-6">
             <label
-              htmlFor="admin-password"
+              htmlFor="admin-identifier"
               className="text-sm font-medium text-foreground"
             >
-              管理員密碼
+              帳號或 Email
+            </label>
+            <input
+              id="admin-identifier"
+              name="identifier"
+              type="text"
+              autoComplete="username"
+              required
+              autoFocus
+              className="mt-2 flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              placeholder="輸入管理員帳號"
+            />
+
+            <label
+              htmlFor="admin-password"
+              className="mt-4 block text-sm font-medium text-foreground"
+            >
+              密碼
             </label>
             <input
               id="admin-password"
@@ -74,14 +91,13 @@ export default function OpsLoginPage({
               type="password"
               autoComplete="current-password"
               required
-              autoFocus
               className="mt-2 flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               placeholder="輸入後台密碼"
             />
 
             {error === "invalid" ? (
               <p role="alert" className="mt-3 text-xs text-destructive">
-                密碼不正確，請再試一次。
+                帳號或密碼不正確，請再試一次。
               </p>
             ) : null}
 

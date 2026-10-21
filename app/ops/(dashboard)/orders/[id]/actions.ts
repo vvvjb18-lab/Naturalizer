@@ -10,7 +10,7 @@ import {
 } from "@/lib/admin/store";
 
 export async function setOrderStatus(formData: FormData) {
-  requireAdmin();
+  const admin = requireAdmin();
 
   const id = String(formData.get("id") ?? "");
   const status = String(formData.get("status") ?? "");
@@ -19,7 +19,7 @@ export async function setOrderStatus(formData: FormData) {
     throw new Error("Invalid order status update");
   }
 
-  await updateOrderStatus(id, status);
+  await updateOrderStatus(id, status, admin.name);
   revalidatePath("/ops");
   revalidatePath(`/ops/orders/${id}`);
   redirect(`/ops/orders/${id}?updated=1`);

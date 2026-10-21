@@ -93,6 +93,14 @@ export default async function OpsOrderPage({
       value: order.deadline || "未指定",
     },
     { label: "建立時間", value: formatAdminDate(order.createdAt) },
+    ...(order.updatedBy && order.updatedAt
+      ? [
+          {
+            label: "最後更新",
+            value: `${order.updatedBy} · ${formatAdminDate(order.updatedAt)}`,
+          },
+        ]
+      : []),
   ];
 
   return (

@@ -33,8 +33,15 @@ create table if not exists public.orders (
   status text not null default 'new'
     check (status in ('new', 'quoted', 'confirmed', 'in_progress', 'delivered', 'cancelled')),
   source text not null default 'naturalizer-site',
+  updated_by text,
+  updated_at timestamptz,
   created_at timestamptz not null default now()
 );
+
+-- Add audit columns when upgrading an existing database created before
+-- two-person admin support was added.
+alter table public.orders add column if not exists updated_by text;
+alter table public.orders add column if not exists updated_at timestamptz;
 
 create index if not exists quotes_created_at_idx
   on public.quotes (created_at desc);

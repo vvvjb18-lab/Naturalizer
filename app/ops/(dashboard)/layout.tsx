@@ -18,7 +18,7 @@ const storageLabels = {
 export default function OpsDashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  requireAdmin();
+  const session = requireAdmin();
   const storageMode = getStorageMode();
 
   return (
@@ -55,6 +55,9 @@ export default function OpsDashboardLayout({
 
           <div className="flex items-center gap-2">
             <span className="hidden rounded-full border border-border bg-muted/50 px-2.5 py-1 text-[10px] text-muted-foreground sm:inline">
+              {session.name}
+            </span>
+            <span className="hidden rounded-full border border-border bg-muted/50 px-2.5 py-1 text-[10px] text-muted-foreground md:inline">
               {storageLabels[storageMode]}
             </span>
             <ThemeToggle />

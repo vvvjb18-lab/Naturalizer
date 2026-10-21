@@ -44,6 +44,8 @@ export interface AdminOrder {
   status: OrderStatus;
   source: string;
   createdAt: string;
+  updatedBy?: string | null;
+  updatedAt?: string | null;
 }
 
 export interface NewQuote {
@@ -194,6 +196,8 @@ function mapOrderRow(row: Record<string, unknown>): AdminOrder {
     status: isOrderStatus(status) ? status : "new",
     source: row.source ? String(row.source) : "naturalizer-site",
     createdAt: String(row.created_at),
+    updatedBy: row.updated_by ? String(row.updated_by) : null,
+    updatedAt: row.updated_at ? String(row.updated_at) : null,
   };
 }
 
@@ -271,6 +275,8 @@ export async function saveOrder(record: NewOrder) {
       ...record,
       id: record.orderId,
       status: "new",
+      updatedBy: null,
+      updatedAt: null,
     });
     await writeLocalDatabase(data);
   });
@@ -333,14 +339,20 @@ export async function getOrder(id: string): Promise<AdminOrder | null> {
   return data.orders.find((order) => order.id === id) ?? null;
 }
 
-export async function updateOrderStatus(id: string, status: OrderStatus) {
+export async function updateOrderStatus(
+  id: string,
+  status: OrderStatus,
+  updatedBy: string
+) {
   const mode = getStorageMode();
   if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  const updatedAt = new Date().toISOString();
 
   if (mode === "supabase") {
     const { error } = await getSupabase()
       .from("orders")
-      .update({ status })
+      .update({ status, updated_by: updatedBy, updated_at: updatedAt })
       .eq("id", id);
 
     if (error) throw new Error(error.message);
@@ -353,6 +365,8 @@ export async function updateOrderStatus(id: string, status: OrderStatus) {
     if (!order) throw new Error("Order not found");
 
     order.status = status;
+    order.updatedBy = updatedBy;
+    order.updatedAt = updatedAt;
     await writeLocalDatabase(data);
   });
 }

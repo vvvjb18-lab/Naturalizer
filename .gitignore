@@ -33,3 +33,6 @@ next-env.d.ts
 
 # local admin data
 /.data/
+
+# initial admin account notes (never commit)
+/.admin-accounts.local.txt

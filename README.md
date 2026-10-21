@@ -99,9 +99,22 @@ Features in the first version:
 - Status updates: new, quoted, confirmed, in progress, delivered, cancelled
 - Local development storage in `.data/admin.json` (gitignored)
 - Supabase storage in production
-- Single-password admin login with a 12-hour signed session
+- Individual admin accounts managed through `ADMIN_USERS`
+- A 12-hour signed session and the acting admin recorded on status changes
 
-Configure `ADMIN_PASSWORD` and a random `ADMIN_SESSION_SECRET` of at least 32 characters in `.env.local`. The same values belong in Vercel's environment variables. The local password is stored only in `.env.local`, which is not committed.
+Configure `ADMIN_USERS` and a random `ADMIN_SESSION_SECRET` of at least 32 characters in `.env.local`. Each account has an id, display name, username, role, and scrypt password hash. Generate a hash with:
+
+```bash
+npm run admin:hash -- "a-strong-password"
+```
+
+Example (use one JSON line in Vercel):
+
+```bash
+ADMIN_USERS=[{"id":"owner","name":"Owner","username":"owner","role":"owner","passwordHash":"scrypt:..."}]
+```
+
+The local bootstrap credentials are stored in `.admin-accounts.local.txt`, which is gitignored. This is only a starting point; rotate the passwords and replace the hashes when the account holders choose their own. `ADMIN_PASSWORD` remains as a temporary single-password fallback for migration but is ignored whenever `ADMIN_USERS` is configured.
 
 For production persistence, create a Supabase project, run [`supabase/schema.sql`](supabase/schema.sql) in the SQL editor, and set:
 
@@ -112,7 +125,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 `SUPABASE_SERVICE_ROLE_KEY` must remain server-only. Never prefix it with `NEXT_PUBLIC_`. The public application uses server routes to write orders and quotes; the browser never receives the service role key or reads the tables directly.
 
-This first version deliberately does not include file uploads, multiple admin accounts, role-based permissions, or password reset. Those should be added after the storage and workflow are validated.
+This first version deliberately does not include file uploads, fine-grained role permissions, or password reset. Those should be added after the storage and workflow are validated. Account changes are made through `ADMIN_USERS` and a redeploy.
 
 ## Bilingual and theme behaviour
 
@@ -168,6 +181,8 @@ lib/
   utils.ts             cn() class merge helper
 supabase/
   schema.sql           Tables, indexes, and RLS for the admin data
+scripts/
+  hash-admin-password.mjs  Generate scrypt hashes for ADMIN_USERS
 ```
 
 ## Deploy to Vercel
@@ -184,7 +199,7 @@ Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js 
 Add these environment variables in Vercel:
 
 ```bash
-ADMIN_PASSWORD=your-strong-admin-password
+ADMIN_USERS=[{"id":"owner","name":"Owner","username":"owner","role":"owner","passwordHash":"scrypt:..."}]
 ADMIN_SESSION_SECRET=a-random-string-of-at-least-32-characters
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
