@@ -1,54 +1,71 @@
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
+import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "Naturalizer — Academic writing that still sounds like you",
+  title: "Naturalizer｜中英雙語學術論文自然化 · 人手修訂",
   description:
-    "Naturalizer edits academic drafts for clarity, rhythm, and tone without flattening your voice. Built for students, thesis writers, and researchers.",
+    "中英雙語學術論文自然化與人手修訂。不足 600 字 HK$65，每 600 字 HK$85，附修改後 Turnitin AI 檢測報告。支援中文、英文及中英雙語稿件。",
   keywords: [
-    "academic editing",
-    "thesis editing",
-    "proofreading",
-    "writing clarity",
-    "student writing tool",
+    "學術論文潤色",
+    "論文自然化",
+    "AI 檢測",
+    "Turnitin",
+    "academic editing Hong Kong",
+    "Chinese English thesis editing",
+    "humanize academic writing",
   ],
   openGraph: {
-    title: "Naturalizer — Academic writing that still sounds like you",
+    title: "Naturalizer｜中英雙語學術論文自然化",
     description:
-      "Clearer academic writing, still unmistakably yours. Try a free sample on your own paragraph.",
+      "人手逐句修訂，保留你的論點與聲音。即時按字數報價，附修改後 Turnitin AI 報告。",
     type: "website",
+    locale: "zh_HK",
+    alternateLocale: ["en_HK"],
     siteName: "Naturalizer",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1120" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
 
 /**
- * Global shell: system font stack, white background, sticky header,
- * and a footer shared by every route.
+ * Global shell. The inline script applies a saved theme before paint so a
+ * dark-mode visitor never sees a white flash while React hydrates.
  */
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="zh-Hant-HK" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("naturalizer-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d){document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark";}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-md focus:ring-2 focus:ring-ring"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
+        <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-md focus:ring-2 focus:ring-ring"
+          >
+            跳至主要內容 / Skip to content
+          </a>
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+          <SiteFooter />
+        </Providers>
       </body>
     </html>
   );

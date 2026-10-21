@@ -1,47 +1,59 @@
-import { ArrowRight } from "lucide-react";
+"use client";
 
+import { ArrowRight, ExternalLink } from "lucide-react";
+
+import { useSite } from "@/components/providers";
 import { Button } from "@/components/ui/button";
+import { CAROUSELL_LISTING_URL } from "@/lib/site";
 
 /**
- * Closing call to action. A single dark panel at the end of an otherwise
- * white page gives the scroll a clear destination without extra decoration.
+ * Closing call to action. A single inverted panel gives the scroll a clear
+ * destination without introducing another accent colour.
  */
 export function Cta() {
+  const { copy } = useSite();
+
   return (
     <section className="border-b border-border/60">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 md:py-24">
-        <div className="rounded-3xl bg-slate-900 px-6 py-16 text-center sm:px-12">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/50">
-            Start small
+        <div className="rounded-3xl bg-foreground px-6 py-16 text-center text-background sm:px-12">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-background/55">
+            {copy.cta.eyebrow}
           </p>
-          <h2 className="mx-auto mt-4 max-w-xl text-3xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-4xl">
-            Start with a paragraph.
+          <h2 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-semibold leading-[1.15] tracking-[-0.02em] sm:text-4xl">
+            {copy.cta.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/70">
-            Paste 200 words and see what a careful edit looks like. No account,
-            no upload, no commitment.
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-background/70">
+            {copy.cta.description}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               asChild
               size="lg"
-              variant="inverse"
               className="w-full rounded-full sm:w-auto"
             >
-              <a href="#try">
-                Try the free sample
-                <ArrowRight />
+              <a href="#order">
+                {copy.cta.primary}
+                <ArrowRight aria-hidden="true" />
               </a>
             </Button>
             <Button
               asChild
               size="lg"
-              variant="inverse-outline"
-              className="w-full rounded-full sm:w-auto"
+              variant="outline"
+              className="w-full rounded-full border-background/25 bg-transparent text-background hover:bg-background/10 hover:text-background sm:w-auto"
             >
-              <a href="#pricing">View plans</a>
+              <a
+                href={CAROUSELL_LISTING_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {copy.cta.secondary}
+                <ExternalLink aria-hidden="true" />
+              </a>
             </Button>
           </div>
+          <p className="mt-5 text-xs text-background/55">{copy.cta.note}</p>
         </div>
       </div>
     </section>

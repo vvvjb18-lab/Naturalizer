@@ -1,158 +1,112 @@
-import { Check } from "lucide-react";
+"use client";
 
+import { ArrowUpRight, Calculator, Check } from "lucide-react";
+
+import { useSite } from "@/components/providers";
+import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/section-heading";
+import { Card } from "@/components/ui/card";
+import { formatHKD } from "@/lib/pricing";
+import { CAROUSELL_LISTING_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const plans = [
-  {
-    name: "Free",
-    price: "$0",
-    cadence: "forever",
-    description: "For trying a single paragraph.",
-    features: [
-      "1 sample document",
-      "500 words",
-      "Clarity and tone pass",
-      "No account required",
-    ],
-    cta: "Start free",
-    featured: false,
-  },
-  {
-    name: "Scholar",
-    price: "$9",
-    cadence: "per month",
-    description: "For coursework and thesis chapters.",
-    features: [
-      "Unlimited documents",
-      "25,000 words per month",
-      "APA, MLA, and Chicago checks",
-      "Change rationales on every edit",
-      "Export with tracked changes",
-    ],
-    cta: "Choose Scholar",
-    featured: true,
-  },
-  {
-    name: "Lab",
-    price: "$24",
-    cadence: "per month",
-    description: "For research groups and co-authors.",
-    features: [
-      "5 seats included",
-      "150,000 words per month",
-      "Shared style guide",
-      "Priority processing",
-      "Invoice billing",
-    ],
-    cta: "Contact us",
-    featured: false,
-  },
-];
+const planPrices = [65, 85, 170];
 
 /**
- * Three plans with the middle tier inverted for emphasis. All CTAs point at
- * the interactive demo since there is no checkout in this build.
+ * Three transparent price points calculated from word count. The middle
+ * plan is highlighted with a border and badge rather than a second palette.
  */
 export function Pricing() {
+  const { locale, copy } = useSite();
+
   return (
     <section id="pricing" className="border-b border-border/60">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
         <SectionHeading
-          eyebrow="Pricing"
-          title="Simple prices, no surprises."
-          description="Start free on a paragraph. Upgrade only when a draft needs the full treatment."
+          eyebrow={copy.pricing.eyebrow}
+          title={copy.pricing.title}
+          description={copy.pricing.description}
         />
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={cn(
-                "relative flex flex-col rounded-2xl border p-7",
-                plan.featured
-                  ? "border-slate-900 bg-slate-900 text-white shadow-sm"
-                  : "border-border bg-card"
-              )}
-            >
-              {plan.featured ? (
-                <Badge className="absolute -top-3 left-7">Most popular</Badge>
-              ) : null}
-
-              <h3
-                className={cn(
-                  "text-sm font-medium",
-                  plan.featured ? "text-white/80" : "text-muted-foreground"
-                )}
-              >
-                {plan.name}
-              </h3>
-
-              <div className="mt-3 flex items-baseline gap-1.5">
-                <span className="text-4xl font-semibold tracking-[-0.03em]">
-                  {plan.price}
-                </span>
-                <span
-                  className={cn(
-                    "text-sm",
-                    plan.featured ? "text-white/60" : "text-muted-foreground"
-                  )}
-                >
-                  {plan.cadence}
-                </span>
-              </div>
-
-              <p
-                className={cn(
-                  "mt-2 text-sm",
-                  plan.featured ? "text-white/70" : "text-muted-foreground"
-                )}
-              >
-                {plan.description}
-              </p>
-
-              <Button
-                asChild
-                className="mt-6 w-full"
-                variant={plan.featured ? "inverse" : "outline"}
-              >
-                <a href="#try">{plan.cta}</a>
-              </Button>
-
-              <ul
-                className={cn(
-                  "mt-7 space-y-3 border-t pt-6 text-sm",
-                  plan.featured ? "border-white/15" : "border-border"
-                )}
-              >
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5">
-                    <Check
-                      className={cn(
-                        "mt-0.5 h-4 w-4 shrink-0",
-                        plan.featured ? "text-white/70" : "text-primary"
-                      )}
-                      strokeWidth={2}
-                    />
-                    <span
-                      className={
-                        plan.featured ? "text-white/80" : "text-foreground"
-                      }
-                    >
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="mt-7 flex justify-center">
+          <a
+            href={CAROUSELL_LISTING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Calculator className="h-3.5 w-3.5" aria-hidden="true" />
+            {copy.pricing.estimateLabel}
+            <span className="font-medium text-foreground underline decoration-border underline-offset-4">
+              {copy.pricing.carousellLink}
+            </span>
+            <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+          </a>
         </div>
 
-        <p className="mt-8 text-center text-xs text-muted-foreground">
-          Prices in USD. Cancel anytime. Student pricing is already applied to
-          the Scholar plan.
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+          {copy.pricing.plans.map((plan, index) => {
+            const featured = index === 1;
+
+            return (
+              <Card
+                key={plan.name}
+                className={cn(
+                  "relative flex flex-col p-7 shadow-none",
+                  featured && "border-primary/60 ring-1 ring-primary/60"
+                )}
+              >
+                {featured ? (
+                  <Badge className="absolute -top-3 left-7">
+                    {copy.pricing.mostPopular}
+                  </Badge>
+                ) : null}
+
+                <h3 className="text-sm font-medium text-muted-foreground">
+                  {plan.name}
+                </h3>
+
+                <div className="mt-3 flex items-baseline gap-1.5">
+                  <span className="text-4xl font-semibold tracking-[-0.03em] text-foreground">
+                    {formatHKD(planPrices[index], locale)}
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {plan.cadence}
+                  </span>
+                </div>
+
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {plan.description}
+                </p>
+
+                <Button
+                  asChild
+                  className="mt-6 w-full"
+                  variant={featured ? "default" : "outline"}
+                >
+                  <a href="#order">{copy.pricing.cta}</a>
+                </Button>
+
+                <ul className="mt-7 space-y-3 border-t border-border pt-6 text-sm">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2.5">
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                      <span className="text-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            );
+          })}
+        </div>
+
+        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+          {copy.pricing.note}
         </p>
       </div>
     </section>

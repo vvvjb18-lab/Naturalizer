@@ -1,0 +1,125 @@
+import { NextResponse } from "next/server";
+
+import { calculateQuote } from "@/lib/pricing";
+
+export const runtime = "nodejs";
+
+const LANGUAGES = new Set(["zh", "en", "bilingual"]);
+const DOCUMENT_TYPES = new Set(["essay", "thesis", "abstract", "other"]);
+
+interface OrderRequest {
+  name?: unknown;
+  contact?: unknown;
+  language?: unknown;
+  documentType?: unknown;
+  words?: unknown;
+  deadline?: unknown;
+  notes?: unknown;
+  consent?: unknown;
+}
+
+function cleanString(value: unknown, maxLength: number) {
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
+/**
+ * Validates an order and, when ORDER_WEBHOOK_URL is configured, forwards it
+ * to the owner's automation (Zapier, Make, or a custom endpoint). Without a
+ * webhook the response is a handoff summary: the site never pretends an
+ * order was delivered when there is nowhere to deliver it.
+ */
+export async function POST(request: Request) {
+  let body: OrderRequest;
+
+  try {
+    body = (await request.json()) as OrderRequest;
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "invalid_json" },
+      { status: 400 }
+    );
+  }
+
+  const name = cleanString(body.name, 120);
+  const contact = cleanString(body.contact, 240);
+  const language = cleanString(body.language, 20);
+  const documentType = cleanString(body.documentType, 20);
+  const deadline = cleanString(body.deadline, 20);
+  const notes = cleanString(body.notes, 4000);
+  const words = Number(body.words);
+  const consent = body.consent === true;
+
+  if (
+    !name ||
+    !contact ||
+    !LANGUAGES.has(language) ||
+    !DOCUMENT_TYPES.has(documentType) ||
+    !Number.isFinite(words) ||
+    words < 1 ||
+    words > 100000 ||
+    !consent
+  ) {
+    return NextResponse.json(
+      { ok: false, error: "invalid_order" },
+      { status: 422 }
+    );
+  }
+
+  const quote = calculateQuote(words);
+  const orderId = `NAT-${new Date()
+    .toISOString()
+    .slice(2, 10)
+    .replace(/-/g, "")}-${crypto.randomUUID().slice(0, 4).toUpperCase()}`;
+
+  const order = {
+    orderId,
+    createdAt: new Date().toISOString(),
+    name,
+    contact,
+    language,
+    documentType,
+    words: quote.words,
+    units: quote.units,
+    quote: quote.amount,
+    currency: "HKD",
+    deadline: deadline || null,
+    notes,
+    source: "naturalizer-site",
+  };
+
+  const webhookUrl = process.env.ORDER_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    return NextResponse.json(
+      { ok: true, mode: "handoff", orderId, quote: quote.amount },
+      { status: 202 }
+    );
+  }
+
+  try {
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(order),
+      signal: AbortSignal.timeout(6000),
+    });
+
+    if (!webhookResponse.ok) {
+      throw new Error(`Webhook responded with ${webhookResponse.status}`);
+    }
+  } catch (error) {
+    console.error("Order webhook failed", error);
+
+    return NextResponse.json(
+      { ok: false, error: "delivery_failed", orderId },
+      { status: 502 }
+    );
+  }
+
+  return NextResponse.json({
+    ok: true,
+    mode: "received",
+    orderId,
+    quote: quote.amount,
+  });
+}

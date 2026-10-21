@@ -4,8 +4,8 @@
 
 /*
  * Shadcn/UI design tokens (HSL channel values).
- * The palette is intentionally narrow: white surfaces, near-black text,
- * one calm blue accent, and a light gray border.
+ * A narrow palette: light surfaces, near-black text, one calm blue accent,
+ * and a quiet border. Dark mode swaps the same semantic tokens.
  */
 @layer base {
   :root {
@@ -40,6 +40,36 @@
     --radius: 0.75rem;
   }
 
+  .dark {
+    --background: 222 47% 7%; /* deep navy-slate */
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%; /* #3B82F6 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 13%;
+    --muted-foreground: 215 20% 68%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 217 91% 65%;
+  }
+
   * {
     @apply border-border;
   }
@@ -50,14 +80,22 @@
     scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
     @apply bg-background text-foreground;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
   }
 
   ::selection {
-    background-color: hsl(var(--primary) / 0.15);
+    background-color: hsl(var(--primary) / 0.18);
   }
 
   @media (prefers-reduced-motion: reduce) {

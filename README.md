@@ -1,13 +1,26 @@
 # Naturalizer
 
-A minimalist landing page for an academic writing service. Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Shadcn/UI primitives, and Lucide icons.
+Bilingual (Traditional Chinese / English) landing page and order intake for a human-reviewed academic editing service in Hong Kong.
 
-The trial editor is intentionally front-end only: submitting a paragraph starts a short simulated review and shows a success state. There is no API, database, authentication, or external request.
+The site is built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Shadcn/UI primitives, and Lucide icons. It includes:
 
-## Requirements
+- Chinese / English switching with persisted preference
+- Light / dark theme with no-flash initialisation
+- Instant word-count quote calculator
+- Structured order form with client-side validation
+- Optional webhook delivery for automated order handling
+- Carousell listing and seller links as a fallback channel
 
-- Node.js 18.17 or later (Node 20 LTS recommended)
-- npm 9 or later
+## Pricing
+
+Published website pricing:
+
+- Under 600 words: **HK$65**
+- From 600 words: **HK$85 per 600-word unit**
+- Payment: **Alipay HK**
+- Every revised draft includes a post-revision **Turnitin AI report**
+
+The calculator rounds up to the next 600-word unit. The final quote is confirmed after reviewing the draft and turnaround. The [Carousell listing](https://www.carousell.com.hk/p/naturalizer-%E6%B8%9B%E4%BD%8Eai%E6%AA%A2%E6%B8%AC%E7%8E%87-%E9%99%8D%E4%BD%8Eai%E7%8E%87-%E5%8E%BBai-%E4%BA%BA%E9%A1%9E%E5%8C%96-%E8%87%AA%E7%84%B6%E5%8C%96-%E4%B8%AD%E8%8B%B1%E9%9B%99%E8%AA%9E%E5%AD%B8%E8%A1%93%E8%AB%96%E6%96%87%E6%9C%8D%E5%8B%99-1469557127/) remains available as an alternative contact channel.
 
 ## Run locally
 
@@ -19,99 +32,101 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Other commands:
-
 ```bash
-npm run typecheck   # TypeScript strict-mode check
+npm run typecheck   # TypeScript strict check
 npm run build       # Production build
 npm run start       # Serve the production build
 ```
 
-## Create the same project from scratch
+## Order automation
+
+The form posts to `POST /api/orders`. The server validates the payload, calculates the quote again, and then:
+
+- If `ORDER_WEBHOOK_URL` is set, forwards the order as JSON to that URL.
+- If it is not set, returns an order summary in `handoff` mode and the UI directs the customer to send the order number and draft through Carousell.
+
+For local development, create `.env.local`:
 
 ```bash
-npx create-next-app@14.2.35 naturalizer \
-  --typescript --tailwind --app --no-src-dir --import-alias "@/*"
-
-cd naturalizer
-
-npm install lucide-react class-variance-authority clsx tailwind-merge \
-  @radix-ui/react-accordion @radix-ui/react-slot
-
-npm install -D tailwindcss-animate
+ORDER_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/your-webhook-id/
 ```
 
-The Shadcn/UI primitives used here are checked into `components/ui`, so no generator step is required. To add more primitives later, use `npx shadcn@latest add <component>` and keep the existing Tailwind 3 / CSS-variable setup.
+The same variable can be added in Vercel under **Project Settings → Environment Variables**. It works with Zapier, Make, or any endpoint that accepts JSON.
 
-## Structure
+Example payload:
+
+```json
+{
+  "orderId": "NAT-261022-A1B2",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "name": "Student",
+  "contact": "student@example.com",
+  "language": "bilingual",
+  "documentType": "essay",
+  "words": 600,
+  "units": 1,
+  "quote": 85,
+  "currency": "HKD",
+  "deadline": "2026-10-30",
+  "notes": "Keep the methodology terminology.",
+  "source": "naturalizer-site"
+}
+```
+
+Orders are not stored by the site itself. Configure the webhook destination to persist or route them. The endpoint does not accept payments; payment is confirmed manually by Alipay HK after the draft and turnaround are agreed.
+
+## Bilingual and theme behaviour
+
+- Content lives in [`lib/i18n.ts`](lib/i18n.ts). Both languages share the same shape, so adding a field requires updating both locales.
+- The locale and theme are stored in `localStorage` under `naturalizer-locale` and `naturalizer-theme`.
+- An inline script in `app/layout.tsx` applies the saved theme before paint. The React provider syncs the control state after mount.
+- The default language is Traditional Chinese. The HTML `lang` attribute updates when the visitor switches language.
+
+## Project structure
 
 ```text
 app/
-  layout.tsx           Global metadata, header, footer, system font stack
-  page.tsx             Landing-page section order
-  globals.css          Shadcn tokens and base styles
-  icon.svg             Browser icon
+  api/orders/route.ts  Order validation and optional webhook forwarding
+  layout.tsx           Metadata, theme bootstrap, global chrome
+  page.tsx             Landing-page composition
+  globals.css          Shadcn tokens, light and dark themes
+  icon.svg             Favicon
 components/
-  site-header.tsx      Sticky navigation
-  hero.tsx             Hero and before/after preview
-  features.tsx         Four capability cards
-  how-it-works.tsx     Three-step explainer
-  try-demo.tsx         Client-only simulated trial form
-  testimonials.tsx     Three student quotes
-  pricing.tsx          Three plans with a highlighted middle tier
-  faq.tsx              Radix accordion FAQ
+  providers.tsx        Language and theme context
+  site-controls.tsx    Language and theme buttons
+  site-header.tsx      Sticky navigation and CTA
+  hero.tsx             Hero, sample revision, price entry point
+  features.tsx         Service pillars
+  how-it-works.tsx     Three-step order process
+  why-direct.tsx       Website vs Carousell comparison
+  pricing.tsx          Three word-count price points
+  order-form.tsx       Quote calculator, order form, success state
+  faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action
-  site-footer.tsx      Minimal footer
-  section-heading.tsx  Shared section intro
+  site-footer.tsx      Footer, Carousell links, disclaimer
   ui/                  Button, card, badge, input, textarea, accordion
 lib/
+  i18n.ts              Chinese and English copy
+  pricing.ts           Shared quote calculation and HKD formatting
+  site.ts              Carousell URLs and seller handle
   utils.ts             cn() class merge helper
 ```
 
-Only `try-demo.tsx` and the Radix accordion primitive use client-side JavaScript. Every other page component is a Server Component.
-
-## Content and design
-
-- White / `#F9FAFB` surfaces, `#111827` body text, one `#2563EB` accent, `#E5E7EB` borders.
-- System UI font stack with no webfont request.
-- Mobile-first spacing and layouts, verified down to 320px viewport width.
-- All page copy lives beside its component, so content edits do not require touching layout code.
-
 ## Deploy to Vercel
-
-### Push to GitHub
 
 ```bash
 git init
 git add .
-git commit -m "Build Naturalizer landing page"
-
-# With GitHub CLI authenticated:
+git commit -m "Build Naturalizer order site"
 gh repo create naturalizer --public --source=. --remote=origin --push
 ```
 
-Without the GitHub CLI, create an empty repository on github.com, then:
+Then import the repository at [vercel.com/new](https://vercel.com/new). Next.js is detected automatically. Add `ORDER_WEBHOOK_URL` if automated delivery is required. No other environment variables are needed.
 
-```bash
-git remote add origin https://github.com/<your-user>/naturalizer.git
-git branch -M main
-git push -u origin main
-```
+## Service boundaries
 
-### Import into Vercel
-
-1. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-2. Vercel detects Next.js automatically. Keep the default build command (`next build`) and output settings.
-3. No environment variables are needed. Click **Deploy**.
-
-Or deploy from the terminal:
-
-```bash
-npx vercel --prod
-```
-
-Every push to `main` will create a new production deployment.
+This is an editing service, not a ghostwriting service. The site states that it cannot guarantee any AI detector result. Turnitin is a third-party trademark. Carousell remains an alternative contact channel; final pricing and availability are confirmed when an order is accepted.
 
 ## Dependency note
 
-This project uses Next.js 14.2.35 as requested. Next.js 14 is past its upstream support window, and `npm audit` reports advisories that are only fixed in newer major versions. For a long-lived public deployment, plan an upgrade to a currently supported Next.js release and retest the App Router setup.
+The project keeps Next.js 14.2.35 as requested. Next.js 14 is past its upstream support window, and `npm audit` reports advisories that are fixed only in newer major versions. For a long-lived public deployment, plan an upgrade to a supported Next.js release and retest the order route.
