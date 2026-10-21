@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MessageCircle } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import {
   CAROUSELL_LISTING_URL,
   CAROUSELL_SELLER_URL,
   SELLER_HANDLE,
+  WHATSAPP_URL,
 } from "@/lib/site";
 
 /** Quiet footer with navigation, Carousell contact, and service disclaimers. */
@@ -57,6 +58,16 @@ export function SiteFooter() {
           </nav>
 
           <div className="flex flex-col items-start gap-3">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+              {copy.common.whatsapp}
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
             <a
               href={CAROUSELL_LISTING_URL}
               target="_blank"

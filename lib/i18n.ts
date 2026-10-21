@@ -7,6 +7,9 @@ const zh = {
     carousell: "Carousell",
     viewCarousell: "查看 Carousell",
     viewListing: "查看商品頁",
+    whatsapp: "WhatsApp",
+    whatsappCta: "在 WhatsApp 上向 Naturalizer 傳送訊息",
+    whatsappShort: "WhatsApp 查詢",
     from: "起",
     payment: "付款：Alipay HK",
     included: "已包括",
@@ -273,7 +276,7 @@ const zh = {
       handoffTitle: "訂單摘要已建立",
       receivedTitle: "訂單已送出",
       handoffText:
-        "請將訂單編號及原稿傳送到 Carousell 對話。我們確認稿件與交期後，才會安排付款與修訂。",
+        "請將訂單編號及原稿透過 WhatsApp 或 Carousell 傳送給我們。我們確認稿件與交期後，才會安排付款與修訂。",
       receivedText:
         "我們已收到你的需求，會透過你提供的聯絡方式確認稿件、交期與付款安排。",
       orderId: "訂單編號",
@@ -282,10 +285,11 @@ const zh = {
       copy: "複製訂單摘要",
       copied: "已複製",
       carousell: "前往 Carousell 對話",
+      whatsapp: "在 WhatsApp 傳送訂單",
       reset: "建立另一張訂單",
       next: "下一步",
       nextText:
-        "先複製訂單摘要，再到 Carousell 對話貼上，並附上原稿檔案。",
+        "先複製訂單摘要，再透過 WhatsApp 或 Carousell 傳送，並附上原稿檔案。",
     },
   },
   faq: {
@@ -338,7 +342,7 @@ const zh = {
     description:
       "先取得即時報價，或直接到 Carousell 與我們對話。",
     primary: "立即取得報價",
-    secondary: "在 Carousell 查看",
+    secondary: "在 WhatsApp 查詢",
     note: "不足 600 字 HK$65 起 · 附 Turnitin AI 報告",
   },
   footer: {
@@ -372,6 +376,9 @@ const en: Dictionary = {
     carousell: "Carousell",
     viewCarousell: "View on Carousell",
     viewListing: "View listing",
+    whatsapp: "WhatsApp",
+    whatsappCta: "Message Naturalizer on WhatsApp",
+    whatsappShort: "Chat on WhatsApp",
     from: "from",
     payment: "Payment: Alipay HK",
     included: "Included",
@@ -645,7 +652,7 @@ const en: Dictionary = {
       handoffTitle: "Your order summary is ready",
       receivedTitle: "Order received",
       handoffText:
-        "Send your order number and draft through Carousell chat. We will confirm the draft, turnaround, and payment before any work begins.",
+        "Send your order number and draft to us through WhatsApp or Carousell. We will confirm the draft, turnaround, and payment before any work begins.",
       receivedText:
         "We have received your request and will use your contact details to confirm the draft, turnaround, and payment.",
       orderId: "Order number",
@@ -654,10 +661,11 @@ const en: Dictionary = {
       copy: "Copy order summary",
       copied: "Copied",
       carousell: "Continue on Carousell",
+      whatsapp: "Send order on WhatsApp",
       reset: "Create another order",
       next: "Next step",
       nextText:
-        "Copy the summary, open Carousell chat, then paste it with your draft attached.",
+        "Copy the summary, send it through WhatsApp or Carousell, and attach your draft.",
     },
   },
   faq: {
@@ -710,7 +718,7 @@ const en: Dictionary = {
     description:
       "Get an instant quote, or continue the conversation on Carousell.",
     primary: "Get an instant quote",
-    secondary: "View on Carousell",
+    secondary: "Chat on WhatsApp",
     note: "From HK$65 for under 600 words · Turnitin AI report included",
   },
   footer: {

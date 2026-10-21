@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import { LanguageToggle, ThemeToggle } from "@/components/site-controls";
 import { Button } from "@/components/ui/button";
-import { CAROUSELL_LISTING_URL } from "@/lib/site";
+import { CAROUSELL_LISTING_URL, WHATSAPP_URL } from "@/lib/site";
 
 /**
  * Sticky navigation. Language and theme controls stay visible at every
@@ -57,6 +57,16 @@ export function SiteHeader() {
           >
             {copy.common.carousell}
             <ExternalLink className="h-3 w-3" aria-hidden="true" />
+          </a>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={copy.common.whatsappCta}
+            title={copy.common.whatsappCta}
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:inline-flex"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
           </a>
           <LanguageToggle />
           <ThemeToggle />

@@ -1,9 +1,10 @@
 "use client";
 
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import { Button } from "@/components/ui/button";
+import { WHATSAPP_URL } from "@/lib/site";
 
 /**
  * Hero: the value proposition, two order-focused actions, and a bilingual
@@ -49,6 +50,16 @@ export function Hero() {
         </div>
 
         <p className="mt-4 text-xs text-muted-foreground">{copy.hero.note}</p>
+
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+        >
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          {copy.common.whatsappCta}
+        </a>
 
         <div className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-2xl border border-border bg-card text-left shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
           <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-3 text-xs text-muted-foreground">

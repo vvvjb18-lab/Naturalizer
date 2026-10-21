@@ -1,10 +1,13 @@
 "use client";
 
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import { Button } from "@/components/ui/button";
-import { CAROUSELL_LISTING_URL } from "@/lib/site";
+import {
+  CAROUSELL_LISTING_URL,
+  WHATSAPP_URL,
+} from "@/lib/site";
 
 /**
  * Closing call to action. A single inverted panel gives the scroll a clear
@@ -43,17 +46,22 @@ export function Cta() {
               variant="outline"
               className="w-full rounded-full border-background/25 bg-transparent text-background hover:bg-background/10 hover:text-background sm:w-auto"
             >
-              <a
-                href={CAROUSELL_LISTING_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
                 {copy.cta.secondary}
-                <ExternalLink aria-hidden="true" />
+                <MessageCircle aria-hidden="true" />
               </a>
             </Button>
           </div>
           <p className="mt-5 text-xs text-background/55">{copy.cta.note}</p>
+          <a
+            href={CAROUSELL_LISTING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 text-xs text-background/60 underline decoration-background/20 underline-offset-4 transition-colors hover:text-background"
+          >
+            {copy.common.viewCarousell}
+            <ExternalLink className="h-3 w-3" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

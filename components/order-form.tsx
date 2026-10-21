@@ -22,6 +22,7 @@ import {
   CAROUSELL_LISTING_URL,
   CAROUSELL_SELLER_URL,
   SELLER_HANDLE,
+  WHATSAPP_URL,
 } from "@/lib/site";
 
 type LanguageValue = "zh" | "en" | "bilingual";
@@ -396,6 +397,15 @@ export function OrderSection() {
               <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
 
+            <div className="mt-4">
+              <Button asChild size="sm" className="rounded-full">
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  {copy.common.whatsappShort}
+                </a>
+              </Button>
+            </div>
+
             <p className="mt-3 text-xs text-muted-foreground">
               {copy.footer.seller}:{" "}
               <a
@@ -474,15 +484,26 @@ export function OrderSection() {
                 </Button>
                 <Button asChild className="flex-1">
                   <a
-                    href={CAROUSELL_LISTING_URL}
+                    href={WHATSAPP_URL}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {copy.order.success.carousell}
-                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    {copy.order.success.whatsapp}
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </Button>
               </div>
+
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                <a
+                  href={CAROUSELL_LISTING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                >
+                  {copy.order.success.carousell}
+                </a>
+              </p>
 
               {result.mode === "handoff" ? (
                 <div className="mt-5 rounded-xl border border-border bg-background p-4">

@@ -6,4 +6,6 @@ export const CAROUSELL_LISTING_URL =
 export const CAROUSELL_SELLER_URL =
   "https://www.carousell.com.hk/u/naturalizerplatform/";
 
+export const WHATSAPP_URL = "https://wa.me/message/PUGACWL2T5PXE1";
+
 export const SELLER_HANDLE = "@naturalizerplatform";
