@@ -107,7 +107,24 @@ export function SiteFooter() {
           <p className="max-w-4xl text-xs leading-relaxed text-muted-foreground">
             {copy.footer.disclaimer}
           </p>
-          <p className="mt-3 text-xs text-muted-foreground">
+
+          <div className="mt-5 border-t border-border/60 pt-5">
+            <h2 className="text-xs font-medium text-foreground">
+              {copy.footer.serviceRulesTitle}
+            </h2>
+            <ol className="mt-3 grid gap-4 text-xs leading-relaxed text-muted-foreground sm:grid-cols-2 lg:grid-cols-4">
+              {copy.footer.serviceRules.map((rule, index) => (
+                <li key={rule.title}>
+                  <p className="font-medium text-foreground">
+                    {index + 1}. {rule.title}
+                  </p>
+                  <p className="mt-1">{rule.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <p className="mt-5 text-xs text-muted-foreground">
             © {new Date().getFullYear()} {copy.footer.copyright}
           </p>
         </div>

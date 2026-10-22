@@ -122,34 +122,6 @@ const zh = {
     ],
     cta: "立即報價",
     note: "分層費率按超出 600 字的部分累進計算，總額以港幣計算。急單附加費另計；最終安排以確認稿件及需求為準。",
-  },
-  servicePromise: {
-    eyebrow: "服務時效與責任界線",
-    title: "四條規則，先把承諾劃清。",
-    description:
-      "急單有時效，但時效承諾只在以下條件下成立。先把界線寫清楚，我們才能對交期負責，而不是作出無限承諾。",
-    rules: [
-      {
-        title: "1. 起算點",
-        body:
-          "付款確認、檔案可開啟、需求確認完成，三者齊備才開始計時。任何一項未完成，時鐘不會起算。",
-      },
-      {
-        title: "2. 30 分鐘檔限制",
-        body:
-          "30 分鐘時效只限 ≤600 字；超過 600 字一律改為手動接單，不自動承諾 30 分鐘交付。",
-      },
-      {
-        title: "3. 超時補償",
-        body:
-          "急單（60／30 分鐘）超時超過 10 分鐘，退還該單全額急單附加費（HK$30／HK$60），服務仍會交付。標準 90 分鐘超時，下次急單附加費全免。",
-      },
-      {
-        title: "4. 不承諾結果",
-        body:
-          "不承諾任何分數、AI 檢測率或學術結果；Turnitin 報告只作第三方參考。",
-      },
-    ],
     rushTitle: "三檔時效",
     rushDescription:
       "附加費用於預留時段，不是結果保證。時效由起算點三者齊備後開始計算。",
@@ -433,6 +405,29 @@ const zh = {
     paymentValue: "Alipay HK",
     disclaimer:
       "Naturalizer 為獨立人手編輯服務，與 Turnitin LLC 無官方關聯。本服務只提供文字修訂，不提供代寫，亦不保證任何成績、學術結果或 AI 檢測器結果。Turnitin 為 Turnitin LLC 的註冊商標。",
+    serviceRulesTitle: "服務時效與補償",
+    serviceRules: [
+      {
+        title: "起算點",
+        body:
+          "付款確認、檔案可開啟、需求確認完成，三者齊備才開始計時。任何一項未完成，時鐘不會起算。",
+      },
+      {
+        title: "30 分鐘檔限制",
+        body:
+          "30 分鐘時效只限 ≤600 字；超過 600 字一律改為手動接單，不自動承諾 30 分鐘交付。",
+      },
+      {
+        title: "超時補償",
+        body:
+          "急單（60／30 分鐘）超時超過 10 分鐘，退還該單全額急單附加費（HK$30／HK$60），服務仍會交付。標準 90 分鐘超時，下次急單附加費全免。",
+      },
+      {
+        title: "不承諾結果",
+        body:
+          "不承諾任何分數、AI 檢測率或學術結果；Turnitin 報告只作第三方參考。",
+      },
+    ],
     copyright: "Naturalizer. All rights reserved.",
   },
 };
@@ -568,34 +563,6 @@ const en: Dictionary = {
     ],
     cta: "Get a quote",
     note: "Tiered rates apply progressively to words above 600. Rush fees are added separately. Final arrangements are confirmed once the draft and requirements are agreed.",
-  },
-  servicePromise: {
-    eyebrow: "Turnaround and responsibility",
-    title: "Four rules that define the promise.",
-    description:
-      "Rush work has a deadline, but that deadline only applies when every condition below is met. Clear boundaries let us take responsibility for delivery without making an unlimited promise.",
-    rules: [
-      {
-        title: "1. When the clock starts",
-        body:
-          "The clock starts only when payment is confirmed, the file opens, and the requirements are confirmed. If any one of the three is missing, it does not start.",
-      },
-      {
-        title: "2. The 30-minute limit",
-        body:
-          "The 30-minute option is limited to 600 words or fewer. Longer drafts always move to manual intake and are not automatically promised a 30-minute turnaround.",
-      },
-      {
-        title: "3. Late-delivery compensation",
-        body:
-          "If a 60- or 30-minute rush order is more than 10 minutes late, the full rush fee (HK$30 or HK$60) is refunded and the work is still delivered. If a standard 90-minute order is late, the next rush fee is waived.",
-      },
-      {
-        title: "4. No outcome guarantee",
-        body:
-          "We do not guarantee any grade, AI detection rate, or academic outcome. Turnitin reports are third-party references only.",
-      },
-    ],
     rushTitle: "Three turnaround options",
     rushDescription:
       "The fee reserves a time slot; it is not a guarantee of any result. Time starts when all three start conditions are met.",
@@ -884,6 +851,29 @@ const en: Dictionary = {
     paymentValue: "Alipay HK",
     disclaimer:
       "Naturalizer is an independent human editing service and is not affiliated with Turnitin LLC. This is an editing service, not ghostwriting, and we do not guarantee any grade, academic outcome, or AI detector result. Turnitin is a registered trademark of Turnitin LLC.",
+    serviceRulesTitle: "Turnaround and compensation",
+    serviceRules: [
+      {
+        title: "When the clock starts",
+        body:
+          "The clock starts only when payment is confirmed, the file opens, and the requirements are confirmed. If any one of the three is missing, it does not start.",
+      },
+      {
+        title: "The 30-minute limit",
+        body:
+          "The 30-minute option is limited to 600 words or fewer. Longer drafts always move to manual intake and are not automatically promised a 30-minute turnaround.",
+      },
+      {
+        title: "Late-delivery compensation",
+        body:
+          "If a 60- or 30-minute rush order is more than 10 minutes late, the full rush fee (HK$30 or HK$60) is refunded and the work is still delivered. If a standard 90-minute order is late, the next rush fee is waived.",
+      },
+      {
+        title: "No outcome guarantee",
+        body:
+          "We do not guarantee any grade, AI detection rate, or academic outcome. Turnitin reports are third-party references only.",
+      },
+    ],
     copyright: "Naturalizer. All rights reserved.",
   },
 };

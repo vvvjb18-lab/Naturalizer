@@ -176,7 +176,6 @@ components/
   why-direct.tsx       Website vs Carousell comparison
   pricing.tsx          Tiered word-count pricing table and examples
   order-form.tsx       Quote calculator, order form, success state
-  service-promise.tsx  Four service rules and rush turnaround table
   legal-page.tsx       Bilingual legal document layout
   faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action

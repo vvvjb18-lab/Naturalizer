@@ -1,12 +1,12 @@
 "use client";
 
-import { ArrowUpRight, Calculator } from "lucide-react";
+import { ArrowUpRight, Calculator, MessageCircle } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CAROUSELL_LISTING_URL } from "@/lib/site";
+import { CAROUSELL_LISTING_URL, WHATSAPP_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -92,6 +92,69 @@ export function Pricing() {
               </p>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="border-b border-border px-5 py-5 sm:px-6">
+            <h3 className="text-sm font-medium text-foreground">
+              {copy.pricing.rushTitle}
+            </h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+              {copy.pricing.rushDescription}
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[620px] text-left text-sm">
+              <thead className="bg-muted/40 text-xs text-muted-foreground">
+                <tr>
+                  <th className="px-5 py-3 font-medium">
+                    {copy.pricing.rushColumns.tier}
+                  </th>
+                  <th className="px-5 py-3 font-medium">
+                    {copy.pricing.rushColumns.time}
+                  </th>
+                  <th className="px-5 py-3 font-medium">
+                    {copy.pricing.rushColumns.fee}
+                  </th>
+                  <th className="px-5 py-3 font-medium">
+                    {copy.pricing.rushColumns.note}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {copy.pricing.rushRows.map((row) => (
+                  <tr key={row.tier}>
+                    <td className="px-5 py-4 font-medium text-foreground">
+                      {row.tier}
+                    </td>
+                    <td className="px-5 py-4 tabular-nums text-foreground">
+                      {row.time}
+                    </td>
+                    <td className="px-5 py-4 tabular-nums text-foreground">
+                      {row.fee}
+                    </td>
+                    <td className="px-5 py-4 text-xs text-muted-foreground">
+                      {row.note}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="border-t border-border px-5 py-4 text-xs leading-relaxed text-muted-foreground sm:px-6">
+            {copy.pricing.manualNote}{" "}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+            >
+              <MessageCircle className="h-3 w-3" aria-hidden="true" />
+              {copy.common.whatsappShort}
+            </a>
+          </p>
         </div>
 
         <div className="mt-7 flex justify-center">
