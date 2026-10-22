@@ -41,6 +41,7 @@ export function formatAdminAmount(amount: number, currency = "HKD") {
   return new Intl.NumberFormat("zh-HK", {
     style: "currency",
     currency,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
+    maximumFractionDigits: 2,
   }).format(amount);
 }

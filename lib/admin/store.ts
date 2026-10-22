@@ -22,6 +22,10 @@ export interface AdminQuote {
   documentType: string;
   words: number;
   units: number;
+  baseAmount: number;
+  rushFee: number;
+  rushTier: string;
+  turnaroundMinutes: number;
   amount: number;
   currency: string;
   createdAt: string;
@@ -37,6 +41,10 @@ export interface AdminOrder {
   documentType: string;
   words: number;
   units: number;
+  baseAmount: number;
+  rushFee: number;
+  rushTier: string;
+  turnaroundMinutes: number;
   quote: number;
   currency: string;
   deadline: string | null;
@@ -63,6 +71,10 @@ export interface NewQuote {
   documentType: string;
   words: number;
   units: number;
+  baseAmount: number;
+  rushFee: number;
+  rushTier: string;
+  turnaroundMinutes: number;
   amount: number;
   currency: string;
   createdAt: string;
@@ -77,6 +89,10 @@ export interface NewOrder {
   documentType: string;
   words: number;
   units: number;
+  baseAmount: number;
+  rushFee: number;
+  rushTier: string;
+  turnaroundMinutes: number;
   quote: number;
   currency: string;
   deadline: string | null;
@@ -182,6 +198,10 @@ function mapQuoteRow(row: Record<string, unknown>): AdminQuote {
     documentType: String(row.document_type),
     words: Number(row.words),
     units: Number(row.units),
+    baseAmount: Number(row.base_amount ?? row.amount),
+    rushFee: Number(row.rush_fee ?? 0),
+    rushTier: row.rush_tier ? String(row.rush_tier) : "standard",
+    turnaroundMinutes: Number(row.turnaround_minutes ?? 90),
     amount: Number(row.amount),
     currency: String(row.currency),
     createdAt: String(row.created_at),
@@ -200,6 +220,10 @@ function mapOrderRow(row: Record<string, unknown>): AdminOrder {
     documentType: String(row.document_type),
     words: Number(row.words),
     units: Number(row.units),
+    baseAmount: Number(row.base_amount ?? row.quote),
+    rushFee: Number(row.rush_fee ?? 0),
+    rushTier: row.rush_tier ? String(row.rush_tier) : "standard",
+    turnaroundMinutes: Number(row.turnaround_minutes ?? 90),
     quote: Number(row.quote),
     currency: String(row.currency),
     deadline: row.deadline ? String(row.deadline) : null,
@@ -241,6 +265,10 @@ export async function saveQuote(record: NewQuote) {
           document_type: record.documentType,
           words: record.words,
           units: record.units,
+          base_amount: record.baseAmount,
+          rush_fee: record.rushFee,
+          rush_tier: record.rushTier,
+          turnaround_minutes: record.turnaroundMinutes,
           amount: record.amount,
           currency: record.currency,
           created_at: record.createdAt,
@@ -278,6 +306,10 @@ export async function saveOrder(record: NewOrder) {
           document_type: record.documentType,
           words: record.words,
           units: record.units,
+          base_amount: record.baseAmount,
+          rush_fee: record.rushFee,
+          rush_tier: record.rushTier,
+          turnaround_minutes: record.turnaroundMinutes,
           quote: record.quote,
           currency: record.currency,
           deadline: record.deadline,

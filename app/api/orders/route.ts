@@ -4,7 +4,7 @@ import {
   saveOrder,
   StorageNotConfiguredError,
 } from "@/lib/admin/store";
-import { calculateQuote } from "@/lib/pricing";
+import { calculateQuote, isRushTier } from "@/lib/pricing";
 
 export const runtime = "nodejs";
 
@@ -16,6 +16,7 @@ interface OrderRequest {
   contact?: unknown;
   language?: unknown;
   documentType?: unknown;
+  rush?: unknown;
   words?: unknown;
   deadline?: unknown;
   notes?: unknown;
@@ -48,6 +49,12 @@ export async function POST(request: Request) {
   const contact = cleanString(body.contact, 240);
   const language = cleanString(body.language, 20);
   const documentType = cleanString(body.documentType, 20);
+  const rush =
+    body.rush === undefined
+      ? "standard"
+      : isRushTier(body.rush)
+        ? body.rush
+        : null;
   const deadline = cleanString(body.deadline, 20);
   const notes = cleanString(body.notes, 4000);
   const words = Number(body.words);
@@ -61,6 +68,7 @@ export async function POST(request: Request) {
     !Number.isFinite(words) ||
     words < 1 ||
     words > 100000 ||
+    !rush ||
     !consent
   ) {
     return NextResponse.json(
@@ -69,7 +77,14 @@ export async function POST(request: Request) {
     );
   }
 
-  const quote = calculateQuote(words);
+  const quote = calculateQuote(words, rush);
+
+  if (!quote.rushEligible) {
+    return NextResponse.json(
+      { ok: false, error: "urgent_requires_manual_intake" },
+      { status: 422 }
+    );
+  }
   const orderId = `NAT-${new Date()
     .toISOString()
     .slice(2, 10)
@@ -83,7 +98,11 @@ export async function POST(request: Request) {
     language,
     documentType,
     words: quote.words,
-    units: quote.units,
+    units: 0,
+    baseAmount: quote.baseAmount,
+    rushFee: quote.rushFee,
+    rushTier: quote.rush,
+    turnaroundMinutes: quote.rushMinutes,
     quote: quote.amount,
     currency: "HKD",
     deadline: deadline || null,
@@ -111,6 +130,11 @@ export async function POST(request: Request) {
         mode: stored ? "received" : "handoff",
         orderId,
         quote: quote.amount,
+        baseAmount: quote.baseAmount,
+        rushFee: quote.rushFee,
+        rush: quote.rush,
+        rushMinutes: quote.rushMinutes,
+        words: quote.words,
         stored,
       },
       { status: stored ? 200 : 202 }
@@ -144,6 +168,11 @@ export async function POST(request: Request) {
     mode: "received",
     orderId,
     quote: quote.amount,
+    baseAmount: quote.baseAmount,
+    rushFee: quote.rushFee,
+    rush: quote.rush,
+    rushMinutes: quote.rushMinutes,
+    words: quote.words,
     stored,
   });
 }

@@ -1,24 +1,20 @@
 "use client";
 
-import { ArrowUpRight, Calculator, Check } from "lucide-react";
+import { ArrowUpRight, Calculator } from "lucide-react";
 
 import { useSite } from "@/components/providers";
 import { SectionHeading } from "@/components/section-heading";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { formatHKD } from "@/lib/pricing";
 import { CAROUSELL_LISTING_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const planPrices = [65, 85, 170];
-
 /**
- * Three transparent price points calculated from word count. The middle
- * plan is highlighted with a border and badge rather than a second palette.
+ * Transparent tiered prices. The table is the source of truth on the page;
+ * the examples make the progressive calculation concrete.
  */
 export function Pricing() {
-  const { locale, copy } = useSite();
+  const { copy } = useSite();
 
   return (
     <section id="pricing" className="border-b border-border/60">
@@ -49,67 +45,62 @@ export function Pricing() {
           {copy.pricing.turnitinNote}
         </p>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {copy.pricing.plans.map((plan, index) => {
-            const featured = index === 1;
-
-            return (
-              <Card
-                key={plan.name}
-                className={cn(
-                  "relative flex flex-col p-7 shadow-none",
-                  featured && "border-primary/60 ring-1 ring-primary/60"
-                )}
-              >
-                {featured ? (
-                  <Badge className="absolute -top-3 left-7">
-                    {copy.pricing.mostPopular}
-                  </Badge>
-                ) : null}
-
-                <h3 className="text-sm font-medium text-muted-foreground">
-                  {plan.name}
-                </h3>
-
-                <div className="mt-3 flex items-baseline gap-1.5">
-                  <span className="text-4xl font-semibold tracking-[-0.03em] text-foreground">
-                    {formatHKD(planPrices[index], locale)}
-                  </span>
-                  <span className="text-sm text-muted-foreground">
-                    {plan.cadence}
-                  </span>
-                </div>
-
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {plan.description}
-                </p>
-
-                <Button
-                  asChild
-                  className="mt-6 w-full"
-                  variant={featured ? "default" : "outline"}
+        <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card">
+          <table className="w-full text-left text-sm">
+            <thead className="border-b border-border bg-muted/40 text-xs text-muted-foreground">
+              <tr>
+                <th className="px-5 py-3 font-medium">
+                  {copy.pricing.rangeHeader}
+                </th>
+                <th className="px-5 py-3 font-medium">
+                  {copy.pricing.rateHeader}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {copy.pricing.tiers.map((tier, index) => (
+                <tr
+                  key={tier.range}
+                  className={cn(index === 0 && "bg-primary/[0.04]")}
                 >
-                  <a href="#order">{copy.pricing.cta}</a>
-                </Button>
-
-                <ul className="mt-7 space-y-3 border-t border-border pt-6 text-sm">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5">
-                      <Check
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      />
-                      <span className="text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            );
-          })}
+                  <td className="px-5 py-4 font-medium text-foreground">
+                    {tier.range}
+                  </td>
+                  <td className="px-5 py-4 text-foreground">
+                    <span className="tabular-nums">{tier.rate}</span>
+                    {tier.note ? (
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        {tier.note}
+                      </span>
+                    ) : null}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-8 text-center text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+          {copy.pricing.examplesLabel}
+        </p>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          {copy.pricing.examples.map((example) => (
+            <Card key={example.words} className="p-5 shadow-none">
+              <p className="text-xs text-muted-foreground">{example.words}</p>
+              <p className="mt-2 text-2xl font-semibold tabular-nums tracking-tight text-foreground">
+                {example.amount}
+              </p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-7 flex justify-center">
+          <Button asChild size="lg" className="rounded-full">
+            <a href="#order">{copy.pricing.cta}</a>
+          </Button>
+        </div>
+
+        <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
           {copy.pricing.note}
         </p>
       </div>

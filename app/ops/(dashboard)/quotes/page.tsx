@@ -104,6 +104,7 @@ export default async function OpsQuotesPage() {
                     <th className="px-4 py-3 font-medium">報價編號</th>
                     <th className="px-4 py-3 font-medium">語言／文件</th>
                     <th className="px-4 py-3 font-medium">字數</th>
+                    <th className="px-4 py-3 font-medium">時效</th>
                     <th className="px-4 py-3 font-medium">估算</th>
                     <th className="px-4 py-3 font-medium">建立時間</th>
                     <th className="px-4 py-3 font-medium">有效期至</th>
@@ -129,6 +130,9 @@ export default async function OpsQuotesPage() {
                         </td>
                         <td className="px-4 py-3 tabular-nums text-muted-foreground">
                           {quote.words}
+                        </td>
+                        <td className="px-4 py-3 text-xs text-muted-foreground">
+                          {quote.turnaroundMinutes} 分鐘
                         </td>
                         <td className="px-4 py-3 font-medium tabular-nums text-foreground">
                           {formatAdminAmount(quote.amount, quote.currency)}

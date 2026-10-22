@@ -34,7 +34,7 @@ const zh = {
       "中英雙語學術論文自然化與人手修訂。我們逐句整理語氣與節奏，保留你的論點與引用，並附上修改後的 Turnitin AI 檢測報告。",
     primary: "取得即時報價",
     secondary: "查看定價",
-    note: "不足 600 字 HK$65 起 · 附 Turnitin AI 報告",
+    note: "≤600 字 HK$85 起 · 標準 90 分鐘 · 附 Turnitin AI 報告",
     previewLabel: "修訂示例",
     previewMeta: "600 字 · HK$85",
     beforeLabel: "修訂前",
@@ -95,58 +95,92 @@ const zh = {
           "確認稿件及付款後開始修訂，交回修訂稿與 Turnitin AI 報告。",
       },
     ],
-    note: "付款方式：Alipay HK。實際交期會於接單時確認。",
+    note: "付款方式：Alipay HK。時效由付款確認、檔案可開啟及需求確認完成後起算。",
   },
   pricing: {
     eyebrow: "定價",
-    title: "清楚、按字數計算的定價。",
+    title: "清楚、按字數分層的定價。",
     description:
-      "不足 600 字 HK$65；600 字或以上以每 600 字 HK$85 計算。所有價格以港幣為單位。",
+      "首 600 字 HK$85；其後按超出字數分層計費，字數愈長，每字費率愈低。所有價格以港幣為單位。",
     estimateLabel: "即時字數估算",
     carousellLink: "在 Carousell 查看商品",
     turnitinNote:
       "Turnitin 檢測使用 No Repository 設定，提交的稿件不會被收錄至 Turnitin 資料庫；報告只作第三方參考。",
-    mostPopular: "最常見",
-    plans: [
+    rangeHeader: "字數區間",
+    rateHeader: "費率",
+    tiers: [
+      { range: "≤600 字", rate: "HK$85", note: "起價 / 錨點" },
+      { range: "601–1,200 字", rate: "超出部分 $0.08/字", note: "" },
+      { range: "1,201–1,800 字", rate: "超出部分 $0.07/字", note: "" },
+      { range: "1,801 字以上", rate: "超出部分 $0.06/字", note: "地板，不再下降" },
+    ],
+    examplesLabel: "估價例子",
+    examples: [
+      { words: "600 字", amount: "HK$85" },
+      { words: "1,200 字", amount: "HK$133" },
+      { words: "3,000 字", amount: "HK$247" },
+    ],
+    cta: "立即報價",
+    note: "分層費率按超出 600 字的部分累進計算，總額以港幣計算。急單附加費另計；最終安排以確認稿件及需求為準。",
+  },
+  servicePromise: {
+    eyebrow: "服務時效與責任界線",
+    title: "四條規則，先把承諾劃清。",
+    description:
+      "急單有時效，但時效承諾只在以下條件下成立。先把界線寫清楚，我們才能對交期負責，而不是作出無限承諾。",
+    rules: [
       {
-        name: "短篇",
-        description: "少於 600 字。適合 Abstract、短 essay 或單一段落。",
-        cadence: "每篇",
-        features: [
-          "少於 600 字",
-          "人手逐句修訂",
-          "中英雙語支援",
-          "Turnitin AI 報告",
-          "Alipay HK 付款",
-        ],
+        title: "1. 起算點",
+        body:
+          "付款確認、檔案可開啟、需求確認完成，三者齊備才開始計時。任何一項未完成，時鐘不會起算。",
       },
       {
-        name: "標準",
-        description: "600 字。適合一般 essay 與論文段落。",
-        cadence: "每 600 字",
-        features: [
-          "600 字以內",
-          "人手逐句修訂",
-          "中英雙語支援",
-          "Turnitin AI 報告",
-          "Alipay HK 付款",
-        ],
+        title: "2. 30 分鐘檔限制",
+        body:
+          "30 分鐘時效只限 ≤600 字；超過 600 字一律改為手動接單，不自動承諾 30 分鐘交付。",
       },
       {
-        name: "長篇",
-        description: "1,200 字。適合較長章節；其他字數可用報價器估算。",
-        cadence: "每 1,200 字",
-        features: [
-          "1,200 字以內",
-          "人手逐句修訂",
-          "中英雙語支援",
-          "Turnitin AI 報告",
-          "Alipay HK 付款",
-        ],
+        title: "3. 超時補償",
+        body:
+          "急單（60／30 分鐘）超時超過 10 分鐘，退還該單全額急單附加費（HK$30／HK$60），服務仍會交付。標準 90 分鐘超時，下次急單附加費全免。",
+      },
+      {
+        title: "4. 不承諾結果",
+        body:
+          "不承諾任何分數、AI 檢測率或學術結果；Turnitin 報告只作第三方參考。",
       },
     ],
-    cta: "用此方案下單",
-    note: "600 字或以上以每 600 字為一單位估算，未滿一單位按一單位計。實際價格及交稿安排以接單確認為準。",
+    rushTitle: "三檔時效",
+    rushDescription:
+      "附加費用於預留時段，不是結果保證。時效由起算點三者齊備後開始計算。",
+    rushColumns: {
+      tier: "時效",
+      time: "交付目標",
+      fee: "附加費",
+      note: "適用範圍",
+    },
+    rushRows: [
+      {
+        tier: "標準",
+        time: "90 分鐘",
+        fee: "+HK$0",
+        note: "大部分訂單",
+      },
+      {
+        tier: "中急",
+        time: "60 分鐘",
+        fee: "+HK$30",
+        note: "需視乎檔期",
+      },
+      {
+        tier: "特急",
+        time: "30 分鐘",
+        fee: "+HK$60",
+        note: "只限 ≤600 字或手動接單",
+      },
+    ],
+    manualNote:
+      "30 分鐘檔如超過 600 字，請透過 WhatsApp 查詢手動接單安排；我們不會自動接受或承諾時效。",
   },
   trust: {
     eyebrow: "關於我們",
@@ -213,12 +247,12 @@ const zh = {
     eyebrow: "即時報價",
     title: "先看清楚價錢，再交稿。",
     description:
-      "輸入字數，立即看到估算。提交後會建立訂單摘要，下一步再把原稿交給我們。",
+      "輸入字數，立即看到估算；可選 90／60／30 分鐘時效。提交後會建立訂單摘要，下一步再把原稿交給我們。",
     bullets: [
       "不需要先註冊",
       "即時按字數報價",
+      "三檔急單時效",
       "付款：Alipay HK",
-      "附 Turnitin AI 報告",
     ],
     carousellTitle: "比較想在 Carousell 處理？",
     carousellDescription:
@@ -236,6 +270,9 @@ const zh = {
       languageOptions: ["中文", "English", "中英雙語"],
       documentType: "文件類型",
       documentOptions: ["Essay", "畢業論文／章節", "Abstract", "其他"],
+      rush: "時效",
+      rushOptions: ["標準 90 分鐘", "中急 60 分鐘", "特急 30 分鐘"],
+      rushHint: "30 分鐘只限 ≤600 字；超過者需手動接單。",
       words: "字數",
       wordsPlaceholder: "例如 600",
       wordsHint: "以文書軟件的字數統計為準。",
@@ -254,18 +291,21 @@ const zh = {
       title: "你的估算",
       words: "字數",
       wordSuffix: "字",
-      units: "計價單位",
-      unitSuffix: "個 600 字單位",
+      baseAmount: "字數費用",
+      rushFee: "急單附加費",
       total: "估算總額",
-      minimumApplied: "已套用不足 600 字的最低價格",
       empty: "輸入字數後顯示報價",
+      rushLabel: "時效",
+      urgentBlocked:
+        "30 分鐘時效只限 600 字或以下。請改選 60／90 分鐘，或透過 WhatsApp 手動接單。",
+      includedNote: "已包括首 600 字",
       id: "報價編號",
       saving: "建立報價編號…",
       saveError: "未能建立報價編號；仍可複製即時估算。",
       saveNote: "報價編號保存在此瀏覽器。",
       copy: "複製報價摘要",
       copied: "已複製",
-      note: "不足 600 字以 HK$65 計；600 字起每 600 字 HK$85，未滿一個 600 字單位按一個單位計。最終安排以確認稿件後為準。",
+      note: "價格按分層累進計算；急單附加費另計。時效由付款確認、檔案可開啟及需求確認完成三者齊備後起算。",
     },
     submit: "建立訂單",
     submitting: "正在整理訂單…",
@@ -273,8 +313,9 @@ const zh = {
       name: "請填寫稱呼。",
       contact: "請填寫聯絡方式。",
       words: "請輸入有效字數。",
+      rush: "30 分鐘時效只限 600 字或以下，請改選 60／90 分鐘或手動接單。",
       consent: "請先確認服務條款。",
-      network: "未能提交訂單，請稍後再試或直接前往 Carousell。",
+      network: "未能提交訂單，請稍後再試或直接前往 WhatsApp／Carousell。",
     },
     success: {
       handoffTitle: "訂單摘要已建立",
@@ -286,6 +327,8 @@ const zh = {
       orderId: "訂單編號",
       quote: "估算總額",
       words: "字數",
+      rush: "時效",
+      rushFee: "急單附加費",
       copy: "複製訂單摘要",
       copied: "已複製",
       carousell: "前往 Carousell 對話",
@@ -306,7 +349,27 @@ const zh = {
       {
         question: "報價如何計算？",
         answer:
-          "不足 600 字為 HK$65；600 字或以上以每 600 字 HK$85 計算，未滿 600 字的部分按一個單位計。最終價格以確認稿件與交期為準。",
+          "首 600 字為 HK$85。601–1,200 字，超出 600 字的部分每字 HK$0.08；1,201–1,800 字，該段每字 HK$0.07；1,801 字以上，該段每字 HK$0.06。分層按超出部分累進計算，急單附加費另計。",
+      },
+      {
+        question: "有哪幾檔急單？",
+        answer:
+          "標準 90 分鐘不另收費；中急 60 分鐘加 HK$30；特急 30 分鐘加 HK$60。30 分鐘檔只限 600 字或以下，超過 600 字需改為手動接單。",
+      },
+      {
+        question: "時效承諾何時開始計算？",
+        answer:
+          "付款確認、檔案可開啟、需求確認完成，三者齊備才開始計時。任何一項未完成，時鐘不會起算；因客戶延遲提供檔案或回覆而失去的時間，不計入時效。",
+      },
+      {
+        question: "30 分鐘可以處理超過 600 字嗎？",
+        answer:
+          "不可以自動承接。30 分鐘檔只限 600 字或以下；超過 600 字一律改為手動接單，由我們確認檔期後另行回覆，不會自動承諾 30 分鐘交付。",
+      },
+      {
+        question: "超時會怎樣補償？",
+        answer:
+          "急單（60／30 分鐘）超時超過 10 分鐘，會退還該單全額急單附加費（HK$30／HK$60），服務仍會交付。標準 90 分鐘超時，下次急單附加費全免。補償只限附加費，不包括成績、AI 檢測結果或其他間接損失。",
       },
       {
         question: "可以只修訂部分段落嗎？",
@@ -352,7 +415,7 @@ const zh = {
       "先取得即時報價，或直接到 Carousell 與我們對話。",
     primary: "立即取得報價",
     secondary: "在 WhatsApp 查詢",
-    note: "不足 600 字 HK$65 起 · 附 Turnitin AI 報告",
+    note: "≤600 字 HK$85 起 · 標準 90 分鐘 · 附 Turnitin AI 報告",
   },
   footer: {
     tagline: "中英雙語學術論文自然化與人手修訂。",
@@ -412,7 +475,7 @@ const en: Dictionary = {
       "Human-reviewed academic editing for Chinese, English, and bilingual drafts. We refine rhythm and tone, keep your argument and citations intact, and include a post-revision Turnitin AI report.",
     primary: "Get an instant quote",
     secondary: "See pricing",
-    note: "From HK$65 for under 600 words · Turnitin AI report included",
+    note: "From HK$85 for 600 words · Standard 90-minute turnaround · Turnitin AI report included",
     previewLabel: "Revision sample",
     previewMeta: "600 words · HK$85",
     beforeLabel: "Before",
@@ -478,59 +541,92 @@ const en: Dictionary = {
           "Once the draft and payment are confirmed, we edit it and return the revised file with a Turnitin AI report.",
       },
     ],
-    note: "Payment by Alipay HK. Turnaround is confirmed when the order is accepted.",
+    note: "Payment by Alipay HK. The turnaround clock starts once payment, an openable file, and the requirements are all confirmed.",
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Clear pricing, calculated by word count.",
+    title: "Clear pricing, tiered by word count.",
     description:
-      "Under 600 words is HK$65. From 600 words, it is HK$85 per 600-word unit. All prices are in Hong Kong dollars.",
+      "The first 600 words are HK$85. Additional words are charged in declining tiers, so the per-word rate falls as the draft gets longer. All prices are in Hong Kong dollars.",
     estimateLabel: "Instant word-count estimate",
     carousellLink: "View on Carousell",
     turnitinNote:
       "Turnitin checks use a No Repository setting, so submitted drafts are not added to the Turnitin database. Reports are third-party references.",
-    mostPopular: "Most common",
-    plans: [
+    rangeHeader: "Word range",
+    rateHeader: "Rate",
+    tiers: [
+      { range: "Up to 600 words", rate: "HK$85", note: "Base price / anchor" },
+      { range: "601–1,200 words", rate: "$0.08 per extra word", note: "" },
+      { range: "1,201–1,800 words", rate: "$0.07 per extra word", note: "" },
+      { range: "1,801+ words", rate: "$0.06 per extra word", note: "Rate floor" },
+    ],
+    examplesLabel: "Quote examples",
+    examples: [
+      { words: "600 words", amount: "HK$85" },
+      { words: "1,200 words", amount: "HK$133" },
+      { words: "3,000 words", amount: "HK$247" },
+    ],
+    cta: "Get a quote",
+    note: "Tiered rates apply progressively to words above 600. Rush fees are added separately. Final arrangements are confirmed once the draft and requirements are agreed.",
+  },
+  servicePromise: {
+    eyebrow: "Turnaround and responsibility",
+    title: "Four rules that define the promise.",
+    description:
+      "Rush work has a deadline, but that deadline only applies when every condition below is met. Clear boundaries let us take responsibility for delivery without making an unlimited promise.",
+    rules: [
       {
-        name: "Short",
-        description: "Under 600 words. For an abstract, short essay, or single passage.",
-        cadence: "per draft",
-        features: [
-          "Under 600 words",
-          "Human line editing",
-          "Chinese and English",
-          "Turnitin AI report",
-          "Alipay HK payment",
-        ],
+        title: "1. When the clock starts",
+        body:
+          "The clock starts only when payment is confirmed, the file opens, and the requirements are confirmed. If any one of the three is missing, it does not start.",
       },
       {
-        name: "Standard",
-        description: "600 words. For a typical essay or thesis passage.",
-        cadence: "per 600 words",
-        features: [
-          "Up to 600 words",
-          "Human line editing",
-          "Chinese and English",
-          "Turnitin AI report",
-          "Alipay HK payment",
-        ],
+        title: "2. The 30-minute limit",
+        body:
+          "The 30-minute option is limited to 600 words or fewer. Longer drafts always move to manual intake and are not automatically promised a 30-minute turnaround.",
       },
       {
-        name: "Extended",
-        description:
-          "1,200 words. For longer chapters; use the quote builder for other lengths.",
-        cadence: "per 1,200 words",
-        features: [
-          "Up to 1,200 words",
-          "Human line editing",
-          "Chinese and English",
-          "Turnitin AI report",
-          "Alipay HK payment",
-        ],
+        title: "3. Late-delivery compensation",
+        body:
+          "If a 60- or 30-minute rush order is more than 10 minutes late, the full rush fee (HK$30 or HK$60) is refunded and the work is still delivered. If a standard 90-minute order is late, the next rush fee is waived.",
+      },
+      {
+        title: "4. No outcome guarantee",
+        body:
+          "We do not guarantee any grade, AI detection rate, or academic outcome. Turnitin reports are third-party references only.",
       },
     ],
-    cta: "Start with this option",
-    note: "From 600 words, quotes are calculated in 600-word units, rounded up. Final pricing and turnaround are confirmed when the order is accepted.",
+    rushTitle: "Three turnaround options",
+    rushDescription:
+      "The fee reserves a time slot; it is not a guarantee of any result. Time starts when all three start conditions are met.",
+    rushColumns: {
+      tier: "Option",
+      time: "Target",
+      fee: "Rush fee",
+      note: "Availability",
+    },
+    rushRows: [
+      {
+        tier: "Standard",
+        time: "90 minutes",
+        fee: "+HK$0",
+        note: "Most orders",
+      },
+      {
+        tier: "Priority",
+        time: "60 minutes",
+        fee: "+HK$30",
+        note: "Subject to capacity",
+      },
+      {
+        tier: "Urgent",
+        time: "30 minutes",
+        fee: "+HK$60",
+        note: "600 words or fewer, or manual intake",
+      },
+    ],
+    manualNote:
+      "For a 30-minute request above 600 words, contact us on WhatsApp for manual intake. We will not automatically accept the order or promise the turnaround.",
   },
   trust: {
     eyebrow: "About us",
@@ -597,12 +693,12 @@ const en: Dictionary = {
     eyebrow: "Instant quote",
     title: "See the price before you send a draft.",
     description:
-      "Enter your word count for an estimate. Submitting creates an order summary; you send the draft in the next step.",
+      "Enter your word count for an estimate and choose a 90-, 60-, or 30-minute turnaround. Submitting creates an order summary; you send the draft in the next step.",
     bullets: [
       "No account needed",
       "Instant word-count estimate",
+      "Three rush turnaround options",
       "Payment by Alipay HK",
-      "Turnitin AI report included",
     ],
     carousellTitle: "Prefer to handle it on Carousell?",
     carousellDescription:
@@ -621,6 +717,10 @@ const en: Dictionary = {
       languageOptions: ["Chinese", "English", "Bilingual"],
       documentType: "Document type",
       documentOptions: ["Essay", "Thesis / chapter", "Abstract", "Other"],
+      rush: "Turnaround",
+      rushOptions: ["Standard 90 minutes", "Priority 60 minutes", "Urgent 30 minutes"],
+      rushHint:
+        "The 30-minute option is limited to 600 words or fewer; longer drafts require manual intake.",
       words: "Word count",
       wordsPlaceholder: "e.g. 600",
       wordsHint: "Use the word count from your writing app.",
@@ -639,18 +739,21 @@ const en: Dictionary = {
       title: "Your estimate",
       words: "Words",
       wordSuffix: "words",
-      units: "Billing units",
-      unitSuffix: "× 600 words",
+      baseAmount: "Word-count fee",
+      rushFee: "Rush fee",
       total: "Estimated total",
-      minimumApplied: "Minimum price applied for drafts under 600 words",
       empty: "Enter a word count to see your quote",
+      rushLabel: "Turnaround",
+      urgentBlocked:
+        "The 30-minute option is limited to 600 words or fewer. Choose 60 or 90 minutes, or contact us on WhatsApp for manual intake.",
+      includedNote: "Includes the first 600 words",
       id: "Quote ID",
       saving: "Creating quote ID…",
       saveError: "Could not create a quote ID; you can still copy the estimate.",
       saveNote: "The quote ID is saved in this browser.",
       copy: "Copy quote summary",
       copied: "Copied",
-      note: "Under 600 words is HK$65; from 600 words the rate is HK$85 per 600 words, rounded up. Final arrangements are confirmed once the draft is reviewed.",
+      note: "Tiered rates apply progressively; rush fees are added separately. The turnaround clock starts once payment, an openable file, and the requirements are all confirmed.",
     },
     submit: "Create order summary",
     submitting: "Preparing your order…",
@@ -658,9 +761,11 @@ const en: Dictionary = {
       name: "Please add your name.",
       contact: "Please add a contact method.",
       words: "Please enter a valid word count.",
+      rush:
+        "The 30-minute option is limited to 600 words or fewer. Choose 60 or 90 minutes, or contact us for manual intake.",
       consent: "Please confirm the service terms first.",
       network:
-        "We could not submit the order. Please try again or continue on Carousell.",
+        "We could not submit the order. Please try again or continue on WhatsApp or Carousell.",
     },
     success: {
       handoffTitle: "Your order summary is ready",
@@ -672,6 +777,8 @@ const en: Dictionary = {
       orderId: "Order number",
       quote: "Estimated total",
       words: "Word count",
+      rush: "Turnaround",
+      rushFee: "Rush fee",
       copy: "Copy order summary",
       copied: "Copied",
       carousell: "Continue on Carousell",
@@ -692,7 +799,27 @@ const en: Dictionary = {
       {
         question: "How is the quote calculated?",
         answer:
-          "Drafts under 600 words are HK$65. From 600 words, the rate is HK$85 per 600-word unit, rounded up. The final price is confirmed once the draft and turnaround are agreed.",
+          "The first 600 words are HK$85. Words 601–1,200 cost HK$0.08 each; words 1,201–1,800 cost HK$0.07 each; words 1,801 and above cost HK$0.06 each. The tiers apply progressively to the words above 600, and rush fees are added separately.",
+      },
+      {
+        question: "What rush options are available?",
+        answer:
+          "Standard 90-minute turnaround has no extra fee. Priority 60 minutes adds HK$30. Urgent 30 minutes adds HK$60. The 30-minute option is limited to 600 words or fewer; longer drafts require manual intake.",
+      },
+      {
+        question: "When does the turnaround clock start?",
+        answer:
+          "Only when payment is confirmed, the file opens, and the requirements are confirmed. If any one of the three is missing, the clock does not start. Time lost to late files or replies from the customer does not count toward the turnaround.",
+      },
+      {
+        question: "Can you handle more than 600 words in 30 minutes?",
+        answer:
+          "We do not automatically accept that. The 30-minute option is limited to 600 words or fewer. Longer drafts move to manual intake, and we confirm capacity separately; a 30-minute delivery is not automatically promised.",
+      },
+      {
+        question: "What happens if a rush order is late?",
+        answer:
+          "If a 60- or 30-minute rush order is more than 10 minutes late, the full rush fee (HK$30 or HK$60) is refunded and the work is still delivered. If a standard 90-minute order is late, the next rush fee is waived. Compensation is limited to the rush fee and does not cover grades, AI detection results, or other indirect losses.",
       },
       {
         question: "Can you edit only part of a document?",
@@ -738,7 +865,7 @@ const en: Dictionary = {
       "Get an instant quote, or continue the conversation on Carousell.",
     primary: "Get an instant quote",
     secondary: "Chat on WhatsApp",
-    note: "From HK$65 for under 600 words · Turnitin AI report included",
+    note: "From HK$85 for 600 words · Standard 90-minute turnaround · Turnitin AI report included",
   },
   footer: {
     tagline:

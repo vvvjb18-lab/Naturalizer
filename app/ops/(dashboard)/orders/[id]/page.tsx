@@ -37,6 +37,12 @@ const documentLabels: Record<string, string> = {
   other: "其他",
 };
 
+const rushLabels: Record<string, string> = {
+  standard: "標準",
+  priority: "中急",
+  urgent: "特急",
+};
+
 export default async function OpsOrderPage({
   params,
   searchParams,
@@ -96,7 +102,21 @@ export default async function OpsOrderPage({
     },
     { label: "字數", value: order.words.toLocaleString("zh-HK") },
     {
-      label: "估算金額",
+      label: "時效",
+      value: `${rushLabels[order.rushTier] ?? order.rushTier} · ${
+        order.turnaroundMinutes
+      } 分鐘`,
+    },
+    {
+      label: "字數費用",
+      value: formatAdminAmount(order.baseAmount, order.currency),
+    },
+    {
+      label: "急單附加費",
+      value: formatAdminAmount(order.rushFee, order.currency),
+    },
+    {
+      label: "估算總額",
       value: formatAdminAmount(order.quote, order.currency),
     },
     {

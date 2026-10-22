@@ -215,7 +215,8 @@ export default async function OpsOrdersPage({
                             {order.orderId}
                           </p>
                           <p className="mt-1 text-[11px] text-muted-foreground">
-                            {order.documentType} · {order.language}
+                            {order.documentType} · {order.language} ·{" "}
+                            {order.turnaroundMinutes} 分鐘
                           </p>
                         </td>
                         <td className="px-4 py-3">

@@ -16,12 +16,18 @@ The site is built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Shadcn
 
 Published website pricing:
 
-- Under 600 words: **HK$65**
-- From 600 words: **HK$85 per 600-word unit**
+- First 600 words: **HK$85**
+- Words 601–1,200: **HK$0.08 per extra word**
+- Words 1,201–1,800: **HK$0.07 per extra word**
+- Words 1,801 and above: **HK$0.06 per extra word**
+- Rush turnaround: **90 minutes +HK$0**, **60 minutes +HK$30**, **30 minutes +HK$60**
+- The 30-minute option is limited to **600 words or fewer**; longer drafts require manual intake.
 - Payment: **Alipay HK**
 - Every revised draft includes a post-revision **Turnitin AI report**
 
-The calculator rounds up to the next 600-word unit. The final quote is confirmed after reviewing the draft and turnaround. The [Carousell listing](https://www.carousell.com.hk/p/naturalizer-%E6%B8%9B%E4%BD%8Eai%E6%AA%A2%E6%B8%AC%E7%8E%87-%E9%99%8D%E4%BD%8Eai%E7%8E%87-%E5%8E%BBai-%E4%BA%BA%E9%A1%9E%E5%8C%96-%E8%87%AA%E7%84%B6%E5%8C%96-%E4%B8%AD%E8%8B%B1%E9%9B%99%E8%AA%9E%E5%AD%B8%E8%A1%93%E8%AB%96%E6%96%87%E6%9C%8D%E5%8B%99-1469557127/) remains available as an alternative contact channel.
+The calculator applies the tiered rates progressively to words above 600. The final quote is confirmed after reviewing the draft and turnaround. The [Carousell listing](https://www.carousell.com.hk/p/naturalizer-%E6%B8%9B%E4%BD%8Eai%E6%AA%A2%E6%B8%AC%E7%8E%87-%E9%99%8D%E4%BD%8Eai%E7%8E%87-%E5%8E%BBai-%E4%BA%BA%E9%A1%9E%E5%8C%96-%E8%87%AA%E7%84%B6%E5%8C%96-%E4%B8%AD%E8%8B%B1%E9%9B%99%E8%AA%9E%E5%AD%B8%E8%A1%93%E8%AB%96%E6%96%87%E6%9C%8D%E5%8B%99-1469557127/) remains available as an alternative contact channel.
+
+The website also states the four service rules: the clock starts only after payment is confirmed, the file opens, and requirements are confirmed; 30-minute work is limited to 600 words; late rush work refunds the full rush fee (or the next rush fee is waived for a late 90-minute standard order); and no grade or AI-detection result is guaranteed.
 
 ## Run locally
 
@@ -44,7 +50,7 @@ npm run start       # Serve the production build
 The order calculator calls `POST /api/quote` after a short debounce. The endpoint returns a structured quote with:
 
 - a `quoteId` and 14-day expiry
-- words, billable units, unit price, minimum price, and final estimate
+- words, base amount, rush fee, turnaround, and final estimate
 - language and document type
 
 The browser keeps the latest 10 quotes in `localStorage` under `naturalizer-quotes` and includes the quote ID in the copyable summary. If `QUOTE_WEBHOOK_URL` is configured, the quote is also sent to that endpoint as a `quote.created` event. Vercel functions cannot persist quotes to a local file, so no fake server-side storage is used when the webhook is absent.
@@ -76,8 +82,11 @@ Example payload:
   "language": "bilingual",
   "documentType": "essay",
   "words": 600,
-  "units": 1,
-  "quote": 85,
+  "baseAmount": 85,
+  "rushFee": 30,
+  "rush": "priority",
+  "rushMinutes": 60,
+  "quote": 115,
   "currency": "HKD",
   "deadline": "2026-10-30",
   "notes": "Keep the methodology terminology.",
@@ -165,8 +174,9 @@ components/
   how-it-works.tsx     Three-step order process
   trust.tsx            About and service commitments
   why-direct.tsx       Website vs Carousell comparison
-  pricing.tsx          Three word-count price points
+  pricing.tsx          Tiered word-count pricing table and examples
   order-form.tsx       Quote calculator, order form, success state
+  service-promise.tsx  Four service rules and rush turnaround table
   legal-page.tsx       Bilingual legal document layout
   faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action

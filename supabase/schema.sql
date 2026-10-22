@@ -11,7 +11,11 @@ create table if not exists public.quotes (
   document_type text not null,
   words integer not null,
   units integer not null,
-  amount integer not null,
+  base_amount numeric(10, 2) not null default 0,
+  rush_fee numeric(10, 2) not null default 0,
+  rush_tier text not null default 'standard',
+  turnaround_minutes integer not null default 90,
+  amount numeric(10, 2) not null,
   currency text not null default 'HKD',
   created_at timestamptz not null default now(),
   expires_at timestamptz not null
@@ -26,7 +30,11 @@ create table if not exists public.orders (
   document_type text not null,
   words integer not null,
   units integer not null,
-  quote integer not null,
+  base_amount numeric(10, 2) not null default 0,
+  rush_fee numeric(10, 2) not null default 0,
+  rush_tier text not null default 'standard',
+  turnaround_minutes integer not null default 90,
+  quote numeric(10, 2) not null,
   currency text not null default 'HKD',
   deadline date,
   notes text not null default '',
@@ -42,6 +50,29 @@ create table if not exists public.orders (
 -- two-person admin support was added.
 alter table public.orders add column if not exists updated_by text;
 alter table public.orders add column if not exists updated_at timestamptz;
+
+-- Upgrade pricing columns for tiered pricing and rush fees. Existing rows
+-- keep their original total in amount/quote and use it as the base amount.
+alter table public.quotes
+  alter column amount type numeric(10, 2) using amount::numeric(10, 2);
+alter table public.orders
+  alter column quote type numeric(10, 2) using quote::numeric(10, 2);
+
+alter table public.quotes add column if not exists base_amount numeric(10, 2);
+alter table public.quotes add column if not exists rush_fee numeric(10, 2) not null default 0;
+alter table public.quotes add column if not exists rush_tier text not null default 'standard';
+alter table public.quotes add column if not exists turnaround_minutes integer not null default 90;
+
+alter table public.orders add column if not exists base_amount numeric(10, 2);
+alter table public.orders add column if not exists rush_fee numeric(10, 2) not null default 0;
+alter table public.orders add column if not exists rush_tier text not null default 'standard';
+alter table public.orders add column if not exists turnaround_minutes integer not null default 90;
+
+update public.quotes set base_amount = amount where base_amount is null;
+update public.orders set base_amount = quote where base_amount is null;
+
+alter table public.quotes alter column base_amount set default 0;
+alter table public.orders alter column base_amount set default 0;
 
 create index if not exists quotes_created_at_idx
   on public.quotes (created_at desc);

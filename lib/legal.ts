@@ -33,26 +33,35 @@ const zhTerms: LegalDocument = {
     {
       title: "2. 報價與確認",
       paragraphs: [
-        "網站上的價格是按字數及服務類型計算的估算。最終價格、交期及修改範圍，以雙方在接單時確認的內容為準。",
+        "網站上的價格是按字數及所選時效計算的估算。首 600 字為 HK$85，其後按分層費率累進計算；急單附加費另計。最終價格、交期及修改範圍，以雙方在接單時確認的內容為準。",
         "如稿件長度、語言、格式或需求與原先申報不同，我們可重新報價。",
       ],
     },
     {
       title: "3. 交付與修改",
       paragraphs: [
-        "標準服務包括一輪文字修訂。交付格式、方式和時間會於接單時確認；加急服務視乎檔期安排。",
+        "標準服務包括一輪文字修訂。交付格式、方式和時間會於接單時確認；90／60／30 分鐘時效適用第 4 條的規則。",
         "如你要求在確認範圍以外額外修改，可能另行收費。因你延遲提供資料、稿件或回覆而造成的延誤，不視為我們違約。",
       ],
     },
     {
-      title: "4. 付款",
+      title: "4. 時效、急單與補償",
+      paragraphs: [
+        "時效承諾只適用於已確認的急單。時鐘由以下三項全部齊備起計：付款確認、檔案可開啟、需求確認完成。任何一項未完成，時效不會起算。",
+        "30 分鐘時效只限 600 字或以下。超過 600 字的 30 分鐘要求，只會按手動接單處理，不構成自動接受或承諾。",
+        "急單（60／30 分鐘）超過目標時間 10 分鐘以上，我們會退還該訂單的全額急單附加費（HK$30／HK$60），並繼續交付服務。標準 90 分鐘超過目標時間，下一次訂單的急單附加費全免。",
+        "上述補償是有關延誤的唯一補償安排，不影響你按香港法律享有的不可排除權利。",
+      ],
+    },
+    {
+      title: "5. 付款",
       paragraphs: [
         "現時付款方式為 Alipay HK。除另有書面安排外，我們會在確認稿件、價格及交期後開始工作。",
         "如未完成付款，我們可暫停或取消訂單。",
       ],
     },
     {
-      title: "5. 取消與退款",
+      title: "6. 取消與退款",
       paragraphs: [
         "退款安排會考慮實際工作量、已支付成本及雙方溝通紀錄。具體安排如下：",
       ],
@@ -64,21 +73,21 @@ const zhTerms: LegalDocument = {
       ],
     },
     {
-      title: "6. 學術誠信",
+      title: "7. 學術誠信",
       paragraphs: [
         "本服務是文字修訂，不是學術判斷或成績保證。你須確保提交的稿件由你本人完成，或已取得合法授權，並遵守所屬院校的學術誠信規則。",
         "我們不保證任何成績、錄取、發表結果或 AI 檢測工具的分數。",
       ],
     },
     {
-      title: "7. Turnitin 與第三方報告",
+      title: "8. Turnitin 與第三方報告",
       paragraphs: [
         "如訂單包含 Turnitin 報告，報告由第三方系統產生。Naturalizer 為獨立編輯服務，與 Turnitin LLC 並無官方關聯；Turnitin® 為 Turnitin LLC 的註冊商標。",
         "報告結果可能因帳戶設定、版本、文件格式及檢測時間而不同，僅供參考，不構成學術誠信的最終判定。",
       ],
     },
     {
-      title: "8. 你的責任",
+      title: "9. 你的責任",
       bullets: [
         "確保你擁有提交稿件的權利，並對內容、引用及提交行為負責。",
         "保留原稿及備份；我們不會保證任何儲存或備份服務。",
@@ -86,27 +95,27 @@ const zhTerms: LegalDocument = {
       ],
     },
     {
-      title: "9. 知識產權與保密",
+      title: "10. 知識產權與保密",
       paragraphs: [
         "你保留原稿及最終修訂稿的權利。你授予我們一項有限許可，只為完成本次訂單而使用、複製及修改稿件。",
         "我們不會把客戶稿件公開或用於其他商業用途。團隊成員只在提供服務所需範圍內接觸文件，並受保密要求約束。",
       ],
     },
     {
-      title: "10. 責任限制",
+      title: "11. 責任限制",
       paragraphs: [
         "在法律允許的最大範圍內，我們不就成績、學術處分、名譽、利潤或間接損失承擔責任。就每張訂單，我們的總責任不超過你為該訂單實際支付的金額。",
         "本條款不排除香港法律下不可排除的消費者權利。",
       ],
     },
     {
-      title: "11. 個人資料",
+      title: "12. 個人資料",
       paragraphs: [
         "我們如何收集、使用、保留及刪除個人資料，請參閱私隱政策。",
       ],
     },
     {
-      title: "12. 條款變更與適用法律",
+      title: "13. 條款變更與適用法律",
       paragraphs: [
         "我們可能不時更新本條款，最新版本會刊載於本頁並更新日期。",
         "本條款受香港特別行政區法律管轄。爭議會先嘗試友好協商；如未能解決，交由香港具管轄權的法院處理。",
@@ -137,26 +146,35 @@ const enTerms: LegalDocument = {
     {
       title: "2. Quotes and confirmation",
       paragraphs: [
-        "Prices shown on the website are estimates based on word count and service type. The final price, turnaround, and revision scope are those confirmed when the order is accepted.",
+        "Prices shown on the website are estimates based on word count and the selected turnaround. The first 600 words are HK$85; additional words are charged progressively by tier, and rush fees are added separately. The final price, turnaround, and revision scope are those confirmed when the order is accepted.",
         "We may re-quote if the length, language, format, or requirements differ from the original brief.",
       ],
     },
     {
       title: "3. Delivery and revisions",
       paragraphs: [
-        "Standard service includes one round of editing. The file format, delivery method, and deadline are confirmed when the order is accepted. Express work depends on availability.",
+        "Standard service includes one round of editing. The file format, delivery method, and deadline are confirmed when the order is accepted. The rules in section 4 apply to 90-, 60-, and 30-minute turnarounds.",
         "Additional changes outside the agreed scope may be charged separately. Delays caused by late files, information, or responses from you are not treated as a breach by us.",
       ],
     },
     {
-      title: "4. Payment",
+      title: "4. Turnaround, rush work, and compensation",
+      paragraphs: [
+        "A turnaround promise applies only to a confirmed rush order. The clock starts only when all three of the following are complete: payment is confirmed, the file can be opened, and the requirements are confirmed. If any one is missing, the clock does not start.",
+        "The 30-minute turnaround is limited to 600 words or fewer. A 30-minute request above 600 words is handled through manual intake only and is not automatically accepted or promised.",
+        "If a 60- or 30-minute rush order exceeds its target by more than 10 minutes, we refund the full rush fee for that order (HK$30 or HK$60) and still deliver the work. If a standard 90-minute order exceeds its target, the next order's rush fee is waived.",
+        "This compensation is the sole remedy for the delay and does not affect consumer rights that cannot be excluded under Hong Kong law.",
+      ],
+    },
+    {
+      title: "5. Payment",
       paragraphs: [
         "The current payment method is Alipay HK. Unless agreed otherwise, work begins after the draft, price, and turnaround are confirmed.",
         "We may pause or cancel an order if payment is not completed.",
       ],
     },
     {
-      title: "5. Cancellation and refunds",
+      title: "6. Cancellation and refunds",
       paragraphs: [
         "Refund decisions take into account the work performed, costs incurred, and the written communication between both parties:",
       ],
@@ -168,21 +186,21 @@ const enTerms: LegalDocument = {
       ],
     },
     {
-      title: "6. Academic integrity",
+      title: "7. Academic integrity",
       paragraphs: [
         "This is an editing service, not an academic judgment or grade guarantee. You must ensure the draft is your own work or that you otherwise have permission to use it, and comply with your institution's academic integrity rules.",
         "We do not guarantee any grade, admission outcome, publication decision, or AI detector score.",
       ],
     },
     {
-      title: "7. Turnitin and third-party reports",
+      title: "8. Turnitin and third-party reports",
       paragraphs: [
         "Where an order includes a Turnitin report, the report is produced by a third-party system. Naturalizer is an independent editing service and is not affiliated with Turnitin LLC; Turnitin® is a registered trademark of Turnitin LLC.",
         "Results may vary by account settings, version, file format, and timing. The report is for reference only and is not a final academic integrity determination.",
       ],
     },
     {
-      title: "8. Your responsibilities",
+      title: "9. Your responsibilities",
       bullets: [
         "Confirm that you have the right to submit the draft and take responsibility for its content, citations, and submission.",
         "Keep your original file and backups; we do not provide a storage or backup service.",
@@ -190,27 +208,27 @@ const enTerms: LegalDocument = {
       ],
     },
     {
-      title: "9. Intellectual property and confidentiality",
+      title: "10. Intellectual property and confidentiality",
       paragraphs: [
         "You retain the rights to your original draft and final edited version. You grant us a limited licence to use, copy, and edit the draft solely to complete the order.",
         "We do not publish or reuse client drafts for other commercial purposes. Team members access files only as required to provide the service and are bound by confidentiality requirements.",
       ],
     },
     {
-      title: "10. Limitation of liability",
+      title: "11. Limitation of liability",
       paragraphs: [
         "To the maximum extent permitted by law, we are not liable for grades, academic discipline, reputation, lost profits, or indirect losses. For each order, our total liability will not exceed the amount you paid for that order.",
         "Nothing in these terms excludes consumer rights that cannot be excluded under Hong Kong law.",
       ],
     },
     {
-      title: "11. Personal data",
+      title: "12. Personal data",
       paragraphs: [
         "Our collection, use, retention, and deletion of personal data are described in the Privacy Policy.",
       ],
     },
     {
-      title: "12. Changes and governing law",
+      title: "13. Changes and governing law",
       paragraphs: [
         "We may update these terms from time to time. The latest version will appear on this page with a revised date.",
         "These terms are governed by the laws of the Hong Kong Special Administrative Region. We will first try to resolve any dispute amicably; otherwise, the courts of Hong Kong will have jurisdiction.",

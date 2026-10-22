@@ -6,7 +6,7 @@ import { Providers } from "@/components/providers";
 export const metadata: Metadata = {
   title: "Naturalizer｜中英雙語學術論文自然化 · 人手修訂",
   description:
-    "中英雙語學術論文自然化與人手修訂。不足 600 字 HK$65，每 600 字 HK$85，附修改後 Turnitin AI 檢測報告。支援中文、英文及中英雙語稿件。",
+    "中英雙語學術論文自然化與人手修訂。首 600 字 HK$85，其後按字數分層計費，可選 90／60／30 分鐘時效，附修改後 Turnitin AI 檢測報告。支援中文、英文及中英雙語稿件。",
   keywords: [
     "學術論文潤色",
     "論文自然化",

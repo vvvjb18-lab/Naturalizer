@@ -17,7 +17,12 @@ import {
 import { useSite } from "@/components/providers";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { calculateQuote, formatHKD } from "@/lib/pricing";
+import {
+  calculateQuote,
+  formatHKD,
+  RUSH_TIERS,
+  type RushTier,
+} from "@/lib/pricing";
 import {
   CAROUSELL_LISTING_URL,
   CAROUSELL_SELLER_URL,
@@ -34,6 +39,7 @@ interface FormValues {
   contact: string;
   language: LanguageValue;
   documentType: DocumentValue;
+  rush: RushTier;
   words: string;
   deadline: string;
   notes: string;
@@ -44,6 +50,7 @@ interface FormErrors {
   name?: string;
   contact?: string;
   words?: string;
+  rush?: string;
   consent?: string;
   form?: string;
 }
@@ -52,6 +59,10 @@ interface OrderResult {
   orderId: string;
   mode: "handoff" | "received";
   quote: number;
+  baseAmount: number;
+  rushFee: number;
+  rush: RushTier;
+  rushMinutes: number;
   words: number;
 }
 
@@ -62,7 +73,11 @@ interface QuoteApiResponse {
   expiresAt: string;
   pricing: {
     amount: number;
-    units: number;
+    baseAmount: number;
+    rushFee: number;
+    rush: RushTier;
+    rushMinutes: number;
+    rushEligible: boolean;
     words: number;
   };
 }
@@ -82,6 +97,7 @@ const initialValues: FormValues = {
   contact: "",
   language: "bilingual",
   documentType: "essay",
+  rush: "standard",
   words: "",
   deadline: "",
   notes: "",
@@ -111,12 +127,16 @@ export function OrderSection() {
 
   const wordCount = Number.parseInt(values.words, 10);
   const quote = useMemo(
-    () => calculateQuote(Number.isFinite(wordCount) ? wordCount : 0),
-    [wordCount]
+    () =>
+      calculateQuote(
+        Number.isFinite(wordCount) ? wordCount : 0,
+        values.rush
+      ),
+    [wordCount, values.rush]
   );
 
   useEffect(() => {
-    if (!Number.isFinite(wordCount) || wordCount < 1) {
+    if (!Number.isFinite(wordCount) || wordCount < 1 || !quote.rushEligible) {
       setServerQuote(null);
       setQuoteStatus("idle");
       setQuoteCopied(false);
@@ -137,6 +157,7 @@ export function OrderSection() {
             words: wordCount,
             language: values.language,
             documentType: values.documentType,
+            rush: values.rush,
           }),
           signal: controller.signal,
         });
@@ -186,12 +207,20 @@ export function OrderSection() {
       clearTimeout(timer);
       controller.abort();
     };
-  }, [wordCount, values.language, values.documentType]);
+  }, [
+    wordCount,
+    values.language,
+    values.documentType,
+    values.rush,
+    quote.rushEligible,
+  ]);
 
   const languageLabel =
     copy.order.fields.languageOptions[languageValues.indexOf(values.language)];
   const documentLabel =
     copy.order.fields.documentOptions[documentValues.indexOf(values.documentType)];
+  const rushLabel =
+    copy.order.fields.rushOptions[RUSH_TIERS.indexOf(values.rush)];
   const isLoading = status === "loading";
 
   function updateValue<Key extends keyof FormValues>(
@@ -199,7 +228,12 @@ export function OrderSection() {
     value: FormValues[Key]
   ) {
     setValues((current) => ({ ...current, [key]: value }));
-    setErrors((current) => ({ ...current, [key]: undefined, form: undefined }));
+    setErrors((current) => ({
+      ...current,
+      [key]: undefined,
+      ...(key === "words" || key === "rush" ? { rush: undefined } : {}),
+      form: undefined,
+    }));
   }
 
   function validate() {
@@ -209,6 +243,9 @@ export function OrderSection() {
     if (!values.contact.trim()) nextErrors.contact = copy.order.errors.contact;
     if (!Number.isFinite(wordCount) || wordCount < 1) {
       nextErrors.words = copy.order.errors.words;
+    }
+    if (values.rush === "urgent" && wordCount > 600) {
+      nextErrors.rush = copy.order.errors.rush;
     }
     if (!values.consent) nextErrors.consent = copy.order.errors.consent;
 
@@ -224,6 +261,14 @@ export function OrderSection() {
       `${copy.order.fields.language}: ${languageLabel}`,
       `${copy.order.fields.documentType}: ${documentLabel}`,
       `${copy.order.fields.words}: ${order.words}`,
+      `${copy.order.fields.rush}: ${rushLabel}`,
+      `${copy.order.quote.baseAmount}: ${formatHKD(
+        order.baseAmount,
+        locale
+      )}`,
+      order.rushFee > 0
+        ? `${copy.order.quote.rushFee}: ${formatHKD(order.rushFee, locale)}`
+        : null,
       `${copy.order.quote.total}: ${formatHKD(order.quote, locale)}`,
       values.deadline
         ? `${copy.order.fields.deadline}: ${values.deadline}`
@@ -252,6 +297,7 @@ export function OrderSection() {
           contact: values.contact,
           language: values.language,
           documentType: values.documentType,
+          rush: values.rush,
           words: wordCount,
           deadline: values.deadline,
           notes: values.notes,
@@ -264,6 +310,10 @@ export function OrderSection() {
         mode?: "handoff" | "received";
         orderId?: string;
         quote?: number;
+        baseAmount?: number;
+        rushFee?: number;
+        rush?: RushTier;
+        rushMinutes?: number;
         words?: number;
       };
 
@@ -275,6 +325,10 @@ export function OrderSection() {
         orderId: data.orderId,
         mode: data.mode === "received" ? "received" : "handoff",
         quote: data.quote ?? quote.amount,
+        baseAmount: data.baseAmount ?? quote.baseAmount,
+        rushFee: data.rushFee ?? quote.rushFee,
+        rush: data.rush ?? quote.rush,
+        rushMinutes: data.rushMinutes ?? quote.rushMinutes,
         words: data.words ?? quote.words,
       });
       setStatus("done");
@@ -322,6 +376,17 @@ export function OrderSection() {
       `${copy.order.fields.language}: ${languageLabel}`,
       `${copy.order.fields.documentType}: ${documentLabel}`,
       `${copy.order.fields.words}: ${quote.words}`,
+      `${copy.order.fields.rush}: ${rushLabel}`,
+      `${copy.order.quote.baseAmount}: ${formatHKD(
+        serverQuote?.pricing.baseAmount ?? quote.baseAmount,
+        locale
+      )}`,
+      quote.rushFee > 0
+        ? `${copy.order.quote.rushFee}: ${formatHKD(
+            serverQuote?.pricing.rushFee ?? quote.rushFee,
+            locale
+          )}`
+        : null,
       `${copy.order.quote.total}: ${formatHKD(
         serverQuote?.pricing.amount ?? quote.amount,
         locale
@@ -458,6 +523,32 @@ export function OrderSection() {
                     {result.words}
                   </dd>
                 </div>
+                <div className="flex items-center justify-between gap-4 py-3">
+                  <dt className="text-xs text-muted-foreground">
+                    {copy.order.success.rush}
+                  </dt>
+                  <dd className="text-sm tabular-nums text-foreground">
+                    {rushLabel}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4 py-3">
+                  <dt className="text-xs text-muted-foreground">
+                    {copy.order.quote.baseAmount}
+                  </dt>
+                  <dd className="text-sm tabular-nums text-foreground">
+                    {formatHKD(result.baseAmount, locale)}
+                  </dd>
+                </div>
+                {result.rushFee > 0 ? (
+                  <div className="flex items-center justify-between gap-4 py-3">
+                    <dt className="text-xs text-muted-foreground">
+                      {copy.order.success.rushFee}
+                    </dt>
+                    <dd className="text-sm tabular-nums text-foreground">
+                      {formatHKD(result.rushFee, locale)}
+                    </dd>
+                  </div>
+                ) : null}
                 <div className="flex items-center justify-between gap-4 py-3">
                   <dt className="text-xs text-muted-foreground">
                     {copy.order.success.quote}
@@ -733,6 +824,61 @@ export function OrderSection() {
 
                   <div>
                     <label
+                      htmlFor="order-rush"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      {copy.order.fields.rush}
+                    </label>
+                    <div className="relative mt-2">
+                      <select
+                        id="order-rush"
+                        value={values.rush}
+                        onChange={(event) =>
+                          updateValue("rush", event.target.value as RushTier)
+                        }
+                        aria-invalid={Boolean(errors.rush)}
+                        aria-describedby={
+                          errors.rush ? "rush-error" : "rush-description"
+                        }
+                        className={selectClass}
+                      >
+                        {copy.order.fields.rushOptions.map((option, index) => (
+                          <option key={RUSH_TIERS[index]} value={RUSH_TIERS[index]}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    {errors.rush ? (
+                      <p
+                        id="rush-error"
+                        className="mt-1.5 text-xs text-destructive"
+                      >
+                        {errors.rush}
+                      </p>
+                    ) : quote.words > 0 && !quote.rushEligible ? (
+                      <p
+                        id="rush-description"
+                        className="mt-1.5 text-xs leading-relaxed text-destructive"
+                      >
+                        {copy.order.quote.urgentBlocked}
+                      </p>
+                    ) : (
+                      <p
+                        id="rush-description"
+                        className="mt-1.5 text-xs leading-relaxed text-muted-foreground"
+                      >
+                        {copy.order.fields.rushHint}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
                       htmlFor="order-deadline"
                       className="text-sm font-medium text-foreground"
                     >
@@ -787,9 +933,7 @@ export function OrderSection() {
                           {quote.words > 0
                             ? `${quote.words.toLocaleString(
                                 locale === "zh" ? "zh-HK" : "en-HK"
-                              )} ${copy.order.quote.wordSuffix} · ${
-                                quote.units
-                              } ${copy.order.quote.unitSuffix}`
+                              )} ${copy.order.quote.wordSuffix} · ${rushLabel}`
                             : copy.order.quote.empty}
                         </p>
                       </div>
@@ -805,9 +949,34 @@ export function OrderSection() {
                       </div>
                     </div>
 
-                    {quote.minimumApplied ? (
-                      <p className="mt-2 text-[11px] text-primary">
-                        {copy.order.quote.minimumApplied}
+                    {quote.words > 0 ? (
+                      <div className="mt-3 space-y-1 border-t border-primary/15 pt-3 text-[11px] text-muted-foreground">
+                        <div className="flex items-center justify-between gap-4">
+                          <span>{copy.order.quote.baseAmount}</span>
+                          <span className="tabular-nums text-foreground">
+                            {formatHKD(quote.baseAmount, locale)}
+                          </span>
+                        </div>
+                        {quote.rushFee > 0 ? (
+                          <div className="flex items-center justify-between gap-4">
+                            <span>{copy.order.quote.rushFee}</span>
+                            <span className="tabular-nums text-foreground">
+                              {formatHKD(quote.rushFee, locale)}
+                            </span>
+                          </div>
+                        ) : null}
+                        <div className="flex items-center justify-between gap-4 pt-1 text-[11px]">
+                          <span>{copy.order.quote.total}</span>
+                          <span className="font-semibold tabular-nums text-foreground">
+                            {formatHKD(quote.amount, locale)}
+                          </span>
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {quote.words > 0 && !quote.rushEligible ? (
+                      <p className="mt-3 rounded-lg border border-destructive/30 bg-destructive/5 px-3 py-2 text-[11px] leading-relaxed text-destructive">
+                        {copy.order.quote.urgentBlocked}
                       </p>
                     ) : null}
 
@@ -903,7 +1072,9 @@ export function OrderSection() {
                       type="submit"
                       size="lg"
                       className="w-full rounded-lg"
-                      disabled={isLoading}
+                      disabled={
+                        isLoading || (quote.words > 0 && !quote.rushEligible)
+                      }
                     >
                       {isLoading ? (
                         <>

@@ -5,6 +5,7 @@ import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { OrderSection } from "@/components/order-form";
 import { Pricing } from "@/components/pricing";
+import { ServicePromise } from "@/components/service-promise";
 import { Trust } from "@/components/trust";
 import { WhyDirect } from "@/components/why-direct";
 
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Trust />
       <WhyDirect />
       <Pricing />
+      <ServicePromise />
       <OrderSection />
       <Faq />
       <Cta />
