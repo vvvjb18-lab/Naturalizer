@@ -382,9 +382,8 @@ const zh = {
   },
   cta: {
     eyebrow: "準備好交稿？",
-    title: "把草稿交給我們，保留你自己的聲音。",
-    description:
-      "先取得即時報價，或直接到 Carousell 與我們對話。",
+    title: "把草稿交給我們，少一點 AI 味。",
+    description: "先取得即時報價，或直接與我們對話。",
     primary: "立即取得報價",
     secondary: "在 WhatsApp 查詢",
     note: "≤600 字 HK$85 起 · 標準 90 分鐘 · 附 Turnitin AI 報告",
@@ -827,9 +826,8 @@ const en: Dictionary = {
   },
   cta: {
     eyebrow: "Ready to send your draft?",
-    title: "Hand over the draft. Keep your voice.",
-    description:
-      "Get an instant quote, or continue the conversation on Carousell.",
+    title: "Hand over the draft. Less AI, more you.",
+    description: "Get an instant quote, or talk to us directly.",
     primary: "Get an instant quote",
     secondary: "Chat on WhatsApp",
     note: "From HK$85 for 600 words · Standard 90-minute turnaround · Turnitin AI report included",
