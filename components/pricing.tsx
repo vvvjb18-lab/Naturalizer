@@ -45,6 +45,10 @@ export function Pricing() {
           </a>
         </div>
 
+        <p className="mx-auto mt-4 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+          {copy.pricing.turnitinNote}
+        </p>
+
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {copy.pricing.plans.map((plan, index) => {
             const featured = index === 1;

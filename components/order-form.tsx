@@ -787,9 +787,9 @@ export function OrderSection() {
                           {quote.words > 0
                             ? `${quote.words.toLocaleString(
                                 locale === "zh" ? "zh-HK" : "en-HK"
-                              )} ${copy.order.quote.words} · ${quote.units} ${
-                                copy.order.quote.units
-                              }`
+                              )} ${copy.order.quote.wordSuffix} · ${
+                                quote.units
+                              } ${copy.order.quote.unitSuffix}`
                             : copy.order.quote.empty}
                         </p>
                       </div>

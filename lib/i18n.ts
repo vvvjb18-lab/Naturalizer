@@ -43,7 +43,7 @@ const zh = {
       "本研究旨在透過對相關數據進行分析，以進一步探討影響使用者行為之各種因素。",
     after:
       "本研究分析相關數據，探討哪些因素影響使用者行為。",
-    checks: ["人手逐句校對", "保留論點與引用", "附 Turnitin AI 報告"],
+    checks: ["人手逐句校對", "保留論點與引用", "附 Turnitin AI 報告", "Turnitin 不入庫"],
   },
   features: {
     eyebrow: "服務內容",
@@ -69,7 +69,7 @@ const zh = {
       {
         title: "Turnitin AI 報告",
         description:
-          "交付修訂稿時附上修改後的 Turnitin AI 檢測報告，方便你自行判斷。",
+          "交付修訂稿時附上修改後的 Turnitin AI 檢測報告。檢測使用 No Repository 設定，稿件不會被收錄至 Turnitin 資料庫。",
       },
     ],
   },
@@ -104,6 +104,8 @@ const zh = {
       "不足 600 字 HK$65；600 字或以上以每 600 字 HK$85 計算。所有價格以港幣為單位。",
     estimateLabel: "即時字數估算",
     carousellLink: "在 Carousell 查看商品",
+    turnitinNote:
+      "Turnitin 檢測使用 No Repository 設定，提交的稿件不會被收錄至 Turnitin 資料庫；報告只作第三方參考。",
     mostPopular: "最常見",
     plans: [
       {
@@ -251,7 +253,9 @@ const zh = {
     quote: {
       title: "你的估算",
       words: "字數",
+      wordSuffix: "字",
       units: "計價單位",
+      unitSuffix: "個 600 字單位",
       total: "估算總額",
       minimumApplied: "已套用不足 600 字的最低價格",
       empty: "輸入字數後顯示報價",
@@ -261,7 +265,7 @@ const zh = {
       saveNote: "報價編號保存在此瀏覽器。",
       copy: "複製報價摘要",
       copied: "已複製",
-      note: "尚未包括特殊格式或加急需求；最終安排以確認稿件後為準。",
+      note: "不足 600 字以 HK$65 計；600 字起每 600 字 HK$85，未滿一個 600 字單位按一個單位計。最終安排以確認稿件後為準。",
     },
     submit: "建立訂單",
     submitting: "正在整理訂單…",
@@ -313,6 +317,11 @@ const zh = {
         question: "會保證降低 AI 檢測率嗎？",
         answer:
           "不會保證任何檢測器分數。我們透過人手修訂減少機械句式、改善節奏與表達，並附上修改後的 Turnitin AI 報告供你參考。不同工具、版本與取樣方式都可能得出不同結果。",
+      },
+      {
+        question: "Turnitin 報告會把稿件收錄入庫嗎？",
+        answer:
+          "不會。我們使用 No Repository 設定，提交的稿件不會被收錄至 Turnitin 資料庫；報告只作第三方參考，實際設定及報告內容以 Turnitin 為準。",
       },
       {
         question: "你們會代寫嗎？",
@@ -416,6 +425,7 @@ const en: Dictionary = {
       "Human-reviewed line by line",
       "Argument and citations preserved",
       "Turnitin AI report included",
+      "Not stored in Turnitin",
     ],
   },
   features: {
@@ -442,7 +452,7 @@ const en: Dictionary = {
       {
         title: "Turnitin AI report",
         description:
-          "Every revised draft comes with a post-revision Turnitin AI report so you can review the results yourself.",
+          "Every revised draft includes a post-revision Turnitin AI report. Checks use a No Repository setting, so submissions are not added to the Turnitin database.",
       },
     ],
   },
@@ -477,6 +487,8 @@ const en: Dictionary = {
       "Under 600 words is HK$65. From 600 words, it is HK$85 per 600-word unit. All prices are in Hong Kong dollars.",
     estimateLabel: "Instant word-count estimate",
     carousellLink: "View on Carousell",
+    turnitinNote:
+      "Turnitin checks use a No Repository setting, so submitted drafts are not added to the Turnitin database. Reports are third-party references.",
     mostPopular: "Most common",
     plans: [
       {
@@ -626,7 +638,9 @@ const en: Dictionary = {
     quote: {
       title: "Your estimate",
       words: "Words",
-      units: "Billable units",
+      wordSuffix: "words",
+      units: "Billing units",
+      unitSuffix: "× 600 words",
       total: "Estimated total",
       minimumApplied: "Minimum price applied for drafts under 600 words",
       empty: "Enter a word count to see your quote",
@@ -636,7 +650,7 @@ const en: Dictionary = {
       saveNote: "The quote ID is saved in this browser.",
       copy: "Copy quote summary",
       copied: "Copied",
-      note: "Special formatting or rush requests are not included. Final arrangements are confirmed once the draft is reviewed.",
+      note: "Under 600 words is HK$65; from 600 words the rate is HK$85 per 600 words, rounded up. Final arrangements are confirmed once the draft is reviewed.",
     },
     submit: "Create order summary",
     submitting: "Preparing your order…",
@@ -689,6 +703,11 @@ const en: Dictionary = {
         question: "Can you guarantee a lower AI detection score?",
         answer:
           "No. We cannot guarantee any detector score. Human editing removes mechanical phrasing and improves rhythm and expression, and we include a post-revision Turnitin AI report for reference. Different tools, versions, and sampling methods can produce different results.",
+      },
+      {
+        question: "Will a Turnitin check add my draft to its database?",
+        answer:
+          "No. We use a No Repository setting, so submitted drafts are not added to the Turnitin database. Reports are third-party references; the actual settings and report contents are subject to Turnitin.",
       },
       {
         question: "Do you write assignments for students?",
