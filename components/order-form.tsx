@@ -510,14 +510,10 @@ export function OrderSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                    {result.mode === "received"
-                      ? copy.order.success.receivedTitle
-                      : copy.order.success.handoffTitle}
+                    {copy.order.success.handoffTitle}
                   </h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {result.mode === "received"
-                      ? copy.order.success.receivedText
-                      : copy.order.success.handoffText}
+                    {copy.order.success.handoffText}
                   </p>
                 </div>
               </div>
@@ -576,6 +572,17 @@ export function OrderSection() {
               </dl>
 
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                <Button asChild className="flex-1">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => void copySummary()}
+                  >
+                    {copy.order.success.whatsapp}
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </Button>
                 <Button
                   type="button"
                   variant="outline"
@@ -588,16 +595,6 @@ export function OrderSection() {
                     <Copy className="h-4 w-4" aria-hidden="true" />
                   )}
                   {copied ? copy.order.success.copied : copy.order.success.copy}
-                </Button>
-                <Button asChild className="flex-1">
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {copy.order.success.whatsapp}
-                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                  </a>
                 </Button>
               </div>
 
@@ -612,16 +609,14 @@ export function OrderSection() {
                 </a>
               </p>
 
-              {result.mode === "handoff" ? (
-                <div className="mt-5 rounded-xl border border-border bg-background p-4">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
-                    {copy.order.success.next}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {copy.order.success.nextText}
-                  </p>
-                </div>
-              ) : null}
+              <div className="mt-5 rounded-xl border border-border bg-background p-4">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
+                  {copy.order.success.next}
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {copy.order.success.nextText}
+                </p>
+              </div>
 
               <button
                 type="button"

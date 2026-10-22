@@ -298,24 +298,24 @@ const zh = {
     },
     success: {
       handoffTitle: "訂單摘要已建立",
-      receivedTitle: "訂單已送出",
+      receivedTitle: "訂單摘要已建立",
       handoffText:
-        "請將訂單編號及原稿透過 WhatsApp 或 Carousell 傳送給我們。我們確認稿件與交期後，才會安排付款與修訂。",
+        "訂單摘要只供你聯絡我們時使用。複製後貼到 WhatsApp，並附上原稿；我們確認稿件、交期與付款後才開始修訂。",
       receivedText:
-        "請保留訂單編號，並透過 WhatsApp 或 Carousell 傳送原稿；我們確認稿件、交期與付款後才開始修訂。",
+        "訂單摘要只供你聯絡我們時使用。複製後貼到 WhatsApp，並附上原稿；我們確認稿件、交期與付款後才開始修訂。",
       orderId: "訂單編號",
       quote: "估算總額",
       words: "字數",
       rush: "時效",
       rushFee: "急單附加費",
-      copy: "複製訂單摘要",
+      copy: "複製訂單信息",
       copied: "已複製",
       carousell: "前往 Carousell 對話",
-      whatsapp: "在 WhatsApp 傳送訂單",
+      whatsapp: "複製並開啟 WhatsApp",
       reset: "建立另一張訂單",
       next: "下一步",
       nextText:
-        "先複製訂單摘要，再透過 WhatsApp 或 Carousell 傳送，並附上原稿檔案。",
+        "訂單信息會複製到剪貼簿；貼到 WhatsApp 對話後，附上原稿檔案即可。",
     },
   },
   faq: {
@@ -749,24 +749,24 @@ const en: Dictionary = {
     },
     success: {
       handoffTitle: "Your order summary is ready",
-      receivedTitle: "Order received",
+      receivedTitle: "Your order summary is ready",
       handoffText:
-        "Send your order number and draft to us through WhatsApp or Carousell. We will confirm the draft, turnaround, and payment before any work begins.",
+        "Your order summary is for contacting us. Copy it into WhatsApp and attach your draft; we will confirm the draft, turnaround, and payment before editing begins.",
       receivedText:
-        "Keep your order number and send the draft through WhatsApp or Carousell. We will confirm the draft, turnaround, and payment before editing begins.",
+        "Your order summary is for contacting us. Copy it into WhatsApp and attach your draft; we will confirm the draft, turnaround, and payment before editing begins.",
       orderId: "Order number",
       quote: "Estimated total",
       words: "Word count",
       rush: "Turnaround",
       rushFee: "Rush fee",
-      copy: "Copy order summary",
+      copy: "Copy order details",
       copied: "Copied",
       carousell: "Continue on Carousell",
-      whatsapp: "Send order on WhatsApp",
+      whatsapp: "Copy & open WhatsApp",
       reset: "Create another order",
       next: "Next step",
       nextText:
-        "Copy the summary, send it through WhatsApp or Carousell, and attach your draft.",
+        "The order details are copied to your clipboard. Paste them into the WhatsApp chat and attach your draft.",
     },
   },
   faq: {
