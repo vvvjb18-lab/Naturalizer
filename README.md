@@ -141,6 +141,12 @@ The schema is idempotent for tables and indexes, and includes `alter table ... a
 
 This first version deliberately does not include file uploads, fine-grained role permissions, or password reset. Those should be added after the storage and workflow are validated. Account changes are made through `ADMIN_USERS` and a redeploy.
 
+## Mobile operations app
+
+A private Expo / React Native app for iOS and Android lives in [`mobile/`](mobile/). It uses the existing admin accounts through a Bearer-token API, stores the session in the device secure store, and supports order search/filtering, order detail, status updates, audit history, quotes, and account settings.
+
+The app calls the production API by default. See [`mobile/README.md`](mobile/README.md) for local development, EAS build commands, and store submission requirements.
+
 ## Bilingual and theme behaviour
 
 - Content lives in [`lib/i18n.ts`](lib/i18n.ts). Both languages share the same shape, so adding a field requires updating both locales.
@@ -159,6 +165,7 @@ app/
     privacy/page.tsx   Privacy policy route
   api/orders/route.ts  Order validation, storage, optional webhook forwarding
   api/quote/route.ts   Structured quote IDs, storage, optional quote webhook
+  api/mobile/          Bearer-token API for the iOS / Android operations app
   ops/                 Private admin route group
     login/             Password login and server action
     (dashboard)/       Authenticated dashboard, orders, quotes
@@ -195,6 +202,11 @@ lib/
   utils.ts             cn() class merge helper
 supabase/
   schema.sql           Tables, indexes, and RLS for the admin data
+mobile/
+  App.tsx              Expo app shell, auth bootstrap, tabs, order detail route
+  src/api.ts           Typed client for the mobile admin API
+  src/screens/         Login, orders, order detail, quotes, account
+  eas.json             EAS build profiles for iOS and Android
 scripts/
   hash-admin-password.mjs  Generate scrypt hashes for ADMIN_USERS
 ```

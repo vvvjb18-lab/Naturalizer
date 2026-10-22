@@ -110,7 +110,7 @@ function sign(payload: string) {
     .digest("base64url");
 }
 
-export function createAdminSession(user: AdminIdentity) {
+function createSessionToken(user: AdminIdentity) {
   const exp = Date.now() + SESSION_TTL_SECONDS * 1000;
   const payload = Buffer.from(
     JSON.stringify({
@@ -120,9 +120,12 @@ export function createAdminSession(user: AdminIdentity) {
       exp,
     })
   ).toString("base64url");
-  const token = `${payload}.${sign(payload)}`;
 
-  cookies().set(COOKIE_NAME, token, {
+  return `${payload}.${sign(payload)}`;
+}
+
+export function createAdminSession(user: AdminIdentity) {
+  cookies().set(COOKIE_NAME, createSessionToken(user), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -131,11 +134,12 @@ export function createAdminSession(user: AdminIdentity) {
   });
 }
 
-export function getAdminSession(): AdminIdentity | null {
-  if (!isAdminConfigured()) return null;
+export function createAdminToken(user: AdminIdentity) {
+  return createSessionToken(user);
+}
 
-  const token = cookies().get(COOKIE_NAME)?.value;
-  if (!token) return null;
+export function verifyAdminToken(token: string): AdminIdentity | null {
+  if (!isAdminConfigured()) return null;
 
   const [payload, signature, ...rest] = token.split(".");
   if (!payload || !signature || rest.length > 0) return null;
@@ -165,6 +169,13 @@ export function getAdminSession(): AdminIdentity | null {
   } catch {
     return null;
   }
+}
+
+export function getAdminSession(): AdminIdentity | null {
+  const token = cookies().get(COOKIE_NAME)?.value;
+  if (!token) return null;
+
+  return verifyAdminToken(token);
 }
 
 export function hasAdminSession() {

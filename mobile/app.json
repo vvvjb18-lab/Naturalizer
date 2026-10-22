@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Naturalizer Ops",
+    "slug": "naturalizer-ops",
+    "scheme": "naturalizerops",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#070b12",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.naturalizer.ops",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.naturalizer.ops",
+      "adaptiveIcon": {
+        "backgroundColor": "#070b12",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain",
+          "backgroundColor": "#070b12"
+        }
+      ]
+    ]
+  }
+}
