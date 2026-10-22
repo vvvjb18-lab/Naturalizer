@@ -2,6 +2,8 @@ import Link from "next/link";
 import { BarChart3, ExternalLink, LogOut, ReceiptText } from "lucide-react";
 
 import { InstallPrompt } from "@/components/admin/install-prompt";
+import { NotificationSetup } from "@/components/admin/notification-setup";
+import { OpsAutoRefresh } from "@/components/admin/ops-auto-refresh";
 import { ThemeToggle } from "@/components/site-controls";
 import { Button } from "@/components/ui/button";
 import { requireAdmin } from "@/lib/admin/session";
@@ -79,8 +81,12 @@ export default function OpsDashboardLayout({
       </header>
 
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+        <NotificationSetup
+          vapidPublicKey={process.env.VAPID_PUBLIC_KEY ?? ""}
+        />
         {children}
       </main>
+      <OpsAutoRefresh />
       <InstallPrompt />
     </div>
   );

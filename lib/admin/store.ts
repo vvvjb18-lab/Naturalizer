@@ -35,6 +35,7 @@ export interface AdminQuote {
 export interface AdminOrder {
   id: string;
   orderId: string;
+  trackingCode: string | null;
   name: string;
   contact: string;
   referral: string;
@@ -84,6 +85,7 @@ export interface NewQuote {
 
 export interface NewOrder {
   orderId: string;
+  trackingCode: string;
   name: string;
   contact: string;
   referral: string;
@@ -105,10 +107,29 @@ export interface NewOrder {
 
 type StorageMode = "supabase" | "local" | "disabled";
 
+export interface PushSubscriptionRecord {
+  id: string;
+  endpoint: string;
+  p256dh: string;
+  auth: string;
+  adminId: string | null;
+  userAgent: string | null;
+  createdAt: string;
+}
+
+export interface NewPushSubscription {
+  endpoint: string;
+  p256dh: string;
+  auth: string;
+  adminId: string;
+  userAgent: string;
+}
+
 interface LocalDatabase {
   orders: AdminOrder[];
   quotes: AdminQuote[];
   events: AdminOrderEvent[];
+  pushSubscriptions: PushSubscriptionRecord[];
 }
 
 const DATA_DIR = path.join(process.cwd(), ".data");
@@ -151,7 +172,13 @@ function getSupabase() {
     supabaseClient = createClient(
       process.env.SUPABASE_URL as string,
       process.env.SUPABASE_SERVICE_ROLE_KEY as string,
-      { auth: { persistSession: false, autoRefreshToken: false } }
+      {
+        auth: { persistSession: false, autoRefreshToken: false },
+        global: {
+          fetch: (input, init) =>
+            fetch(input, { ...init, cache: "no-store" }),
+        },
+      }
     );
   }
 
@@ -167,10 +194,13 @@ async function readLocalDatabase(): Promise<LocalDatabase> {
       orders: Array.isArray(parsed.orders) ? parsed.orders : [],
       quotes: Array.isArray(parsed.quotes) ? parsed.quotes : [],
       events: Array.isArray(parsed.events) ? parsed.events : [],
+      pushSubscriptions: Array.isArray(parsed.pushSubscriptions)
+        ? parsed.pushSubscriptions
+        : [],
     };
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return { orders: [], quotes: [], events: [] };
+      return { orders: [], quotes: [], events: [], pushSubscriptions: [] };
     }
     throw error;
   }
@@ -216,6 +246,7 @@ function mapOrderRow(row: Record<string, unknown>): AdminOrder {
   return {
     id: String(row.id),
     orderId: String(row.order_id),
+    trackingCode: row.tracking_code ? String(row.tracking_code) : null,
     name: String(row.name),
     contact: String(row.contact),
     referral: row.referral_source ? String(row.referral_source) : "",
@@ -303,6 +334,7 @@ export async function saveOrder(record: NewOrder) {
       .upsert(
         {
           order_id: record.orderId,
+          tracking_code: record.trackingCode,
           name: record.name,
           contact: record.contact,
           referral_source: record.referral,
@@ -399,6 +431,118 @@ export async function getOrder(id: string): Promise<AdminOrder | null> {
 
   const data = await readLocalDatabase();
   return data.orders.find((order) => order.id === id) ?? null;
+}
+
+export async function getOrderByTrackingCode(
+  trackingCode: string
+): Promise<AdminOrder | null> {
+  const mode = getStorageMode();
+  if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  if (mode === "supabase") {
+    const { data, error } = await getSupabase()
+      .from("orders")
+      .select("*")
+      .eq("tracking_code", trackingCode)
+      .maybeSingle();
+
+    if (error) throw new Error(error.message);
+    return data ? mapOrderRow(data) : null;
+  }
+
+  const data = await readLocalDatabase();
+  return (
+    data.orders.find((order) => order.trackingCode === trackingCode) ?? null
+  );
+}
+
+export async function savePushSubscription(record: NewPushSubscription) {
+  const mode = getStorageMode();
+  if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  const createdAt = new Date().toISOString();
+
+  if (mode === "supabase") {
+    const { error } = await getSupabase().from("push_subscriptions").upsert(
+      {
+        endpoint: record.endpoint,
+        p256dh: record.p256dh,
+        auth: record.auth,
+        admin_id: record.adminId,
+        user_agent: record.userAgent,
+        created_at: createdAt,
+      },
+      { onConflict: "endpoint" }
+    );
+
+    if (error) throw new Error(error.message);
+    return;
+  }
+
+  await withLocalWriteLock(async () => {
+    const data = await readLocalDatabase();
+    data.pushSubscriptions = data.pushSubscriptions.filter(
+      (subscription) => subscription.endpoint !== record.endpoint
+    );
+    data.pushSubscriptions.unshift({
+      ...record,
+      id: randomUUID(),
+      createdAt,
+    });
+    await writeLocalDatabase(data);
+  });
+}
+
+export async function listPushSubscriptions(): Promise<
+  PushSubscriptionRecord[]
+> {
+  const mode = getStorageMode();
+  if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  if (mode === "supabase") {
+    const { data, error } = await getSupabase()
+      .from("push_subscriptions")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) throw new Error(error.message);
+
+    return (data ?? []).map((row) => ({
+      id: String(row.id),
+      endpoint: String(row.endpoint),
+      p256dh: String(row.p256dh),
+      auth: String(row.auth),
+      adminId: row.admin_id ? String(row.admin_id) : null,
+      userAgent: row.user_agent ? String(row.user_agent) : null,
+      createdAt: String(row.created_at),
+    }));
+  }
+
+  const data = await readLocalDatabase();
+  return data.pushSubscriptions;
+}
+
+export async function deletePushSubscription(endpoint: string) {
+  const mode = getStorageMode();
+  if (mode === "disabled") throw new StorageNotConfiguredError();
+
+  if (mode === "supabase") {
+    const { error } = await getSupabase()
+      .from("push_subscriptions")
+      .delete()
+      .eq("endpoint", endpoint);
+
+    if (error) throw new Error(error.message);
+    return;
+  }
+
+  await withLocalWriteLock(async () => {
+    const data = await readLocalDatabase();
+    data.pushSubscriptions = data.pushSubscriptions.filter(
+      (subscription) => subscription.endpoint !== endpoint
+    );
+    await writeLocalDatabase(data);
+  });
 }
 
 export async function updateOrderStatus(

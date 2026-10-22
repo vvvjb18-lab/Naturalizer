@@ -1,4 +1,4 @@
-const CACHE = "naturalizer-ops-v1";
+const CACHE = "naturalizer-ops-v2";
 const PRECACHE = [
   "/ops/manifest.webmanifest",
   "/ops/icon-192.png",
@@ -92,5 +92,53 @@ self.addEventListener("fetch", (event) => {
         return response;
       });
     })
+  );
+});
+
+self.addEventListener("push", (event) => {
+  let payload = {};
+
+  try {
+    payload = event.data ? event.data.json() : {};
+  } catch {
+    payload = {
+      title: "Naturalizer Ops",
+      body: "有新訂單或後台更新。",
+    };
+  }
+
+  const title = payload.title || "Naturalizer Ops";
+  const options = {
+    body: payload.body || "請開啟後台查看。",
+    icon: payload.icon || "/ops/icon-192.png",
+    badge: payload.badge || "/ops/icon-192.png",
+    tag: payload.tag || "naturalizer-ops",
+    data: { url: payload.url || "/ops" },
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+
+  const target = new URL(
+    event.notification.data?.url || "/ops",
+    self.location.origin
+  ).href;
+
+  event.waitUntil(
+    clients
+      .matchAll({ type: "window", includeUncontrolled: true })
+      .then((windows) => {
+        for (const client of windows) {
+          if (client.url.startsWith(self.location.origin) && "focus" in client) {
+            client.navigate(target).catch(() => {});
+            return client.focus();
+          }
+        }
+
+        return clients.openWindow(target);
+      })
   );
 });

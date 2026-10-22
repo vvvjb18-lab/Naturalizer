@@ -22,6 +22,7 @@ export async function GET() {
     const orders = await listOrders(5000);
     const header = [
       "Order ID",
+      "Tracking code",
       "Created at",
       "Name",
       "Contact",
@@ -45,6 +46,7 @@ export async function GET() {
 
     const rows = orders.map((order) => [
       order.orderId,
+      order.trackingCode,
       order.createdAt,
       order.name,
       order.contact,

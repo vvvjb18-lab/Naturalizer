@@ -20,6 +20,7 @@ export function SiteFooter() {
     { href: "/#about", label: copy.footer.about },
     { href: "/#pricing", label: copy.footer.pricing },
     { href: "/#order", label: copy.footer.order },
+    { href: "/track", label: copy.footer.track },
     { href: "/#faq", label: copy.footer.faq },
   ];
 

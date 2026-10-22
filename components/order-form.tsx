@@ -27,6 +27,7 @@ import {
   CAROUSELL_LISTING_URL,
   CAROUSELL_SELLER_URL,
   SELLER_HANDLE,
+  SITE_URL,
   WHATSAPP_URL,
 } from "@/lib/site";
 
@@ -67,6 +68,7 @@ interface FormErrors {
 
 interface OrderResult {
   orderId: string;
+  trackingCode: string;
   mode: "handoff" | "received";
   quote: number;
   baseAmount: number;
@@ -286,6 +288,8 @@ export function OrderSection() {
         ? `${copy.order.quote.rushFee}: ${formatHKD(order.rushFee, locale)}`
         : null,
       `${copy.order.quote.total}: ${formatHKD(order.quote, locale)}`,
+      `${copy.order.success.trackingCode}: ${order.trackingCode}`,
+      `${copy.order.success.track}: ${SITE_URL}/track?code=${order.trackingCode}`,
       values.deadline
         ? `${copy.order.fields.deadline}: ${values.deadline}`
         : null,
@@ -325,6 +329,7 @@ export function OrderSection() {
         ok?: boolean;
         mode?: "handoff" | "received";
         orderId?: string;
+        trackingCode?: string;
         quote?: number;
         baseAmount?: number;
         rushFee?: number;
@@ -339,6 +344,7 @@ export function OrderSection() {
 
       setResult({
         orderId: data.orderId,
+        trackingCode: data.trackingCode ?? "",
         mode: data.mode === "received" ? "received" : "handoff",
         quote: data.quote ?? quote.amount,
         baseAmount: data.baseAmount ?? quote.baseAmount,
@@ -529,6 +535,14 @@ export function OrderSection() {
                 </div>
                 <div className="flex items-center justify-between gap-4 py-3">
                   <dt className="text-xs text-muted-foreground">
+                    {copy.order.success.trackingCode}
+                  </dt>
+                  <dd className="font-mono text-xs font-medium text-foreground">
+                    {result.trackingCode || "—"}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-4 py-3">
+                  <dt className="text-xs text-muted-foreground">
                     {copy.order.success.words}
                   </dt>
                   <dd className="text-sm tabular-nums text-foreground">
@@ -616,6 +630,14 @@ export function OrderSection() {
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                   {copy.order.success.nextText}
                 </p>
+                {result.trackingCode ? (
+                  <Link
+                    href={`/track?code=${result.trackingCode}`}
+                    className="mt-3 inline-flex text-xs font-medium text-primary underline decoration-primary/30 underline-offset-4"
+                  >
+                    {copy.order.success.track}
+                  </Link>
+                ) : null}
               </div>
 
               <button

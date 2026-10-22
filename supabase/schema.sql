@@ -24,6 +24,7 @@ create table if not exists public.quotes (
 create table if not exists public.orders (
   id uuid primary key default gen_random_uuid(),
   order_id text not null unique,
+  tracking_code text unique,
   name text not null,
   contact text not null default '',
   referral_source text not null default '',
@@ -52,7 +53,12 @@ create table if not exists public.orders (
 alter table public.orders add column if not exists updated_by text;
 alter table public.orders add column if not exists updated_at timestamptz;
 alter table public.orders add column if not exists referral_source text not null default '';
+alter table public.orders add column if not exists tracking_code text;
 alter table public.orders alter column contact set default '';
+
+create unique index if not exists orders_tracking_code_idx
+  on public.orders (tracking_code)
+  where tracking_code is not null;
 
 -- Upgrade pricing columns for tiered pricing and rush fees. Existing rows
 -- keep their original total in amount/quote and use it as the base amount.
@@ -98,8 +104,22 @@ create table if not exists public.order_events (
 create index if not exists order_events_order_id_idx
   on public.order_events (order_id, created_at desc);
 
+create table if not exists public.push_subscriptions (
+  id uuid primary key default gen_random_uuid(),
+  endpoint text not null unique,
+  p256dh text not null,
+  auth text not null,
+  admin_id text,
+  user_agent text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists push_subscriptions_created_at_idx
+  on public.push_subscriptions (created_at desc);
+
 -- No policies are added: public keys cannot read or write these tables.
 -- The server-only service role used by /api and /ops bypasses RLS.
 alter table public.quotes enable row level security;
 alter table public.orders enable row level security;
 alter table public.order_events enable row level security;
+alter table public.push_subscriptions enable row level security;

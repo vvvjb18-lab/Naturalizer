@@ -135,6 +135,14 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
+For new-order push notifications, also set:
+```bash
+VAPID_PUBLIC_KEY=your-public-key
+VAPID_PRIVATE_KEY=your-private-key
+VAPID_SUBJECT=mailto:you@example.com
+```
+Generate the pair with `npx web-push generate-vapid-keys`. Keep the private key server-only; do not prefix it with `NEXT_PUBLIC_`.
+
 `SUPABASE_SERVICE_ROLE_KEY` must remain server-only. Never prefix it with `NEXT_PUBLIC_`. The public application uses server routes to write orders and quotes; the browser never receives the service role key or reads the tables directly.
 
 The schema is idempotent for tables and indexes, and includes `alter table ... add column if not exists` plus the `order_events` table. Re-run it after upgrading an existing database so the audit timeline works.
@@ -153,6 +161,25 @@ This first version deliberately does not include file uploads, fine-grained role
 
 To install, open `https://naturalizerplatform.vercel.app/ops` after logging in. On iPhone, use Safari's Share menu → **加入主頁**. On Android, use Chrome's menu → **安裝應用程式／加入主頁**. Offline mode shows a connection notice; orders are always read live from Supabase.
 
+## Order tracking and push notifications
+
+Each new order receives a random public `tracking_code` such as `TRK-XJE6K-7KEMP`. Customers can open `/track` and enter that code without creating an account. The tracking page shows only the order status, word count, turnaround, and public order number; it never exposes the customer name, contact details, notes, or internal database ID.
+
+- `GET /api/track/[code]` resolves the code and maps the internal status to a customer-facing stage.
+- The page polls every 10 seconds, so an admin status update appears without a manual refresh.
+- The public waitlist stages are: order received, quote sent, confirmed, in progress, completed.
+- Tracking codes are generated with `lib/orders/tracking.ts` and stored in `orders.tracking_code`.
+
+The admin PWA can receive Web Push notifications for new orders:
+
+- `components/admin/notification-setup.tsx` asks for notification permission and stores a push subscription.
+- `app/api/ops/push/subscribe` stores or removes subscriptions in `push_subscriptions`.
+- `lib/admin/push.ts` sends a notification when a new order is stored.
+- `public/ops-sw.js` displays the notification and opens `/ops` when clicked.
+- The order and quote lists refresh every 15 seconds while visible.
+
+On iPhone, Web Push requires iOS 16.4 or later and the website must first be added to the Home Screen. On Android, Chrome can enable notifications from the normal site as well as the installed PWA.
+
 ## Bilingual and theme behaviour
 
 - Content lives in [`lib/i18n.ts`](lib/i18n.ts). Both languages share the same shape, so adding a field requires updating both locales.
@@ -169,8 +196,11 @@ app/
     page.tsx           Landing-page composition
     terms/page.tsx     Terms of service route
     privacy/page.tsx   Privacy policy route
-  api/orders/route.ts  Order validation, storage, optional webhook forwarding
+    track/page.tsx     Public order-status lookup
+  api/orders/route.ts  Order validation, tracking code, storage, push
   api/quote/route.ts   Structured quote IDs, storage, optional quote webhook
+  api/track/[code]/    Public tracking status endpoint
+  api/ops/push/        Admin push subscription and test endpoints
   ops/                 Private admin route group and installable PWA
     login/             Password login and server action
     (dashboard)/       Authenticated dashboard, orders, quotes
@@ -188,7 +218,8 @@ components/
   trust.tsx            About and service commitments
   why-direct.tsx       Website vs Carousell comparison
   pricing.tsx          Tiered word-count pricing table and examples
-  order-form.tsx       Quote calculator, order form, success state
+  order-form.tsx       Quote calculator, order form, tracking code, success state
+  track-order.tsx      Public tracking code lookup and live status stepper
   legal-page.tsx       Bilingual legal document layout
   faq.tsx              Accordion FAQ
   cta.tsx              Closing call to action
@@ -197,6 +228,8 @@ components/
     storage-notice.tsx Configuration notice for missing storage
     pwa-register.tsx   Registers the /ops service worker
     install-prompt.tsx Home-screen install hint for iOS and Android
+    notification-setup.tsx Web Push permission and subscription controls
+    ops-auto-refresh.tsx   Refreshes order and quote lists while visible
   ui/                  Button, card, badge, input, textarea, accordion
 lib/
   i18n.ts              Chinese and English copy
@@ -206,11 +239,14 @@ lib/
   admin/session.ts     Admin password verification and signed session
   admin/store.ts       Local JSON / Supabase persistence layer
   admin/labels.ts      Status labels and date/amount formatting
+  admin/push.ts        Web Push delivery to admin devices
+  orders/tracking.ts   Public tracking code generation and normalisation
+  orders/public-status.ts Customer-facing status stages
   utils.ts             cn() class merge helper
 public/
   ops/manifest.webmanifest  Installable admin PWA manifest
   ops/icon-*.png            Home-screen icons
-  ops-sw.js                 Static-asset cache and offline fallback
+  ops-sw.js                 Static cache, offline fallback, push display
 supabase/
   schema.sql           Tables, indexes, and RLS for the admin data
 scripts/
@@ -235,6 +271,11 @@ ADMIN_USERS=[{"id":"owner","name":"Owner","username":"owner","role":"owner","pas
 ADMIN_SESSION_SECRET=a-random-string-of-at-least-32-characters
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Web Push for new-order notifications
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+VAPID_SUBJECT=mailto:you@example.com
 
 # Optional automation
 ORDER_WEBHOOK_URL=

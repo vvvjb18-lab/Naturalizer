@@ -4,7 +4,9 @@ import {
   saveOrder,
   StorageNotConfiguredError,
 } from "@/lib/admin/store";
-import { calculateQuote, isRushTier } from "@/lib/pricing";
+import { sendPushToAdmins } from "@/lib/admin/push";
+import { generateTrackingCode } from "@/lib/orders/tracking";
+import { calculateQuote, formatHKD, isRushTier } from "@/lib/pricing";
 
 export const runtime = "nodejs";
 
@@ -99,9 +101,11 @@ export async function POST(request: Request) {
     .toISOString()
     .slice(2, 10)
     .replace(/-/g, "")}-${crypto.randomUUID().slice(0, 4).toUpperCase()}`;
+  const trackingCode = generateTrackingCode();
 
   const order = {
     orderId,
+    trackingCode,
     createdAt: new Date().toISOString(),
     name,
     contact,
@@ -132,6 +136,22 @@ export async function POST(request: Request) {
     }
   }
 
+  if (stored) {
+    try {
+      await sendPushToAdmins({
+        title: "新訂單",
+        body: `${orderId} · ${quote.words} 字 · ${formatHKD(
+          quote.amount,
+          "zh"
+        )}`,
+        url: "/ops",
+        tag: orderId,
+      });
+    } catch (error) {
+      console.error("New order push failed", error);
+    }
+  }
+
   const webhookUrl = process.env.ORDER_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -140,6 +160,7 @@ export async function POST(request: Request) {
         ok: true,
         mode: stored ? "received" : "handoff",
         orderId,
+        trackingCode,
         quote: quote.amount,
         baseAmount: quote.baseAmount,
         rushFee: quote.rushFee,
@@ -178,6 +199,7 @@ export async function POST(request: Request) {
     ok: true,
     mode: "received",
     orderId,
+    trackingCode,
     quote: quote.amount,
     baseAmount: quote.baseAmount,
     rushFee: quote.rushFee,

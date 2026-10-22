@@ -99,6 +99,11 @@ export default async function OpsOrderPage({
 
   const rows = [
     { label: "訂單編號", value: order.orderId, mono: true },
+    {
+      label: "追蹤編號",
+      value: order.trackingCode || "—",
+      mono: true,
+    },
     { label: "稱呼", value: order.name },
     { label: "聯絡方式", value: order.contact || "未提供" },
     {
