@@ -112,7 +112,7 @@ const zh = {
       { range: "≤600 字", rate: "HK$85", note: "起價 / 錨點" },
       { range: "601–1,200 字", rate: "超出部分 $0.08/字", note: "" },
       { range: "1,201–1,800 字", rate: "超出部分 $0.07/字", note: "" },
-      { range: "1,801 字以上", rate: "超出部分 $0.06/字", note: "地板，不再下降" },
+      { range: "1,801 字以上", rate: "超出部分 $0.06/字", note: "" },
     ],
     examplesLabel: "估價例子",
     examples: [
@@ -553,7 +553,7 @@ const en: Dictionary = {
       { range: "Up to 600 words", rate: "HK$85", note: "Base price / anchor" },
       { range: "601–1,200 words", rate: "$0.08 per extra word", note: "" },
       { range: "1,201–1,800 words", rate: "$0.07 per extra word", note: "" },
-      { range: "1,801+ words", rate: "$0.06 per extra word", note: "Rate floor" },
+      { range: "1,801+ words", rate: "$0.06 per extra word", note: "" },
     ],
     examplesLabel: "Quote examples",
     examples: [
