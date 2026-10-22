@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
   Check,
@@ -27,7 +27,7 @@ import {
   CAROUSELL_LISTING_URL,
   CAROUSELL_SELLER_URL,
   SELLER_HANDLE,
-  SITE_URL,
+  whatsAppUrl,
   WHATSAPP_URL,
 } from "@/lib/site";
 
@@ -66,36 +66,6 @@ interface FormErrors {
   form?: string;
 }
 
-interface OrderResult {
-  orderId: string;
-  trackingCode: string;
-  mode: "handoff" | "received";
-  quote: number;
-  baseAmount: number;
-  rushFee: number;
-  rush: RushTier;
-  rushMinutes: number;
-  words: number;
-}
-
-interface QuoteApiResponse {
-  ok: boolean;
-  stored: boolean;
-  quoteId: string;
-  expiresAt: string;
-  pricing: {
-    amount: number;
-    baseAmount: number;
-    rushFee: number;
-    rush: RushTier;
-    rushMinutes: number;
-    rushEligible: boolean;
-    words: number;
-  };
-}
-
-type QuoteStatus = "idle" | "loading" | "done" | "error";
-
 const languageValues: LanguageValue[] = ["zh", "en", "bilingual"];
 const documentValues: DocumentValue[] = [
   "essay",
@@ -122,19 +92,17 @@ const inputClass =
 const selectClass = `${inputClass} appearance-none pr-9`;
 
 /**
- * The order intake. A local quote is calculated immediately, then the form
- * posts to /api/orders. The API forwards to ORDER_WEBHOOK_URL when present;
- * otherwise the success screen turns the submission into a Carousell handoff.
+ * Inquiry-mode intake. The quote is calculated locally and the brief is
+ * copied into WhatsApp; no order is created in the database from this form.
+ * The stored order flow remains available on the `order-flow-v1` git tag.
  */
 export function OrderSection() {
   const { locale, copy } = useSite();
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [result, setResult] = useState<OrderResult | null>(null);
+  const [summary, setSummary] = useState("");
   const [copied, setCopied] = useState(false);
-  const [serverQuote, setServerQuote] = useState<QuoteApiResponse | null>(null);
-  const [quoteStatus, setQuoteStatus] = useState<QuoteStatus>("idle");
   const [quoteCopied, setQuoteCopied] = useState(false);
 
   const wordCount = Number.parseInt(values.words, 10);
@@ -146,86 +114,6 @@ export function OrderSection() {
       ),
     [wordCount, values.rush]
   );
-
-  useEffect(() => {
-    if (!Number.isFinite(wordCount) || wordCount < 1 || !quote.rushEligible) {
-      setServerQuote(null);
-      setQuoteStatus("idle");
-      setQuoteCopied(false);
-      return;
-    }
-
-    const controller = new AbortController();
-    setServerQuote(null);
-    setQuoteCopied(false);
-    setQuoteStatus("loading");
-
-    const timer = setTimeout(async () => {
-      try {
-        const response = await fetch("/api/quote", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            words: wordCount,
-            language: values.language,
-            documentType: values.documentType,
-            rush: values.rush,
-          }),
-          signal: controller.signal,
-        });
-
-        const data = (await response.json().catch(() => ({}))) as {
-          ok?: boolean;
-          stored?: boolean;
-          quoteId?: string;
-          expiresAt?: string;
-          pricing?: QuoteApiResponse["pricing"];
-        };
-
-        if (!response.ok || !data.ok || !data.quoteId || !data.pricing) {
-          throw new Error("Quote request failed");
-        }
-
-        const nextQuote: QuoteApiResponse = {
-          ok: true,
-          stored: Boolean(data.stored),
-          quoteId: data.quoteId,
-          expiresAt: data.expiresAt ?? "",
-          pricing: data.pricing,
-        };
-
-        setServerQuote(nextQuote);
-        setQuoteStatus("done");
-
-        try {
-          const key = "naturalizer-quotes";
-          const previous = JSON.parse(window.localStorage.getItem(key) ?? "[]");
-          const records = Array.isArray(previous) ? previous : [];
-          window.localStorage.setItem(
-            key,
-            JSON.stringify([nextQuote, ...records].slice(0, 10))
-          );
-        } catch {
-          // The quote remains usable even if browser storage is unavailable.
-        }
-      } catch (error) {
-        if ((error as Error).name === "AbortError") return;
-        setServerQuote(null);
-        setQuoteStatus("error");
-      }
-    }, 450);
-
-    return () => {
-      clearTimeout(timer);
-      controller.abort();
-    };
-  }, [
-    wordCount,
-    values.language,
-    values.documentType,
-    values.rush,
-    quote.rushEligible,
-  ]);
 
   const languageLabel =
     copy.order.fields.languageOptions[languageValues.indexOf(values.language)];
@@ -269,27 +157,22 @@ export function OrderSection() {
     return Object.keys(nextErrors).length === 0;
   }
 
-  function buildSummary(order: OrderResult) {
+  function buildSummary() {
     return [
-      `Naturalizer — ${order.orderId}`,
+      `Naturalizer — ${copy.order.formTitle}`,
       `${copy.order.fields.name}: ${values.name.trim()}`,
       referralLabel
         ? `${copy.order.fields.referral}: ${referralLabel}`
         : null,
       `${copy.order.fields.language}: ${languageLabel}`,
       `${copy.order.fields.documentType}: ${documentLabel}`,
-      `${copy.order.fields.words}: ${order.words}`,
+      `${copy.order.fields.words}: ${quote.words}`,
       `${copy.order.fields.rush}: ${rushLabel}`,
-      `${copy.order.quote.baseAmount}: ${formatHKD(
-        order.baseAmount,
-        locale
-      )}`,
-      order.rushFee > 0
-        ? `${copy.order.quote.rushFee}: ${formatHKD(order.rushFee, locale)}`
+      `${copy.order.quote.baseAmount}: ${formatHKD(quote.baseAmount, locale)}`,
+      quote.rushFee > 0
+        ? `${copy.order.quote.rushFee}: ${formatHKD(quote.rushFee, locale)}`
         : null,
-      `${copy.order.quote.total}: ${formatHKD(order.quote, locale)}`,
-      `${copy.order.success.trackingCode}: ${order.trackingCode}`,
-      `${copy.order.success.track}: ${SITE_URL}/track?code=${order.trackingCode}`,
+      `${copy.order.quote.total}: ${formatHKD(quote.amount, locale)}`,
       values.deadline
         ? `${copy.order.fields.deadline}: ${values.deadline}`
         : null,
@@ -301,64 +184,47 @@ export function OrderSection() {
       .join("\n");
   }
 
+  function copyTextSync(text: string) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, text.length);
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+    return success;
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (isLoading || !validate()) return;
 
+    const nextSummary = buildSummary();
+    setSummary(nextSummary);
     setStatus("loading");
     setErrors({});
 
-    try {
-      const response = await fetch("/api/orders", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: values.name,
-          referral: values.referral,
-          language: values.language,
-          documentType: values.documentType,
-          rush: values.rush,
-          words: wordCount,
-          deadline: values.deadline,
-          notes: values.notes,
-          consent: values.consent,
-        }),
-      });
+    // Start the async clipboard write while this page still has focus, make a
+    // synchronous attempt as a fallback, then open WhatsApp.
+    const clipboardWrite =
+      typeof navigator.clipboard?.writeText === "function"
+        ? navigator.clipboard
+            .writeText(nextSummary)
+            .then(() => true)
+            .catch(() => false)
+        : Promise.resolve(false);
+    const copiedSynchronously = copyTextSync(nextSummary);
 
-      const data = (await response.json().catch(() => ({}))) as {
-        ok?: boolean;
-        mode?: "handoff" | "received";
-        orderId?: string;
-        trackingCode?: string;
-        quote?: number;
-        baseAmount?: number;
-        rushFee?: number;
-        rush?: RushTier;
-        rushMinutes?: number;
-        words?: number;
-      };
+    const whatsappWindow = window.open(whatsAppUrl(nextSummary), "_blank");
+    if (whatsappWindow) whatsappWindow.opener = null;
 
-      if (!response.ok || !data.ok || !data.orderId) {
-        throw new Error("Order request failed");
-      }
-
-      setResult({
-        orderId: data.orderId,
-        trackingCode: data.trackingCode ?? "",
-        mode: data.mode === "received" ? "received" : "handoff",
-        quote: data.quote ?? quote.amount,
-        baseAmount: data.baseAmount ?? quote.baseAmount,
-        rushFee: data.rushFee ?? quote.rushFee,
-        rush: data.rush ?? quote.rush,
-        rushMinutes: data.rushMinutes ?? quote.rushMinutes,
-        words: data.words ?? quote.words,
-      });
-      setStatus("done");
-      setCopied(false);
-    } catch {
-      setStatus("idle");
-      setErrors({ form: copy.order.errors.network });
-    }
+    const success = copiedSynchronously || (await clipboardWrite);
+    setCopied(success);
+    setStatus("done");
   }
 
   async function writeClipboard(text: string) {
@@ -382,53 +248,23 @@ export function OrderSection() {
   }
 
   async function copySummary() {
-    if (!result) return;
-    const success = await writeClipboard(buildSummary(result));
+    if (!summary) return;
+    const success = await writeClipboard(summary);
     setCopied(success);
   }
 
   async function copyQuoteSummary() {
     if (quote.words < 1) return;
-
-    const summary = [
-      `Naturalizer — ${copy.order.quote.title}`,
-      serverQuote
-        ? `${copy.order.quote.id}: ${serverQuote.quoteId}`
-        : null,
-      `${copy.order.fields.language}: ${languageLabel}`,
-      `${copy.order.fields.documentType}: ${documentLabel}`,
-      `${copy.order.fields.words}: ${quote.words}`,
-      `${copy.order.fields.rush}: ${rushLabel}`,
-      `${copy.order.quote.baseAmount}: ${formatHKD(
-        serverQuote?.pricing.baseAmount ?? quote.baseAmount,
-        locale
-      )}`,
-      quote.rushFee > 0
-        ? `${copy.order.quote.rushFee}: ${formatHKD(
-            serverQuote?.pricing.rushFee ?? quote.rushFee,
-            locale
-          )}`
-        : null,
-      `${copy.order.quote.total}: ${formatHKD(
-        serverQuote?.pricing.amount ?? quote.amount,
-        locale
-      )}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const success = await writeClipboard(summary);
+    const success = await writeClipboard(buildSummary());
     setQuoteCopied(success);
   }
 
   function resetOrder() {
     setValues(initialValues);
     setErrors({});
-    setResult(null);
+    setSummary("");
     setStatus("idle");
     setCopied(false);
-    setServerQuote(null);
-    setQuoteStatus("idle");
     setQuoteCopied(false);
   }
 
@@ -508,7 +344,7 @@ export function OrderSection() {
         </div>
 
         <Card className="min-w-0 p-5 shadow-[0_1px_2px_rgba(16,24,40,0.04)] sm:p-7">
-          {status === "done" && result ? (
+          {status === "done" && summary ? (
             <div aria-live="polite" className="animate-in fade-in-0">
               <div className="flex items-start gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -527,26 +363,10 @@ export function OrderSection() {
               <dl className="mt-7 divide-y divide-border rounded-xl border border-border bg-muted/30 px-4">
                 <div className="flex items-center justify-between gap-4 py-3">
                   <dt className="text-xs text-muted-foreground">
-                    {copy.order.success.orderId}
-                  </dt>
-                  <dd className="font-mono text-xs font-medium text-foreground">
-                    {result.orderId}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
-                    {copy.order.success.trackingCode}
-                  </dt>
-                  <dd className="font-mono text-xs font-medium text-foreground">
-                    {result.trackingCode || "—"}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="text-xs text-muted-foreground">
                     {copy.order.success.words}
                   </dt>
                   <dd className="text-sm tabular-nums text-foreground">
-                    {result.words}
+                    {quote.words}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-4 py-3">
@@ -562,16 +382,16 @@ export function OrderSection() {
                     {copy.order.quote.baseAmount}
                   </dt>
                   <dd className="text-sm tabular-nums text-foreground">
-                    {formatHKD(result.baseAmount, locale)}
+                    {formatHKD(quote.baseAmount, locale)}
                   </dd>
                 </div>
-                {result.rushFee > 0 ? (
+                {quote.rushFee > 0 ? (
                   <div className="flex items-center justify-between gap-4 py-3">
                     <dt className="text-xs text-muted-foreground">
                       {copy.order.success.rushFee}
                     </dt>
                     <dd className="text-sm tabular-nums text-foreground">
-                      {formatHKD(result.rushFee, locale)}
+                      {formatHKD(quote.rushFee, locale)}
                     </dd>
                   </div>
                 ) : null}
@@ -580,7 +400,7 @@ export function OrderSection() {
                     {copy.order.success.quote}
                   </dt>
                   <dd className="text-lg font-semibold tabular-nums text-foreground">
-                    {formatHKD(result.quote, locale)}
+                    {formatHKD(quote.amount, locale)}
                   </dd>
                 </div>
               </dl>
@@ -588,7 +408,7 @@ export function OrderSection() {
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                 <Button asChild className="flex-1">
                   <a
-                    href={WHATSAPP_URL}
+                    href={whatsAppUrl(summary)}
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => void copySummary()}
@@ -630,14 +450,6 @@ export function OrderSection() {
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                   {copy.order.success.nextText}
                 </p>
-                {result.trackingCode ? (
-                  <Link
-                    href={`/track?code=${result.trackingCode}`}
-                    className="mt-3 inline-flex text-xs font-medium text-primary underline decoration-primary/30 underline-offset-4"
-                  >
-                    {copy.order.success.track}
-                  </Link>
-                ) : null}
               </div>
 
               <button
@@ -1028,18 +840,8 @@ export function OrderSection() {
                     </p>
 
                     <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-primary/15 pt-3">
-                      <p
-                        className="text-[11px] text-muted-foreground"
-                        aria-live="polite"
-                        title={copy.order.quote.saveNote}
-                      >
-                        {serverQuote
-                          ? `${copy.order.quote.id}: ${serverQuote.quoteId}`
-                          : quoteStatus === "loading"
-                            ? copy.order.quote.saving
-                            : quoteStatus === "error"
-                              ? copy.order.quote.saveError
-                              : null}
+                      <p className="text-[11px] text-muted-foreground">
+                        {copy.order.quote.localNote}
                       </p>
 
                       {quote.words > 0 ? (

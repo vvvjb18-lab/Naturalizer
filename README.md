@@ -45,22 +45,23 @@ npm run build       # Production build
 npm run start       # Serve the production build
 ```
 
-## Quote generation
+## Current public order flow (inquiry mode)
 
-The order calculator calls `POST /api/quote` after a short debounce. The endpoint returns a structured quote with:
+The public order form calculates the quote locally, copies a structured brief, and opens WhatsApp with the same brief prefilled. It does **not** call `/api/quote` or `/api/orders`, does not create a quote or order record, and does not produce a tracking code.
 
-- a `quoteId` and 14-day expiry
-- words, base amount, rush fee, turnaround, and final estimate
-- language and document type
+The complete stored-order flow — quote IDs, order records, tracking codes, `/track`, admin status updates, and Web Push notifications — is preserved at the git tag:
 
-The browser keeps the latest 10 quotes in `localStorage` under `naturalizer-quotes` and includes the quote ID in the copyable summary. If `QUOTE_WEBHOOK_URL` is configured, the quote is also sent to that endpoint as a `quote.created` event. Vercel functions cannot persist quotes to a local file, so no fake server-side storage is used when the webhook is absent.
+```bash
+git show order-flow-v1
+```
 
-## Order automation
+To restore that version later, deploy from the tag or merge it back. The backend code and `/ops` dashboard remain in the current tree, but the inquiry-mode form no longer writes to them.
 
-The form posts to `POST /api/orders`. The server validates the payload, calculates the quote again, and then:
+## Stored quote and order endpoints (preserved)
 
-- If `ORDER_WEBHOOK_URL` is set, forwards the order as JSON to that URL.
-- If it is not set, returns an order summary in `handoff` mode and the UI directs the customer to send the order number and draft through Carousell.
+`POST /api/quote` returns a structured quote with a `quoteId`, 14-day expiry, words, base amount, rush fee, turnaround, and final estimate. When the stored flow is restored, the browser keeps the latest 10 quotes in `localStorage` under `naturalizer-quotes`.
+
+`POST /api/orders` validates the payload, calculates the quote again, stores it, and optionally forwards it to `ORDER_WEBHOOK_URL`. The server-side order flow also creates the public tracking code and sends the new-order push notification.
 
 For local development, create `.env.local`:
 
@@ -163,7 +164,7 @@ To install, open `https://naturalizerplatform.vercel.app/ops` after logging in. 
 
 ## Order tracking and push notifications
 
-Each new order receives a random public `tracking_code` such as `TRK-XJE6K-7KEMP`. Customers can open `/track` and enter that code without creating an account. The tracking page shows only the order status, word count, turnaround, and public order number; it never exposes the customer name, contact details, notes, or internal database ID.
+When the stored-order flow is active, each new order receives a random public `tracking_code` such as `TRK-XJE6K-7KEMP`. Customers can open `/track` and enter that code without creating an account. The tracking page shows only the order status, word count, turnaround, and public order number; it never exposes the customer name, contact details, notes, or internal database ID. In the current inquiry mode, no tracking codes are generated and the footer link is hidden.
 
 - `GET /api/track/[code]` resolves the code and maps the internal status to a customer-facing stage.
 - The page polls every 10 seconds, so an admin status update appears without a manual refresh.

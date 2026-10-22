@@ -244,7 +244,7 @@ const zh = {
     eyebrow: "即時報價",
     title: "先看清楚價錢，再交稿。",
     description:
-      "輸入字數，立即看到估算；可選 90／60／30 分鐘時效。提交後會建立訂單摘要，下一步再把原稿交給我們。",
+      "輸入字數，立即看到估算；可選 90／60／30 分鐘時效。填寫需求後，會整理成一份可貼到 WhatsApp 的報價摘要。",
     bullets: [
       "不需要註冊或填聯絡方式",
       "即時按字數報價",
@@ -255,8 +255,8 @@ const zh = {
     carousellDescription:
       "想看商品頁或使用平台對話，也可以直接前往。",
     carousellCta: "前往 Carousell 商品頁",
-    formTitle: "建立訂單",
-    formDescription: "填寫基本資料後，你會取得一份可保存的訂單摘要。",
+    formTitle: "取得報價",
+    formDescription: "填寫需求後，會整理成一份可貼到 WhatsApp 的報價摘要。",
     fields: {
       name: "稱呼",
       namePlaceholder: "你的名字或暱稱",
@@ -310,10 +310,11 @@ const zh = {
       saveNote: "報價編號保存在此瀏覽器。",
       copy: "複製報價摘要",
       copied: "已複製",
+      localNote: "即時估算，未建立訂單。",
       note: "價格按分層累進計算；急單附加費另計。時效由付款確認、檔案可開啟及需求確認完成三者齊備後起算。",
     },
-    submit: "建立訂單",
-    submitting: "正在整理訂單…",
+    submit: "複製報價並開啟 WhatsApp",
+    submitting: "正在整理報價…",
     errors: {
       name: "請填寫稱呼。",
       words: "請輸入有效字數。",
@@ -322,12 +323,12 @@ const zh = {
       network: "未能提交訂單，請稍後再試或直接前往 WhatsApp／Carousell。",
     },
     success: {
-      handoffTitle: "訂單摘要已建立",
-      receivedTitle: "訂單摘要已建立",
+      handoffTitle: "報價摘要已複製",
+      receivedTitle: "報價摘要已複製",
       handoffText:
-        "訂單摘要只供你聯絡我們時使用。複製後貼到 WhatsApp，並附上原稿；我們確認稿件、交期與付款後才開始修訂。",
+        "已複製報價摘要並開啟 WhatsApp。貼上摘要、附上原稿，我們確認後才安排付款與修訂。",
       receivedText:
-        "訂單摘要只供你聯絡我們時使用。複製後貼到 WhatsApp，並附上原稿；我們確認稿件、交期與付款後才開始修訂。",
+        "已複製報價摘要並開啟 WhatsApp。貼上摘要、附上原稿，我們確認後才安排付款與修訂。",
       orderId: "訂單編號",
       trackingCode: "追蹤編號",
       track: "查看訂單狀態",
@@ -335,14 +336,14 @@ const zh = {
       words: "字數",
       rush: "時效",
       rushFee: "急單附加費",
-      copy: "複製訂單信息",
+      copy: "複製報價摘要",
       copied: "已複製",
       carousell: "前往 Carousell 對話",
-      whatsapp: "複製並開啟 WhatsApp",
-      reset: "建立另一張訂單",
+      whatsapp: "再次開啟 WhatsApp",
+      reset: "重新填寫",
       next: "下一步",
       nextText:
-        "訂單信息會複製到剪貼簿；貼到 WhatsApp 對話後，附上原稿檔案即可。",
+        "在 WhatsApp 貼上摘要並附上原稿即可；我們確認稿件、交期與付款後才開始修訂。",
     },
   },
   faq: {
@@ -725,7 +726,7 @@ const en: Dictionary = {
     eyebrow: "Instant quote",
     title: "See the price before you send a draft.",
     description:
-      "Enter your word count for an estimate and choose a 90-, 60-, or 30-minute turnaround. Submitting creates an order summary; you send the draft in the next step.",
+      "Enter your word count for an estimate and choose a 90-, 60-, or 30-minute turnaround. Your details are turned into a quote summary you can paste into WhatsApp.",
     bullets: [
       "No account or contact details needed",
       "Instant word-count estimate",
@@ -736,9 +737,9 @@ const en: Dictionary = {
     carousellDescription:
       "View the listing or use platform chat if that is easier for you.",
     carousellCta: "Open the Carousell listing",
-    formTitle: "Build your order",
+    formTitle: "Get a quote",
     formDescription:
-      "Add a few details and you will get an order summary you can keep.",
+      "Add a few details and we will turn them into a quote summary you can paste into WhatsApp.",
     fields: {
       name: "Name",
       namePlaceholder: "Your name or preferred name",
@@ -793,10 +794,11 @@ const en: Dictionary = {
       saveNote: "The quote ID is saved in this browser.",
       copy: "Copy quote summary",
       copied: "Copied",
+      localNote: "Instant estimate only — no order has been created.",
       note: "Tiered rates apply progressively; rush fees are added separately. The turnaround clock starts once payment, an openable file, and the requirements are all confirmed.",
     },
-    submit: "Create order summary",
-    submitting: "Preparing your order…",
+    submit: "Copy quote & open WhatsApp",
+    submitting: "Preparing your quote…",
     errors: {
       name: "Please add your name.",
       words: "Please enter a valid word count.",
@@ -807,12 +809,12 @@ const en: Dictionary = {
         "We could not submit the order. Please try again or continue on WhatsApp or Carousell.",
     },
     success: {
-      handoffTitle: "Your order summary is ready",
-      receivedTitle: "Your order summary is ready",
+      handoffTitle: "Quote summary copied",
+      receivedTitle: "Quote summary copied",
       handoffText:
-        "Your order summary is for contacting us. Copy it into WhatsApp and attach your draft; we will confirm the draft, turnaround, and payment before editing begins.",
+        "The quote summary has been copied and WhatsApp has opened. Paste it into the chat and attach your draft; we will confirm before payment and editing.",
       receivedText:
-        "Your order summary is for contacting us. Copy it into WhatsApp and attach your draft; we will confirm the draft, turnaround, and payment before editing begins.",
+        "The quote summary has been copied and WhatsApp has opened. Paste it into the chat and attach your draft; we will confirm before payment and editing.",
       orderId: "Order number",
       trackingCode: "Tracking code",
       track: "View order status",
@@ -820,14 +822,14 @@ const en: Dictionary = {
       words: "Word count",
       rush: "Turnaround",
       rushFee: "Rush fee",
-      copy: "Copy order details",
+      copy: "Copy quote summary",
       copied: "Copied",
       carousell: "Continue on Carousell",
-      whatsapp: "Copy & open WhatsApp",
-      reset: "Create another order",
+      whatsapp: "Open WhatsApp again",
+      reset: "Start again",
       next: "Next step",
       nextText:
-        "The order details are copied to your clipboard. Paste them into the WhatsApp chat and attach your draft.",
+        "Paste the summary into WhatsApp and attach your draft. We will confirm the draft, turnaround, and payment before editing begins.",
     },
   },
   faq: {
