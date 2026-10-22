@@ -30,6 +30,14 @@ const nextConfig = {
         source: "/ops/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
+      {
+        source: "/ops-sw.js",
+        headers: [
+          { key: "Service-Worker-Allowed", value: "/ops" },
+          { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
+      },
     ];
   },
 };

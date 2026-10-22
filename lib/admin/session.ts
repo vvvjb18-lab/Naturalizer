@@ -134,11 +134,7 @@ export function createAdminSession(user: AdminIdentity) {
   });
 }
 
-export function createAdminToken(user: AdminIdentity) {
-  return createSessionToken(user);
-}
-
-export function verifyAdminToken(token: string): AdminIdentity | null {
+function verifySessionToken(token: string): AdminIdentity | null {
   if (!isAdminConfigured()) return null;
 
   const [payload, signature, ...rest] = token.split(".");
@@ -175,7 +171,7 @@ export function getAdminSession(): AdminIdentity | null {
   const token = cookies().get(COOKIE_NAME)?.value;
   if (!token) return null;
 
-  return verifyAdminToken(token);
+  return verifySessionToken(token);
 }
 
 export function hasAdminSession() {

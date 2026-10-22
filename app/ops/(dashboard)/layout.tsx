@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BarChart3, ExternalLink, LogOut, ReceiptText } from "lucide-react";
 
+import { InstallPrompt } from "@/components/admin/install-prompt";
 import { ThemeToggle } from "@/components/site-controls";
 import { Button } from "@/components/ui/button";
 import { requireAdmin } from "@/lib/admin/session";
@@ -80,6 +81,7 @@ export default function OpsDashboardLayout({
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
         {children}
       </main>
+      <InstallPrompt />
     </div>
   );
 }

@@ -1,0 +1,50 @@
+{
+  "id": "/ops",
+  "name": "Naturalizer Ops",
+  "short_name": "N. Ops",
+  "description": "Naturalizer 私人訂單與報價後台",
+  "lang": "zh-HK",
+  "dir": "ltr",
+  "start_url": "/ops",
+  "scope": "/ops/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070b12",
+  "theme_color": "#070b12",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/ops/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ops/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ops/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "訂單",
+      "short_name": "訂單",
+      "url": "/ops",
+      "icons": [{ "src": "/ops/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "報價",
+      "short_name": "報價",
+      "url": "/ops/quotes",
+      "icons": [{ "src": "/ops/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

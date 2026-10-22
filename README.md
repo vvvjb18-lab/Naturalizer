@@ -141,11 +141,17 @@ The schema is idempotent for tables and indexes, and includes `alter table ... a
 
 This first version deliberately does not include file uploads, fine-grained role permissions, or password reset. Those should be added after the storage and workflow are validated. Account changes are made through `ADMIN_USERS` and a redeploy.
 
-## Mobile operations app
+## Installable ops web app
 
-A private Expo / React Native app for iOS and Android lives in [`mobile/`](mobile/). It uses the existing admin accounts through a Bearer-token API, stores the session in the device secure store, and supports order search/filtering, order detail, status updates, audit history, quotes, and account settings.
+`/ops` is a scoped PWA, so the private dashboard can be added to an iPhone or Android home screen without an App Store build. It keeps the existing cookie session and server actions; no separate mobile login or API token is used.
 
-The app calls the production API by default. See [`mobile/README.md`](mobile/README.md) for local development, EAS build commands, and store submission requirements.
+- `public/ops/manifest.webmanifest` defines standalone display, theme, icons, and shortcuts.
+- `public/ops-sw.js` caches only static assets and the manifest; authenticated dashboard HTML is always fetched from the network.
+- `components/admin/pwa-register.tsx` registers the service worker with scope `/ops`.
+- `components/admin/install-prompt.tsx` shows Android's native install prompt where available, or Safari's Share → Add to Home Screen instructions on iOS.
+- `public/ops/` contains the 192px, 512px, maskable, and Apple touch icons.
+
+To install, open `https://naturalizerplatform.vercel.app/ops` after logging in. On iPhone, use Safari's Share menu → **加入主頁**. On Android, use Chrome's menu → **安裝應用程式／加入主頁**. Offline mode shows a connection notice; orders are always read live from Supabase.
 
 ## Bilingual and theme behaviour
 
@@ -165,8 +171,7 @@ app/
     privacy/page.tsx   Privacy policy route
   api/orders/route.ts  Order validation, storage, optional webhook forwarding
   api/quote/route.ts   Structured quote IDs, storage, optional quote webhook
-  api/mobile/          Bearer-token API for the iOS / Android operations app
-  ops/                 Private admin route group
+  ops/                 Private admin route group and installable PWA
     login/             Password login and server action
     (dashboard)/       Authenticated dashboard, orders, quotes
   layout.tsx           Metadata and theme bootstrap
@@ -190,6 +195,8 @@ components/
   site-footer.tsx      Footer, Carousell links, disclaimer
   admin/
     storage-notice.tsx Configuration notice for missing storage
+    pwa-register.tsx   Registers the /ops service worker
+    install-prompt.tsx Home-screen install hint for iOS and Android
   ui/                  Button, card, badge, input, textarea, accordion
 lib/
   i18n.ts              Chinese and English copy
@@ -200,13 +207,12 @@ lib/
   admin/store.ts       Local JSON / Supabase persistence layer
   admin/labels.ts      Status labels and date/amount formatting
   utils.ts             cn() class merge helper
+public/
+  ops/manifest.webmanifest  Installable admin PWA manifest
+  ops/icon-*.png            Home-screen icons
+  ops-sw.js                 Static-asset cache and offline fallback
 supabase/
   schema.sql           Tables, indexes, and RLS for the admin data
-mobile/
-  App.tsx              Expo app shell, auth bootstrap, tabs, order detail route
-  src/api.ts           Typed client for the mobile admin API
-  src/screens/         Login, orders, order detail, quotes, account
-  eas.json             EAS build profiles for iOS and Android
 scripts/
   hash-admin-password.mjs  Generate scrypt hashes for ADMIN_USERS
 ```
