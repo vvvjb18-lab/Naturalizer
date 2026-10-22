@@ -34,9 +34,20 @@ type LanguageValue = "zh" | "en" | "bilingual";
 type DocumentValue = "essay" | "thesis" | "abstract" | "other";
 type Status = "idle" | "loading" | "done";
 
+const referralValues = [
+  "instagram",
+  "threads",
+  "carousell",
+  "referral",
+  "search",
+  "other",
+] as const;
+
+type ReferralValue = "" | (typeof referralValues)[number];
+
 interface FormValues {
   name: string;
-  contact: string;
+  referral: ReferralValue;
   language: LanguageValue;
   documentType: DocumentValue;
   rush: RushTier;
@@ -48,7 +59,6 @@ interface FormValues {
 
 interface FormErrors {
   name?: string;
-  contact?: string;
   words?: string;
   rush?: string;
   consent?: string;
@@ -94,7 +104,7 @@ const documentValues: DocumentValue[] = [
 
 const initialValues: FormValues = {
   name: "",
-  contact: "",
+  referral: "",
   language: "bilingual",
   documentType: "essay",
   rush: "standard",
@@ -221,6 +231,11 @@ export function OrderSection() {
     copy.order.fields.documentOptions[documentValues.indexOf(values.documentType)];
   const rushLabel =
     copy.order.fields.rushOptions[RUSH_TIERS.indexOf(values.rush)];
+  const referralLabel = values.referral
+    ? copy.order.fields.referralOptions[
+        referralValues.indexOf(values.referral)
+      ]
+    : "";
   const isLoading = status === "loading";
 
   function updateValue<Key extends keyof FormValues>(
@@ -240,7 +255,6 @@ export function OrderSection() {
     const nextErrors: FormErrors = {};
 
     if (!values.name.trim()) nextErrors.name = copy.order.errors.name;
-    if (!values.contact.trim()) nextErrors.contact = copy.order.errors.contact;
     if (!Number.isFinite(wordCount) || wordCount < 1) {
       nextErrors.words = copy.order.errors.words;
     }
@@ -257,7 +271,9 @@ export function OrderSection() {
     return [
       `Naturalizer — ${order.orderId}`,
       `${copy.order.fields.name}: ${values.name.trim()}`,
-      `${copy.order.fields.contact}: ${values.contact.trim()}`,
+      referralLabel
+        ? `${copy.order.fields.referral}: ${referralLabel}`
+        : null,
       `${copy.order.fields.language}: ${languageLabel}`,
       `${copy.order.fields.documentType}: ${documentLabel}`,
       `${copy.order.fields.words}: ${order.words}`,
@@ -294,7 +310,7 @@ export function OrderSection() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           name: values.name,
-          contact: values.contact,
+          referral: values.referral,
           language: values.language,
           documentType: values.documentType,
           rush: values.rush,
@@ -668,42 +684,52 @@ export function OrderSection() {
 
                   <div>
                     <label
-                      htmlFor="order-contact"
+                      htmlFor="order-referral"
                       className="text-sm font-medium text-foreground"
                     >
-                      {copy.order.fields.contact}
-                      <span className="ml-1 text-destructive">*</span>
+                      {copy.order.fields.referral}
+                      <span className="ml-2 text-xs font-normal text-muted-foreground">
+                        {copy.common.optional}
+                      </span>
                     </label>
-                    <input
-                      id="order-contact"
-                      value={values.contact}
-                      onChange={(event) =>
-                        updateValue("contact", event.target.value)
-                      }
-                      placeholder={copy.order.fields.contactPlaceholder}
-                      aria-invalid={Boolean(errors.contact)}
-                      aria-describedby={
-                        errors.contact
-                          ? "contact-error"
-                          : "contact-description"
-                      }
-                      className={`${inputClass} mt-2`}
-                    />
-                    {errors.contact ? (
-                      <p
-                        id="contact-error"
-                        className="mt-1.5 text-xs text-destructive"
+                    <div className="relative mt-2">
+                      <select
+                        id="order-referral"
+                        value={values.referral}
+                        onChange={(event) =>
+                          updateValue(
+                            "referral",
+                            event.target.value as ReferralValue
+                          )
+                        }
+                        aria-describedby="referral-description"
+                        className={selectClass}
                       >
-                        {errors.contact}
-                      </p>
-                    ) : (
-                      <p
-                        id="contact-description"
-                        className="mt-1.5 text-xs text-muted-foreground"
-                      >
-                        {copy.order.fields.contactHint}
-                      </p>
-                    )}
+                        <option value="">
+                          {copy.order.fields.referralPlaceholder}
+                        </option>
+                        {copy.order.fields.referralOptions.map(
+                          (option, index) => (
+                            <option
+                              key={referralValues[index]}
+                              value={referralValues[index]}
+                            >
+                              {option}
+                            </option>
+                          )
+                        )}
+                      </select>
+                      <ChevronDown
+                        className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p
+                      id="referral-description"
+                      className="mt-1.5 text-xs text-muted-foreground"
+                    >
+                      {copy.order.fields.referralHint}
+                    </p>
                   </div>
 
                   <div>

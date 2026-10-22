@@ -55,6 +55,7 @@ export default async function OpsOrdersPage({
       order.orderId,
       order.name,
       order.contact,
+      order.referral,
       order.notes,
     ]
       .join(" ")
@@ -224,7 +225,7 @@ export default async function OpsOrdersPage({
                             {order.name}
                           </p>
                           <p className="mt-1 max-w-[180px] truncate text-[11px] text-muted-foreground">
-                            {order.contact}
+                            {order.contact || "未提供聯絡方式"}
                           </p>
                         </td>
                         <td className="px-4 py-3 tabular-nums text-muted-foreground">

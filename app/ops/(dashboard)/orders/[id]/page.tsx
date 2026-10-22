@@ -43,6 +43,15 @@ const rushLabels: Record<string, string> = {
   urgent: "特急",
 };
 
+const referralLabels: Record<string, string> = {
+  instagram: "Instagram",
+  threads: "Threads",
+  carousell: "Carousell",
+  referral: "朋友介紹",
+  search: "搜尋引擎",
+  other: "其他",
+};
+
 export default async function OpsOrderPage({
   params,
   searchParams,
@@ -91,7 +100,12 @@ export default async function OpsOrderPage({
   const rows = [
     { label: "訂單編號", value: order.orderId, mono: true },
     { label: "稱呼", value: order.name },
-    { label: "聯絡方式", value: order.contact },
+    { label: "聯絡方式", value: order.contact || "未提供" },
+    {
+      label: "如何得知",
+      value:
+        referralLabels[order.referral] ?? (order.referral || "未提供"),
+    },
     {
       label: "稿件語言",
       value: languageLabels[order.language] ?? order.language,

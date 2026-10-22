@@ -10,10 +10,19 @@ export const runtime = "nodejs";
 
 const LANGUAGES = new Set(["zh", "en", "bilingual"]);
 const DOCUMENT_TYPES = new Set(["essay", "thesis", "abstract", "other"]);
+const REFERRALS = new Set([
+  "instagram",
+  "threads",
+  "carousell",
+  "referral",
+  "search",
+  "other",
+]);
 
 interface OrderRequest {
   name?: unknown;
   contact?: unknown;
+  referral?: unknown;
   language?: unknown;
   documentType?: unknown;
   rush?: unknown;
@@ -47,6 +56,7 @@ export async function POST(request: Request) {
 
   const name = cleanString(body.name, 120);
   const contact = cleanString(body.contact, 240);
+  const referral = cleanString(body.referral, 40);
   const language = cleanString(body.language, 20);
   const documentType = cleanString(body.documentType, 20);
   const rush =
@@ -62,7 +72,7 @@ export async function POST(request: Request) {
 
   if (
     !name ||
-    !contact ||
+    (referral !== "" && !REFERRALS.has(referral)) ||
     !LANGUAGES.has(language) ||
     !DOCUMENT_TYPES.has(documentType) ||
     !Number.isFinite(words) ||
@@ -95,6 +105,7 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
     name,
     contact,
+    referral,
     language,
     documentType,
     words: quote.words,

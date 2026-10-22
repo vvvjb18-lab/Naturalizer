@@ -37,6 +37,7 @@ export interface AdminOrder {
   orderId: string;
   name: string;
   contact: string;
+  referral: string;
   language: string;
   documentType: string;
   words: number;
@@ -85,6 +86,7 @@ export interface NewOrder {
   orderId: string;
   name: string;
   contact: string;
+  referral: string;
   language: string;
   documentType: string;
   words: number;
@@ -216,6 +218,7 @@ function mapOrderRow(row: Record<string, unknown>): AdminOrder {
     orderId: String(row.order_id),
     name: String(row.name),
     contact: String(row.contact),
+    referral: row.referral_source ? String(row.referral_source) : "",
     language: String(row.language),
     documentType: String(row.document_type),
     words: Number(row.words),
@@ -302,6 +305,7 @@ export async function saveOrder(record: NewOrder) {
           order_id: record.orderId,
           name: record.name,
           contact: record.contact,
+          referral_source: record.referral,
           language: record.language,
           document_type: record.documentType,
           words: record.words,

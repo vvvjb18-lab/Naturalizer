@@ -25,7 +25,8 @@ create table if not exists public.orders (
   id uuid primary key default gen_random_uuid(),
   order_id text not null unique,
   name text not null,
-  contact text not null,
+  contact text not null default '',
+  referral_source text not null default '',
   language text not null,
   document_type text not null,
   words integer not null,
@@ -50,6 +51,8 @@ create table if not exists public.orders (
 -- two-person admin support was added.
 alter table public.orders add column if not exists updated_by text;
 alter table public.orders add column if not exists updated_at timestamptz;
+alter table public.orders add column if not exists referral_source text not null default '';
+alter table public.orders alter column contact set default '';
 
 -- Upgrade pricing columns for tiered pricing and rush fees. Existing rows
 -- keep their original total in amount/quote and use it as the base amount.

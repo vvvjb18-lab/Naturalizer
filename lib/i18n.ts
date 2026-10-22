@@ -221,7 +221,7 @@ const zh = {
     description:
       "輸入字數，立即看到估算；可選 90／60／30 分鐘時效。提交後會建立訂單摘要，下一步再把原稿交給我們。",
     bullets: [
-      "不需要先註冊",
+      "不需要註冊或填聯絡方式",
       "即時按字數報價",
       "三檔急單時效",
       "付款：Alipay HK",
@@ -235,9 +235,17 @@ const zh = {
     fields: {
       name: "稱呼",
       namePlaceholder: "你的名字或暱稱",
-      contact: "聯絡方式",
-      contactPlaceholder: "Email、WhatsApp 或 Carousell 用戶名",
-      contactHint: "只用於確認訂單，不會公開。",
+      referral: "如何得知我們？",
+      referralPlaceholder: "請選擇（可選）",
+      referralOptions: [
+        "Instagram",
+        "Threads",
+        "Carousell",
+        "朋友介紹",
+        "搜尋引擎",
+        "其他",
+      ],
+      referralHint: "只用來了解推廣渠道，不會公開。",
       language: "稿件語言",
       languageOptions: ["中文", "English", "中英雙語"],
       documentType: "文件類型",
@@ -283,7 +291,6 @@ const zh = {
     submitting: "正在整理訂單…",
     errors: {
       name: "請填寫稱呼。",
-      contact: "請填寫聯絡方式。",
       words: "請輸入有效字數。",
       rush: "30 分鐘時效只限 600 字或以下，請改選 60／90 分鐘或手動接單。",
       consent: "請先確認服務條款。",
@@ -295,7 +302,7 @@ const zh = {
       handoffText:
         "請將訂單編號及原稿透過 WhatsApp 或 Carousell 傳送給我們。我們確認稿件與交期後，才會安排付款與修訂。",
       receivedText:
-        "我們已收到你的需求，會透過你提供的聯絡方式確認稿件、交期與付款安排。",
+        "請保留訂單編號，並透過 WhatsApp 或 Carousell 傳送原稿；我們確認稿件、交期與付款後才開始修訂。",
       orderId: "訂單編號",
       quote: "估算總額",
       words: "字數",
@@ -661,7 +668,7 @@ const en: Dictionary = {
     description:
       "Enter your word count for an estimate and choose a 90-, 60-, or 30-minute turnaround. Submitting creates an order summary; you send the draft in the next step.",
     bullets: [
-      "No account needed",
+      "No account or contact details needed",
       "Instant word-count estimate",
       "Three rush turnaround options",
       "Payment by Alipay HK",
@@ -676,9 +683,17 @@ const en: Dictionary = {
     fields: {
       name: "Name",
       namePlaceholder: "Your name or preferred name",
-      contact: "Contact",
-      contactPlaceholder: "Email, WhatsApp, or Carousell username",
-      contactHint: "Used only to confirm your order. Never published.",
+      referral: "How did you hear about us?",
+      referralPlaceholder: "Select (optional)",
+      referralOptions: [
+        "Instagram",
+        "Threads",
+        "Carousell",
+        "Friend / referral",
+        "Search engine",
+        "Other",
+      ],
+      referralHint: "Used only to understand which channels reach people.",
       language: "Draft language",
       languageOptions: ["Chinese", "English", "Bilingual"],
       documentType: "Document type",
@@ -725,7 +740,6 @@ const en: Dictionary = {
     submitting: "Preparing your order…",
     errors: {
       name: "Please add your name.",
-      contact: "Please add a contact method.",
       words: "Please enter a valid word count.",
       rush:
         "The 30-minute option is limited to 600 words or fewer. Choose 60 or 90 minutes, or contact us for manual intake.",
@@ -739,7 +753,7 @@ const en: Dictionary = {
       handoffText:
         "Send your order number and draft to us through WhatsApp or Carousell. We will confirm the draft, turnaround, and payment before any work begins.",
       receivedText:
-        "We have received your request and will use your contact details to confirm the draft, turnaround, and payment.",
+        "Keep your order number and send the draft through WhatsApp or Carousell. We will confirm the draft, turnaround, and payment before editing begins.",
       orderId: "Order number",
       quote: "Estimated total",
       words: "Word count",
