@@ -1,0 +1,162 @@
+HKU SPACE Community College
+Associate Degree/Higher Diploma Programme
+First Semester 20xx
+Introduction to Academic English
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Assignment 2: Expository Essay
+"Evaluate the economic impact of electric vehicle adoption."
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+To: Charles McConnellogue
+From: Cheung Man Kit, Cyrus
+Class: CL78
+Submission Date: 04/12/2023
+Electric vehicles (EVs) are new challengers for fuel vehicles,
+given their unexpected impacts on the business environment.
+Stemming from the incentivizing policies, the increase of
+electric cars is unstoppable but the popularity of traditional
+cars are fading. Not only can EVs bring about benefits to the
+environment, they can also contribute to the technology
+spillovers and create more opportunities for different
+businesses. Although the adoption of electric vehicles will
+benefit the economy, many worried that too much investment
+on EVs will disrupt the government’s major investments.
+Therefore, this essay will analyze the economic influence of
+electric vehicles in three aspects: the creation of business
+opportunities, the potential to stimulate consumption, and the
+increase in the government expenditure.
+ 
+Firstly, the adoption of electric vehicles can create business
+opportunities through promoting the formation of a circular
+economy. According to Chirumalla et al. (2022), as more
+people drive electric vehicles, the demand for EV batteries
+
+would increase rapidly. A battery's service life is around 7 to
+15 years and millions of EV batteries will end their life cycle
+in the next several years. But since these batteries still retain
+70% to 80% of their capacity, the second life of EV batteries
+starts at their inclusion in circular business models such as the
+recycling industry. Not only will the recycling industry
+benefit from the recycling and reusing trend, the solar panel
+industry can be more technologically advanced through the
+integration of used EV batteries (Beaudet et al., 2020). Hence,
+the adoption of electric cars can create potential business
+opportunities for seemingly unrelated industries.
+ 
+Secondly, the use of electric vehicles can stimulate
+consumption. Appropriate government strategies can reduce
+the costs for EV ownership. For instance, a good charging
+schedule can help them save money and make sure the
+charging infrastructure is adequate for daily use (Chung et al.,
+2018). Patil et al. (2021) explained that many countries
+provide financial incentives or other benefits to those who
+generate energy for the grid, ultimately encouraging people to
+buy and utilize electric vehicles. When the cost of owning
+electric vehicles is lower, it will encourage more people to
+buy electric vehicles instead of traditional cars. If people have
+more money, their motivation to make purchasing decisions
+will be increased. Thus, consumption will rise and it will
+propel growth in the GDP.
+ 
+However, the adoption of electric vehicles will burden
+government expenditures. In order to encourage the public to
+use electric vehicles instead of traditional cars, many
+countries provide a variety of incentivizing policies. However,
+it creates a heavy burden on the government. The Danish
+government provided a 180% import tax rebate on electric
+
+vehicles since they wanted to promote high penetration and
+the Georgian government provided a $5000 tax credit to every
+EV driver (Albrahim et al., 2019). Given rapid growth in the
+adoption of electric vehicles, these financial subsidies and
+policy support are becoming unsustainable. Governments had
+to provide a lot of direct incentives to increase electric vehicle
+sales, but affected other social investments or welfare
+expenses (Sheldon, 2022). Under this situation, the adoption
+of vehicles will create a heavy economic burden to the
+government and reduce public expenditures on other issues. It
+will harm society and stifle other potentially meaningful
+investments.
+ 
+To conclude, this essay has outlined three economic
+influences about the adoption of electric vehicles. It not only
+can create business opportunities and jobs for the society, but
+also the cost of using them is cheaper than the traditional cars.
+It means users can save money and have the potential to earn
+money so they will increase consumption willingly. However,
+the government providing subsidies to promote electric
+vehicles will increase their expenditure and other investment.
+Overall, the adoption of electric vehicles is a great substitute
+to the traditional cars, but the government needs to consider
+different measures to encourage public use.
+ 
+References
+Albrahim, M., Zahrani, A. A., Arora, A., Dua, R., Fattouh, B.,
+& Sieminski, A. (2019). An overview of key evolutions
+in the light-duty vehicle sector and their impact on oil
+demand. Energy Transitions, 3(1–2), 81–103.
+https://doi.org/10.1007/s41825-019-00017-7
+ 
+Beaudet, A., Larouche, F., Amouzegar, K., Bouchard, P., and
+
+Zaghib, K. (2020). Key Challenges and Opportunities
+for Recycling Electric Vehicle Battery Materials.
+Sustainability, 12(14), 5837.
+https://doi.org/10.3390/su12145837
+ 
+Chirumalla, K., Reyes, L. G., & Toorajipour, R. (2022).
+Mapping a circular business opportunity in electric
+vehicle battery value chain: A multi-stakeholder
+framework to create a win–win–win situation. Journal
+of Business Research, 145, 569–582.
+https://doi.org/10.1016/j.jbusres.2022.02.070
+ 
+Chung, H. M., Li, W. T., Yuen, C., Wen, C. K., Crespi,
+N. (2019). Electric Vehicle Charge Scheduling
+Mechanism to Maximize Cost Efficiency and User
+Convenience. IEEE Transactions on Smart Grid, 10(3),
+3020-3030. https://doi.org/10.1109/TSG.2018.2817067
+ 
+Patil, H., & Nago Kalkhambkar, V . (2021). Grid integration of
+electric vehicles for economic benefits: a review.
+Journal of Modern Power Systems and Clean Energy,
+9(1), 13–26.
+https://doi.org/10.35833/mpce.2019.000326
+ 
+Sheldon, T. L. (2022). Evaluating Electric Vehicle Policy
+Effectiveness and Equity. Annual Review of Resource
+Economics, 14, 669-688. https://doi.org/10.1146/annurev-
+resource-111820-022834
+ 

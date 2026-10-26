@@ -1,0 +1,373 @@
+{
+ "files": {
+  "ai_baseline_nuclear": {
+   "words": 586,
+   "sentences": 25,
+   "paras": 6,
+   "sentlen_mean": 23.4,
+   "sentlen_sd": 9.9,
+   "burstiness_cv": 0.421,
+   "sentlen_min": 9,
+   "sentlen_max": 43,
+   "sentlen_p90": 36,
+   "short_sents_le10_pct": 12.0,
+   "paralen_mean": 97.7,
+   "paralen_max": 114,
+   "wordlen_mean": 5.84,
+   "mattr_50": 0.864,
+   "comma_1k": 63.14,
+   "semicolon_1k": 3.41,
+   "colon_1k": 1.71,
+   "emdash_1k": 0.0,
+   "paren_1k": 6.83,
+   "contraction_1k": 1.71,
+   "firstperson_1k": 0.0,
+   "tricolon_1k": 11.95,
+   "citation_paren_1k": 3.41,
+   "citation_narr_1k": 3.41,
+   "notonly_butalso": 0,
+   "beverb_1k": 20.48,
+   "conn_however": 1.71,
+   "conn_therefore": 1.71,
+   "conn_moreover": 1.71,
+   "conn_furthermore": 1.71,
+   "conn_additionally": 0.0,
+   "conn_in_addition": 1.71,
+   "conn_nevertheless": 1.71,
+   "conn_meanwhile": 0.0,
+   "conn_besides": 0.0,
+   "conn_apart_from": 0.0,
+   "conn_despite": 0.0,
+   "conn_although": 1.71,
+   "conn_though": 0.0,
+   "conn_for_instance": 0.0,
+   "conn_for_example": 0.0,
+   "conn_according_to": 1.71,
+   "conn_firstly": 0.0,
+   "conn_secondly": 0.0,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 1.71,
+   "conn_to_conclude": 0.0,
+   "conn_in_summary": 0.0,
+   "conn_overall": 0.0,
+   "conn_hence": 0.0,
+   "conn_thus": 0.0,
+   "conn_consequently": 0.0,
+   "tells_total": 2,
+   "tells_1k": 3.41,
+   "init_However": 4.0,
+   "init_Therefore": 0.0,
+   "init_Moreover": 4.0,
+   "init_Furthermore": 4.0,
+   "init_Additionally": 0.0,
+   "init_Firstly": 0.0,
+   "init_Secondly": 0.0,
+   "init_Finally": 0.0,
+   "init_In": 12.0,
+   "init_The": 20.0,
+   "init_This": 8.0,
+   "init_Another": 4.0,
+   "init_Despite": 0.0,
+   "init_To": 0.0,
+   "init_It": 4.0,
+   "init_Nuclear": 12.0,
+   "init_Mandatory": 0.0,
+   "init_Globalisation": 0.0,
+   "init_Consequently": 0.0
+  }
+ },
+ "aggregate": {
+  "words": {
+   "mean": 586.0,
+   "sd": 0.0
+  },
+  "sentences": {
+   "mean": 25.0,
+   "sd": 0.0
+  },
+  "paras": {
+   "mean": 6.0,
+   "sd": 0.0
+  },
+  "sentlen_mean": {
+   "mean": 23.4,
+   "sd": 0.0
+  },
+  "sentlen_sd": {
+   "mean": 9.9,
+   "sd": 0.0
+  },
+  "burstiness_cv": {
+   "mean": 0.42,
+   "sd": 0.0
+  },
+  "sentlen_min": {
+   "mean": 9.0,
+   "sd": 0.0
+  },
+  "sentlen_max": {
+   "mean": 43.0,
+   "sd": 0.0
+  },
+  "sentlen_p90": {
+   "mean": 36.0,
+   "sd": 0.0
+  },
+  "short_sents_le10_pct": {
+   "mean": 12.0,
+   "sd": 0.0
+  },
+  "paralen_mean": {
+   "mean": 97.7,
+   "sd": 0.0
+  },
+  "paralen_max": {
+   "mean": 114.0,
+   "sd": 0.0
+  },
+  "wordlen_mean": {
+   "mean": 5.84,
+   "sd": 0.0
+  },
+  "mattr_50": {
+   "mean": 0.86,
+   "sd": 0.0
+  },
+  "comma_1k": {
+   "mean": 63.14,
+   "sd": 0.0
+  },
+  "semicolon_1k": {
+   "mean": 3.41,
+   "sd": 0.0
+  },
+  "colon_1k": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "emdash_1k": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "paren_1k": {
+   "mean": 6.83,
+   "sd": 0.0
+  },
+  "contraction_1k": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "firstperson_1k": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "tricolon_1k": {
+   "mean": 11.95,
+   "sd": 0.0
+  },
+  "citation_paren_1k": {
+   "mean": 3.41,
+   "sd": 0.0
+  },
+  "citation_narr_1k": {
+   "mean": 3.41,
+   "sd": 0.0
+  },
+  "notonly_butalso": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "beverb_1k": {
+   "mean": 20.48,
+   "sd": 0.0
+  },
+  "conn_however": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_therefore": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_moreover": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_furthermore": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_additionally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_in_addition": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_nevertheless": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_meanwhile": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_besides": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_apart_from": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_despite": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_although": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_though": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_for_instance": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_for_example": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_according_to": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_firstly": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_secondly": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_finally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_in_conclusion": {
+   "mean": 1.71,
+   "sd": 0.0
+  },
+  "conn_to_conclude": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_in_summary": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_overall": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_hence": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_thus": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_consequently": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "tells_total": {
+   "mean": 2.0,
+   "sd": 0.0
+  },
+  "tells_1k": {
+   "mean": 3.41,
+   "sd": 0.0
+  },
+  "init_However": {
+   "mean": 4.0,
+   "sd": 0.0
+  },
+  "init_Therefore": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Moreover": {
+   "mean": 4.0,
+   "sd": 0.0
+  },
+  "init_Furthermore": {
+   "mean": 4.0,
+   "sd": 0.0
+  },
+  "init_Additionally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Firstly": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Secondly": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Finally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_In": {
+   "mean": 12.0,
+   "sd": 0.0
+  },
+  "init_The": {
+   "mean": 20.0,
+   "sd": 0.0
+  },
+  "init_This": {
+   "mean": 8.0,
+   "sd": 0.0
+  },
+  "init_Another": {
+   "mean": 4.0,
+   "sd": 0.0
+  },
+  "init_Despite": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_To": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_It": {
+   "mean": 4.0,
+   "sd": 0.0
+  },
+  "init_Nuclear": {
+   "mean": 12.0,
+   "sd": 0.0
+  },
+  "init_Mandatory": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Globalisation": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Consequently": {
+   "mean": 0.0,
+   "sd": 0.0
+  }
+ }
+}

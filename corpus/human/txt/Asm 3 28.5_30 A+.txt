@@ -1,0 +1,40 @@
+Class:
+
+Name:
+
+Student number:
+
+Discuss the advantages and disadvantages of mandatory vaccinations
+
+
+Mandatory vaccinations, defined as lawfully requiring individuals to be vaccinated, were originally implemented by the British government in 1853 with the aim of preventing infants from suffering smallpox (Nuwarda et al., 2022). However, protests that expressed opposition suddenly erupted throughout the United Kingdom because punishment, such as jails, was associated with non-compliance of mandatory vaccinations, resulting in the emergence of anti-vaccination movements across Europe in the 19th century, following the British government’s initial implementation of mandatory vaccinations (Colgrove & Samuel, 2022). Meanwhile, the spread of smallpox announced by the World Health Organization, thanks to mandatory vaccinations, was wholly eradicated after the most recent outburst in 1979, proving the importance of mandatory vaccinations that could provide people with immunity or prevention against certain diseases while involving deprivation of human rights (Thèves et al., 2016). This essay, therefore, will examine both the benefits and drawbacks of mandatory vaccinations.
+
+The premier advantage of mandatory vaccinations lies in the individual’s prevention of severe diseases, eventually reaching herd immunity. Cheng (2022) indicated that mandated vaccines have consistently been used for the development of antibodies together with immunity in human bodies to reduce the infection and transmission of dire diseases. He pointed out COVID-19, which has posed a high mortality rate worldwide by imposing mandatory vaccination. Given that 60% of the world population has been vaccinated against COVID-19, society would attain herd immunity along with strong protection for individuals, presumably bringing the pandemic to an end. Additionally, the extensive coverage of mandatory vaccination can alleviate symptoms of COVID-19, for instance, fever and headache, thereby minimising mortality rates.
+
+Besides the prevention of diseases, mandatory vaccinations offer people financial incentives. According to Kuznetsova et al. (2021), most European countries that are members of the World Health Organization have adopted mandatory vaccination policies, accompanied by positive incentive-based measures, such as cash and lotteries, to accelerate the uptake of COVID-19 vaccination. For example, not only vaccinated teenagers in Greece would receive a 150-euro coupon called "Freedom Pass" for nationwide access to restaurants, but vaccinated citizens in Poland can also obtain at most several vehicles or 50,000 dollars. Therefore, implementing mandatory vaccination policies with financial incentives during the pandemic can help alleviate the financial losses faced by citizens due to unemployment and lockdowns, aiding them in overcoming the crisis.
+
+However, mandatory vaccinations, considered legislative coercion, involve ethical issues. Mandatory vaccinations would restrict individuals’ freedom to determine their desire for an injection by punishing them for resistance (Williams, 2022). The severity of punishment can vary depending on the country’s policies, ranging from restricted access to certain places to imprisonment. In accordance with Gravagna et al. (2020), by investigating 193 countries in total, 62 of them had executed at least a penalty, some of which, including Pakistan and Malaysia, had implemented instant jail time for people who rejected mandatory vaccinations, leading to anti-vaccination protests due to the loss of human rights.
+
+Another drawback of mandatory vaccinations is the side effects of post-vaccination, which create vaccine hesitation. Research has shown that relying on social media as the primary source of information has contributed to vaccine hesitancy, particularly in Jordan (Sallam et al., as cited in Hatmal et al., 2021). Therefore, the authors conducted a study to authentically seek the truth about the COVID-19 vaccine’s side effects by receiving data from 2213 participants. The most common side effects reported were fatigue and sleepiness. Although the reported side effects are non-life-threatening, they created a sense of anxiety among Jordanians, leading them to postpone their injection time.
+
+To conclude, mandatory vaccinations are not only an effective way to reach population immunity, thereby reducing the chances of an epidemic outbreak that leads to a myriad of people dying, but people can also receive financial incentives as a form of inspiration for survival under the pandemic. Nevertheless, the adoption of mandatory vaccinations can be immoral due to the imposed punishment if people violate the vaccine legislation. In addition, the possibility of triggering side effects after being injected also created a deterrent effect for individuals to get vaccinated. Despite these concerns, mandatory vaccination should still be implemented, as the value of human existence overrides human rights, and the vaccine’s side effects, after a short period of time, would gradually dissipate.
+
+Word count: 699
+
+References:
+
+Cheng, F. K. (2022). Debate on mandatory COVID-19 vaccination. Ethics, Medicine, and Public Health, 21, 100761. https://doi.org/10.1016/j.jemep.2022.100761
+
+Colgrove, J., & Samuel, S. J. (2022). Freedom, rights, and vaccine refusal: The history of an idea. American Journal of Public Health, 112(2), 234–241. https://doi.org/10.2105/AJPH.2021.306504
+
+Gravagna, K., Becker, A., Valeris-Chacin, R., Mohammed, I., Tambe, S., Awan, F. A., Toomey, T. L., & Basta, N. E. (2020). Global assessment of national mandatory vaccination policies and consequences of non-compliance. Vaccine, 38(49), 7865–7873. https://doi.org/10.1016/j.vaccine.2020.09.063
+
+Hatmal, M. M., Al-Hatamleh, M. A. I., Olaimat, A. N., Hatmal, M., Alhaj-Qasem, D. M., Olaimat, T. M., & Mohamud, R. (2021). Side effects and perceptions following COVID-19 vaccination in Jordan: A randomized, cross-sectional study implementing machine learning for predicting severity of side Effects. Vaccines, 9(6), 556. https://doi.org/10.3390/vaccines9060556
+
+Kuznetsova, L., Cortassa, G., & Trilla, A. (2021). Effectiveness of mandatory and incentive-based routine childhood immunization programs in Europe: A systematic review of the literature. Vaccines, 9(10), 1173. https://doi.org/10.3390/vaccines9101173
+
+Nuwarda, R. F., Ramzan, I., Weekes, L., & Kayser, V. (2022). Vaccine hesitancy: contemporary issues and historical background. Vaccines, 10(10), 1595. https://doi.org/10.3390/vaccines10101595
+
+Thèves, C., Crubézy, E., & Biagini, P. (2016). History of smallpox and its spread in human populations. Microbiology Spectrum, 4(4). https://doi.org/10.1128/microbiolspec.PoH-0004-2014
+
+Williams, B. M. (2022). The ethics of selective mandatory vaccination for COVID-19. Public Health Ethics, 15(1), 74–86. https://doi.org/10.1093/phe/phab028

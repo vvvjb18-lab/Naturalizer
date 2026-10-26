@@ -1,0 +1,18 @@
+{
+"Asm 3 28.5_30 A+": {
+"lm_nll_mean": 3.5595,
+"lm_nll_sd": 3.3214,
+"lm_nll_p90": 8.0015,
+"lm_nll_p99": 12.7529,
+"lm_nll_max": 17.6148,
+"lm_spike_rate_8": 0.1018,
+"lm_spike_rate_10": 0.0509,
+"lm_high_conf_rate": 0.2485,
+"lm_mid_conf_rate": 0.1272,
+"lm_low_conf_rate": 0.6243,
+"lm_nll_iqr": 4.8065,
+"lm_big_nll_mean": 3.3647,
+"lm_big_nll_sd": 3.3159,
+"lm_binoc_ratio": 1.0579
+}
+}

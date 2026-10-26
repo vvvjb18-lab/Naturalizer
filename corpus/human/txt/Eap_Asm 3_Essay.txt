@@ -1,0 +1,45 @@
+Class:  CL 63
+
+Name:
+
+Student number:
+
+Discuss the advantages and disadvantages of nuclear energy
+
+Nuclear energy is generated from splitting atoms in a nuclear reactor (Gralla et al., 2017), during which the necessary heat is provided from the fission process to boil water, driving a turbine to produce power. The first civilian nuclear power plant was inaugurated by the United States in 1953, with nuclear energy going viral around the world henceforth (Clark & Duffey, 2023). Coming to 2021, nuclear power generated 2,653 TWh of electricity, accounting for almost 10% of the world's total, according to the International Atomic Energy Agency (Pioro et al., 2022). Countries including the US, France, and China altogether own over 440 reactors producing nuclear energy (Pioro et al., 2022), proving the popularity of this energy form internationally, meanwhile arousing concerns from certain parties over potential risks of radioactive emissions and the high construction cost. This study paper will explore the pros and cons associated with nuclear energy correspondingly.
+
+q
+
+Apart from reducing harm to the environment, nuclear energy is also safe and sustainable. Nuclear power plants can reliably supply baseload energy to meet electricity needs with low vulnerability to fluctuations of fuel prices. Even in inclement weather, nuclear power facilities typically run at full steam, which allows them to generate an uninterrupted stream of energy for use at homes, companies, and factories (Prăvălie & Bandoc, 2018). Compared with the commonly known intermittent and unreliable nature of renewable energy sources like wind and solar energies, nuclear plants are a more attractive choice even at a lower cost of fuel required.
+
+Despite the aforementioned benefits, nuclear energy has some drawbacks; one of which goes to the possible emission of radioactive materials that are harmful to humans, potentially causing mass destruction. In any event of a nuclear disaster, it could even result in long-term drastic harm to the environment and public health. Noticeably, several issues arise at different exposure levels upon the release of radioactive elements. A high level of radiation exposure, for instance, could lead to radiation sickness, an increased risk of cancer and even death. Even exposure to low radiation levels could weaken humans’ immune system, heightening the prevalence of acquiring various forms of cancer (Sarkar, 2019).
+
+Another downside of nuclear power plants is the exceedingly high construction and maintenance costs due to their high technical complexity. Designing and building nuclear reactors requires advanced engineering expertise, not to mention the numerous necessary precautions taken beforehand due to the stringent rules governing nuclear power. Under this circumstance, more resources and workforce are essential to ensure conformity to the rules, escalating the costs considerably. In some places, the hefty construction cost might even create a significant economic challenge (Hejazi, 2017), which remains a shortcoming of nuclear plants to be adopted by some countries.
+
+In conclusion, nuclear energy is overall an impressive energy source due to its high potential for large-scale electricity generation with zero emission of greenhouse gases. Its effectiveness and reliability also make it stand out from other energy sources globally. Nevertheless, adopting nuclear energy could be risky due to the technological intricacy involved and the possibility of the drastic consequences if any emission of radioactive elements takes place. In addition, the stringent regulations and high construction costs are still huge drawbacks of building nuclear power facilities in some locations. Despite these concerns, nuclear power remains appealing to many countries as a safe replacement for fossil fuels, possibly solving the world’s ever-lasting energy crisis if it is used safely.
+
+Word count: 678
+
+References
+
+Gralla, F., Abson, D. J., Møller, A. P., Lang, D. J., & von Wehrden, H. (2017). Energy transitions and national development indicators: A global review of nuclear energy production. Renewable and Sustainable Energy Reviews, 70, 1251-1265.
+
+https://www.sciencedirect.com/science/article/abs/pii/S1364032116310711
+
+Prăvălie, R., & Bandoc, G. (2018). Nuclear energy: Between global electricity demand, worldwide decarbonisation imperativeness, and planetary environmental implications. Journal of environmental management, 209, 81-92.
+
+https://www.sciencedirect.com/science/article/pii/S0301479717312227
+
+Sarkar, A. (2019). Nuclear power and uranium mining: current global perspectives and emerging public health risks. Journal of public health policy, 40(4), 383-392.
+
+https://link.springer.com/article/10.1057/s41271-019-00177-2
+
+Hejazi, R. (2017). Nuclear energy: Sense or nonsense for environmental challenges. International Journal of Sustainable Built Environment, 6(2), 693-700.
+
+https://www.sciencedirect.com/science/article/pii/S2212609016300243
+
+Clark, G., & Duffey, R. B. (2023). Non-proliferation for Advanced Reactors (ARs): Political and social aspects. In Handbook of Generation IV Nuclear Reactors (pp. 579-612). Woodhead Publishing. https://www.sciencedirect.com/science/article/pii/B9780128205884000244
+
+Pioro, I., Duffey, R., & Pioro, R. (2022). Overview of current status and future trends of nuclear power industry of the world. Fundamental Issues Critical to the Success of Nuclear Projects, 23-78.
+
+https://www.sciencedirect.com/science/article/pii/B9780081024720000095

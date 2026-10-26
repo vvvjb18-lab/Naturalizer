@@ -1,0 +1,27 @@
+Describe the cause and effect of food waste
+
+Roughly one third of the food produced for human beings never gets eaten. The United Nations Environment Programme (2021) estimated that 931 million tonnes of food were wasted in a single year, meaning that households, shops and restaurants threw away enough to feed hundreds of millions of people. For the longest time, such waste was treated as a private habit rather than a public problem, yet the figures behind it have grown too large to ignore, arousing concerns from certain parties over both its causes and its price. Therefore, this essay explores the causes of food waste driven by cosmetic standards and poor household planning, discusses how the waste itself feeds climate change, and examines why it deepens hunger and financial loss.
+
+Firstly, strict cosmetic standards are a key cause of food waste. Supermarkets across Europe and North America reject vegetables for being the wrong shape or size, with perfectly edible carrots, potatoes and cucumbers left rotting in the field because they fail to look straight enough for the shelf (FAO, 2019). Such standards are rarely written into law, coming instead from the market's expectations of perfection, which shoppers themselves rarely notice. In developing countries, the losses happen even earlier, with crops spoiled on the way to market because of missing cold storage and rough roads, meaning that the food is lost before any shopper ever sees it (FAO, 2019).
+
+Secondly, household habits, especially the confusion over date labels, drive food waste inside homes. Many consumers treat "best before" dates as safety deadlines, binning bread and yoghurt that remain safe to eat, a misunderstanding that retailers themselves have admitted (ReFED, 2016). Meanwhile, buying too much under bulk discounts and family-size packs pushes families to take home more than their tables can finish. For instance, a family that stocks three loaves under a two-for-one deal may easily finish only two, presumably because the apparent savings feel larger than the cost of the food later thrown away.
+
+Coming to the effects, food waste damages the climate from the field to the bin. When food is thrown away, the water, fuel and fertiliser spent on growing it are wasted along with it, and the rotting leftovers in landfills release methane, a greenhouse gas far more powerful than carbon dioxide in the short term. The Intergovernmental Panel on Climate Change (2019) estimated that food loss and waste together account for around 8-10% of global greenhouse gas emissions, meaning that if food waste were a country, it would sit among the largest emitters on earth (UNEP, 2021).
+
+Another effect of food waste is the deepening of hunger and financial loss. The Food and Agriculture Organization (2022) reported that hundreds of millions of people faced hunger while edible food was being discarded on a mass scale, a contradiction that turns waste from an economic issue into a moral one. The financial bill is equally heavy, with the global cost of wasted food running into hundreds of billions of dollars each year (FAO, 2014), money that disappears from farmers' pockets and household budgets alike. In this situation, throwing food away quietly taxes everyone, from the grower who earned nothing for the spoiled crop to the shopper who paid full price for the empty bin.
+
+In conclusion, food waste is primarily driven by cosmetic standards in the market and by poor planning and label confusion at home. It wastes the resources embedded in every meal, feeding climate change through methane, while millions go hungry and hundreds of billions of dollars vanish each year. Despite these concerns, food waste is not an unsolvable problem, and half of it sits within reach of simple fixes. Clearer date labels, imperfect-vegetable shelves and food banks for surplus stock should be offered, together with consumer education, so that the food already grown is eaten rather than buried.
+
+References
+
+FAO. (2014). Food wastage footprint: Full-cost accounting. Food and Agriculture Organization of the United Nations.
+
+FAO. (2019). The state of food and agriculture 2019: Moving forward on food loss and waste reduction. Food and Agriculture Organization of the United Nations.
+
+FAO. (2022). The state of food security and nutrition in the world 2022. Food and Agriculture Organization of the United Nations.
+
+Intergovernmental Panel on Climate Change. (2019). Climate change and land. IPCC.
+
+ReFED. (2016). A roadmap to reduce US food waste by 20 percent. ReFED.
+
+United Nations Environment Programme. (2021). Food waste index report 2021. UNEP.

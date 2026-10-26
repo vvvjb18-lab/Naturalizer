@@ -1,0 +1,27 @@
+Discuss the advantages and disadvantages of working from home
+
+Working from home, defined as employees performing their duties remotely from the workplace through digital communication tools, was originally a rare arrangement limited to freelancers before 2020, when the outbreak of COVID-19 forced governments to impose lockdowns and companies to send their staff home overnight. According to the International Labour Organization (2021), hundreds of millions of workers shifted to homeworking at the peak of the pandemic, and Eurofound (2022) later recorded that around one in five European employees continued to work from home at least part of the week after the reopening of offices. This sudden transformation has aroused concerns from certain parties over whether remote work genuinely benefits both employees and employers, or whether it quietly damages productivity and health. This essay, therefore, will examine both the benefits and drawbacks of working from home.
+
+The premier advantage of working from home lies in the improvement in productivity and the reduction of costs for companies. Bloom et al. (2015) indicated that a controlled experiment involving the Chinese travel agency Ctrip, where around 250 employees were randomly assigned to work from home for nine months, recorded a 13% increase in performance, together with a 50% drop in resignation rates among the remote group. He pointed out that employees saved the distraction of the open office and the fatigue of commuting, while the company spent far less on office space and equipment. For instance, workers in the United States spend an average of nearly one hour travelling to and from work every day, and this time, once returned to employees, can be used for rest or family duties.
+
+Besides the improvement in efficiency, working from home also promotes inclusion in the labour market. Employees who need to care for young children or elderly parents, as well as workers with disabilities who find commuting difficult, are given equal access to employment that traditional offices often deny (ILO, 2021). Companies, at the same time, are able to recruit talent from different cities or even countries instead of being restricted to candidates living near the headquarters. Therefore, remote work has consistently been used by firms under pressure from the pandemic to keep operating while protecting vulnerable staff, presumably contributing to the recovery of the global economy after the crisis.
+
+However, working from home, considered an invisible burden on employees, involves risks to mental health. Eurofound (2022) found that homeworkers were more likely to work in their free time and to report exhaustion, since the boundary between the office and the home disappeared once the laptop stayed on the dining table. The World Health Organization (2022) also warned that longer working hours, which remote arrangements quietly encourage, are associated with a higher risk of stroke and heart disease. The severity of isolation can vary depending on the living conditions of employees, ranging from mild loneliness among those who live with family to serious depression among those who live alone in small flats.
+
+Another drawback of working from home is the inequality of career development together with new security risks. Barrero, Bloom and Davis (2023) reported that employees who worked fully remotely received fewer promotions than their colleagues who appeared regularly in the office, because managers tend to trust and remember the faces they see. In addition, the shift of confidential documents from protected office networks to home wifi has expanded the surface for cyberattacks. According to the Federal Bureau of Investigation (2021), the number of cybercrime complaints reported in 2020 rose by nearly 70% compared with the previous year, and remote work environments were listed among the major sources of vulnerability.
+
+To conclude, working from home is not only an effective way to raise productivity and cut office expenses, but employees can also enjoy the flexibility to balance work and family duties. Nevertheless, the disappearance of the boundary between workplace and home can be harmful in effect, as overwork, isolation and unequal promotion opportunities would gradually accumulate. In addition, the expansion of cybercrime during remote work also creates a deterrent effect for companies to fully abandon offices. Despite these concerns, a hybrid arrangement should still be implemented gradually, as the value of flexibility overrides the temporary inconvenience, and employers, after a short period of adaptation, should provide training and equipment to protect remote staff.
+
+References
+
+Barrero, J. M., Bloom, N., & Davis, S. J. (2023). The shift to remote work lessens wage-growth pressures. NBER Working Paper.
+
+Bloom, N., Liang, J., Roberts, J., & Ying, Z. J. (2015). Does working from home work? Evidence from a Chinese experiment. Quarterly Journal of Economics, 130(1), 165-218.
+
+Eurofound. (2022). Telework in the EU: Institutions, regulation and the impact of the COVID-19 pandemic. Publications Office of the European Union.
+
+Federal Bureau of Investigation. (2021). Internet crime report 2020. FBI Internet Crime Complaint Center.
+
+International Labour Organization. (2021). Teleworking arrangements during COVID-19 and beyond. ILO.
+
+World Health Organization. (2022). Joint WHO/ILO estimate of the work-related burden of disease and injury. WHO.

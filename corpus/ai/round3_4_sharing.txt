@@ -1,0 +1,29 @@
+Discuss the advantages and disadvantages of the sharing economy
+
+The sharing economy, by which people rent assets and services owned by other individuals through online platforms instead of buying them, first came into the public eye through companies like Airbnb and Uber in the late 2000s, when the global financial crisis pushed consumers to hunt for cheaper substitutes to hotels and taxis. For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's global revenue was forecast to grow from around 15 billion dollars in 2014 to 335 billion dollars by 2025 (PwC, 2015), which shows how fast this business model has spread. Meanwhile, the rise of platform work has aroused worries from certain parties over whether this model genuinely creates value for the public, or whether it simply shifts risks from companies onto individual workers. This essay, therefore, will examine both the benefits and drawbacks of the sharing economy.
+
+The premier advantage of the sharing economy lies in the fuller use of idle resources and the lower prices charged to consumers. A private car, to take an example, sits parked for over 90% of its lifetime, and platforms like Uber link this wasted capacity with passengers who need a ride for a few hours. Zervas et al. (2017) indicated that the entry of Airbnb cut the revenue of Texas hotels by around 8% to 10%, forcing the traditional industry to bring down their prices and lift the country's service standards. He further adds that competition, once opened to ordinary households, benefits consumers who used to face limited choices. For instance, travellers in Barcelona can now stay in a local apartment at half the price of a downtown hotel room during the peak season.
+
+Besides the improvement in efficiency, the sharing economy also opens up flexible side income for workers. Hall and Krueger (2018) found that most of Uber's driver-partners treated the platform as an extra source of pocket money rather than a full-time job, since they could decide freely when to go online and how many hours to drive on a given day. Such flexibility particularly suits students, parents with small children and employees holding another part-time post. Therefore, platform work has repeatedly served as a buffer during the economic downturns, presumably helping households to pull through sudden losses of salary.
+
+However, the sharing economy, when regarded as a form of employment in disguise, involves treating workers unfairly. Platform workers frequently earn less than the local minimum wage after deducting fuel, insurance and the wearing cost of their vehicles, and the absence of contracts leaves them with no paid leave, no pension and no shield against unfair dismissal (ILO, 2021). The degree of insecurity, in practice, differs across platforms. It ranges from moderate income ups and downs among drivers to sudden account shutdowns without any explanation, and the apps behind these platforms keep watching workers' behaviour, which has led to complaints about the loss of freedom and dignity.
+
+Another drawback of the sharing economy is the pressure it lays on housing and urban communities. Garcia-López et al. (2020) revealed that the spread of short-term rentals pushed up residential rents across central Barcelona, as landlords turned long-term homes into tourist flats that pay better, and similar effects have been recorded in cities like Lisbon and Amsterdam. Such conversion eats directly into the housing supply for local residents, worsening the housing problem that many European cities were already struggling with. Tens of thousands of licences were eventually suspended with the aim of protecting residents' living conditions (Barcelona City Council, 2021), which triggered lengthy legal battles with the platforms and pushed the European Union to draft minimum standards for platform work (European Commission, 2022).
+
+To conclude, the sharing economy is not only an effective way to activate idle resources and lower consumer prices, but workers can also pick up flexible income that traditional employment rarely offers. Nevertheless, the shifting of business risks onto individuals can be immoral in effect, as platform workers would be stripped of the basic protections that the employees take for granted. In addition, the turning of homes into tourist flats also creates a deterrent effect for cities to welcome this model without restriction. Despite these concerns, the sharing economy should still be regulated rather than banned, as the value of efficiency overrides the temporary inconvenience, and governments, after a short period of adaptation, should sort platform work into new boxes of employment.
+
+References
+
+Barcelona City Council. (2021). Report on tourist accommodation licensing. Ajuntament de Barcelona.
+
+European Commission. (2022). Proposal for a directive on improving working conditions in platform work. European Commission.
+
+Garcia-López, M. À., Jofre-Monseny, J., Martínez-Mazza, R., & Segú, M. (2020). Do short-term rental platforms affect housing markets? Evidence from Airbnb in Barcelona. Journal of Urban Economics, 119, 103278.
+
+Hall, J. V., & Krueger, A. B. (2018). An analysis of the labor market for Uber's driver-partners: A report prepared for Uber Technologies. ILR Review, 71(3), 705-732.
+
+International Labour Organization. (2021). World employment and social outlook 2021: The role of digital labour platforms. ILO.
+
+PwC. (2015). The sharing economy: Sizing the revenue opportunity. PricewaterhouseCoopers.
+
+Zervas, G., Proserpio, D., & Byers, J. W. (2017). The rise of the sharing economy: Estimating the impact of Airbnb on the hotel industry. Journal of Marketing Research, 54(5), 687-705.

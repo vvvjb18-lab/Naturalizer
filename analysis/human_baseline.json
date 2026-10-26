@@ -1,0 +1,673 @@
+{
+ "files": {
+  "Asm 3 28.5_30 A+": {
+   "words": 685,
+   "sentences": 26,
+   "paras": 6,
+   "sentlen_mean": 26.3,
+   "sentlen_sd": 12.0,
+   "burstiness_cv": 0.456,
+   "sentlen_min": 9,
+   "sentlen_max": 51,
+   "sentlen_p90": 47,
+   "short_sents_le10_pct": 7.7,
+   "paralen_mean": 114.2,
+   "paralen_max": 141,
+   "wordlen_mean": 5.95,
+   "mattr_50": 0.848,
+   "comma_1k": 90.51,
+   "semicolon_1k": 0.0,
+   "colon_1k": 0.0,
+   "emdash_1k": 0.0,
+   "paren_1k": 11.68,
+   "contraction_1k": 7.3,
+   "firstperson_1k": 0.0,
+   "tricolon_1k": 1.46,
+   "citation_paren_1k": 11.68,
+   "citation_narr_1k": 4.38,
+   "notonly_butalso": 0,
+   "beverb_1k": 20.44,
+   "conn_however": 2.92,
+   "conn_therefore": 4.38,
+   "conn_moreover": 0.0,
+   "conn_furthermore": 0.0,
+   "conn_additionally": 1.46,
+   "conn_in_addition": 1.46,
+   "conn_nevertheless": 1.46,
+   "conn_meanwhile": 1.46,
+   "conn_besides": 1.46,
+   "conn_apart_from": 0.0,
+   "conn_despite": 1.46,
+   "conn_although": 1.46,
+   "conn_though": 0.0,
+   "conn_for_instance": 1.46,
+   "conn_for_example": 1.46,
+   "conn_according_to": 1.46,
+   "conn_firstly": 0.0,
+   "conn_secondly": 0.0,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 0.0,
+   "conn_to_conclude": 1.46,
+   "conn_in_summary": 0.0,
+   "conn_overall": 0.0,
+   "conn_hence": 0.0,
+   "conn_thus": 0.0,
+   "conn_consequently": 0.0,
+   "tells_total": 2,
+   "tells_1k": 2.92,
+   "init_However": 7.7,
+   "init_Therefore": 7.7,
+   "init_Moreover": 0.0,
+   "init_Furthermore": 0.0,
+   "init_Additionally": 3.8,
+   "init_Firstly": 0.0,
+   "init_Secondly": 0.0,
+   "init_Finally": 0.0,
+   "init_In": 7.7,
+   "init_The": 11.5,
+   "init_This": 3.8,
+   "init_Another": 3.8,
+   "init_Despite": 3.8,
+   "init_To": 3.8,
+   "init_It": 0.0,
+   "init_Nuclear": 0.0,
+   "init_Mandatory": 7.7,
+   "init_Globalisation": 0.0,
+   "init_Consequently": 0.0
+  },
+  "Eap_Asm 3_Essay": {
+   "words": 555,
+   "sentences": 23,
+   "paras": 5,
+   "sentlen_mean": 24.1,
+   "sentlen_sd": 7.1,
+   "burstiness_cv": 0.295,
+   "sentlen_min": 14,
+   "sentlen_max": 42,
+   "sentlen_p90": 33,
+   "short_sents_le10_pct": 0.0,
+   "paralen_mean": 111.0,
+   "paralen_max": 139,
+   "wordlen_mean": 5.62,
+   "mattr_50": 0.831,
+   "comma_1k": 75.68,
+   "semicolon_1k": 1.8,
+   "colon_1k": 0.0,
+   "emdash_1k": 0.0,
+   "paren_1k": 12.61,
+   "contraction_1k": 3.6,
+   "firstperson_1k": 0.0,
+   "tricolon_1k": 3.6,
+   "citation_paren_1k": 12.61,
+   "citation_narr_1k": 0.0,
+   "notonly_butalso": 0,
+   "beverb_1k": 23.42,
+   "conn_however": 0.0,
+   "conn_therefore": 0.0,
+   "conn_moreover": 0.0,
+   "conn_furthermore": 0.0,
+   "conn_additionally": 0.0,
+   "conn_in_addition": 1.8,
+   "conn_nevertheless": 1.8,
+   "conn_meanwhile": 1.8,
+   "conn_besides": 0.0,
+   "conn_apart_from": 1.8,
+   "conn_despite": 3.6,
+   "conn_although": 0.0,
+   "conn_though": 0.0,
+   "conn_for_instance": 1.8,
+   "conn_for_example": 0.0,
+   "conn_according_to": 1.8,
+   "conn_firstly": 0.0,
+   "conn_secondly": 0.0,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 1.8,
+   "conn_to_conclude": 0.0,
+   "conn_in_summary": 0.0,
+   "conn_overall": 1.8,
+   "conn_hence": 0.0,
+   "conn_thus": 0.0,
+   "conn_consequently": 0.0,
+   "tells_total": 0,
+   "tells_1k": 0.0,
+   "init_However": 0.0,
+   "init_Therefore": 0.0,
+   "init_Moreover": 0.0,
+   "init_Furthermore": 0.0,
+   "init_Additionally": 0.0,
+   "init_Firstly": 0.0,
+   "init_Secondly": 0.0,
+   "init_Finally": 0.0,
+   "init_In": 17.4,
+   "init_The": 4.3,
+   "init_This": 4.3,
+   "init_Another": 4.3,
+   "init_Despite": 8.7,
+   "init_To": 0.0,
+   "init_It": 0.0,
+   "init_Nuclear": 8.7,
+   "init_Mandatory": 0.0,
+   "init_Globalisation": 0.0,
+   "init_Consequently": 0.0
+  },
+  "IAE Essay": {
+   "words": 624,
+   "sentences": 31,
+   "paras": 72,
+   "sentlen_mean": 20.1,
+   "sentlen_sd": 7.0,
+   "burstiness_cv": 0.346,
+   "sentlen_min": 9,
+   "sentlen_max": 33,
+   "sentlen_p90": 30,
+   "short_sents_le10_pct": 16.1,
+   "paralen_mean": 8.7,
+   "paralen_max": 12,
+   "wordlen_mean": 5.51,
+   "mattr_50": 0.794,
+   "comma_1k": 54.49,
+   "semicolon_1k": 0.0,
+   "colon_1k": 1.6,
+   "emdash_1k": 0.0,
+   "paren_1k": 11.22,
+   "contraction_1k": 3.21,
+   "firstperson_1k": 0.0,
+   "tricolon_1k": 1.6,
+   "citation_paren_1k": 9.62,
+   "citation_narr_1k": 3.21,
+   "notonly_butalso": 0,
+   "beverb_1k": 17.63,
+   "conn_however": 4.81,
+   "conn_therefore": 1.6,
+   "conn_moreover": 0.0,
+   "conn_furthermore": 0.0,
+   "conn_additionally": 0.0,
+   "conn_in_addition": 0.0,
+   "conn_nevertheless": 0.0,
+   "conn_meanwhile": 0.0,
+   "conn_besides": 0.0,
+   "conn_apart_from": 0.0,
+   "conn_despite": 0.0,
+   "conn_although": 1.6,
+   "conn_though": 0.0,
+   "conn_for_instance": 1.6,
+   "conn_for_example": 0.0,
+   "conn_according_to": 1.6,
+   "conn_firstly": 1.6,
+   "conn_secondly": 1.6,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 0.0,
+   "conn_to_conclude": 1.6,
+   "conn_in_summary": 0.0,
+   "conn_overall": 1.6,
+   "conn_hence": 1.6,
+   "conn_thus": 1.6,
+   "conn_consequently": 0.0,
+   "tells_total": 0,
+   "tells_1k": 0.0,
+   "init_However": 9.7,
+   "init_Therefore": 3.2,
+   "init_Moreover": 0.0,
+   "init_Furthermore": 0.0,
+   "init_Additionally": 0.0,
+   "init_Firstly": 3.2,
+   "init_Secondly": 3.2,
+   "init_Finally": 0.0,
+   "init_In": 3.2,
+   "init_The": 3.2,
+   "init_This": 0.0,
+   "init_Another": 0.0,
+   "init_Despite": 0.0,
+   "init_To": 3.2,
+   "init_It": 9.7,
+   "init_Nuclear": 0.0,
+   "init_Mandatory": 0.0,
+   "init_Globalisation": 0.0,
+   "init_Consequently": 0.0
+  },
+  "iae Essay (1)": {
+   "words": 739,
+   "sentences": 25,
+   "paras": 3,
+   "sentlen_mean": 29.6,
+   "sentlen_sd": 8.5,
+   "burstiness_cv": 0.286,
+   "sentlen_min": 18,
+   "sentlen_max": 55,
+   "sentlen_p90": 35,
+   "short_sents_le10_pct": 0.0,
+   "paralen_mean": 246.3,
+   "paralen_max": 404,
+   "wordlen_mean": 5.5,
+   "mattr_50": 0.807,
+   "comma_1k": 79.84,
+   "semicolon_1k": 0.0,
+   "colon_1k": 0.0,
+   "emdash_1k": 0.0,
+   "paren_1k": 13.53,
+   "contraction_1k": 1.35,
+   "firstperson_1k": 0.0,
+   "tricolon_1k": 5.41,
+   "citation_paren_1k": 13.53,
+   "citation_narr_1k": 8.12,
+   "notonly_butalso": 0,
+   "beverb_1k": 17.59,
+   "conn_however": 1.35,
+   "conn_therefore": 2.71,
+   "conn_moreover": 0.0,
+   "conn_furthermore": 0.0,
+   "conn_additionally": 0.0,
+   "conn_in_addition": 2.71,
+   "conn_nevertheless": 0.0,
+   "conn_meanwhile": 0.0,
+   "conn_besides": 0.0,
+   "conn_apart_from": 0.0,
+   "conn_despite": 0.0,
+   "conn_although": 0.0,
+   "conn_though": 0.0,
+   "conn_for_instance": 1.35,
+   "conn_for_example": 0.0,
+   "conn_according_to": 0.0,
+   "conn_firstly": 0.0,
+   "conn_secondly": 0.0,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 1.35,
+   "conn_to_conclude": 0.0,
+   "conn_in_summary": 0.0,
+   "conn_overall": 0.0,
+   "conn_hence": 2.71,
+   "conn_thus": 0.0,
+   "conn_consequently": 0.0,
+   "tells_total": 0,
+   "tells_1k": 0.0,
+   "init_However": 4.0,
+   "init_Therefore": 8.0,
+   "init_Moreover": 0.0,
+   "init_Furthermore": 0.0,
+   "init_Additionally": 0.0,
+   "init_Firstly": 0.0,
+   "init_Secondly": 0.0,
+   "init_Finally": 0.0,
+   "init_In": 12.0,
+   "init_The": 4.0,
+   "init_This": 20.0,
+   "init_Another": 0.0,
+   "init_Despite": 0.0,
+   "init_To": 0.0,
+   "init_It": 0.0,
+   "init_Nuclear": 0.0,
+   "init_Mandatory": 0.0,
+   "init_Globalisation": 8.0,
+   "init_Consequently": 0.0
+  },
+  "iae essay(1)": {
+   "words": 741,
+   "sentences": 40,
+   "paras": 6,
+   "sentlen_mean": 18.5,
+   "sentlen_sd": 7.2,
+   "burstiness_cv": 0.391,
+   "sentlen_min": 9,
+   "sentlen_max": 42,
+   "sentlen_p90": 27,
+   "short_sents_le10_pct": 5.0,
+   "paralen_mean": 123.5,
+   "paralen_max": 179,
+   "wordlen_mean": 5.75,
+   "mattr_50": 0.843,
+   "comma_1k": 72.87,
+   "semicolon_1k": 0.0,
+   "colon_1k": 0.0,
+   "emdash_1k": 0.0,
+   "paren_1k": 13.5,
+   "contraction_1k": 1.35,
+   "firstperson_1k": 1.35,
+   "tricolon_1k": 4.05,
+   "citation_paren_1k": 12.15,
+   "citation_narr_1k": 4.05,
+   "notonly_butalso": 1,
+   "beverb_1k": 13.5,
+   "conn_however": 2.7,
+   "conn_therefore": 1.35,
+   "conn_moreover": 0.0,
+   "conn_furthermore": 1.35,
+   "conn_additionally": 1.35,
+   "conn_in_addition": 0.0,
+   "conn_nevertheless": 0.0,
+   "conn_meanwhile": 0.0,
+   "conn_besides": 0.0,
+   "conn_apart_from": 0.0,
+   "conn_despite": 1.35,
+   "conn_although": 0.0,
+   "conn_though": 0.0,
+   "conn_for_instance": 1.35,
+   "conn_for_example": 0.0,
+   "conn_according_to": 2.7,
+   "conn_firstly": 1.35,
+   "conn_secondly": 1.35,
+   "conn_finally": 0.0,
+   "conn_in_conclusion": 1.35,
+   "conn_to_conclude": 0.0,
+   "conn_in_summary": 0.0,
+   "conn_overall": 0.0,
+   "conn_hence": 0.0,
+   "conn_thus": 0.0,
+   "conn_consequently": 1.35,
+   "tells_total": 1,
+   "tells_1k": 1.35,
+   "init_However": 5.0,
+   "init_Therefore": 2.5,
+   "init_Moreover": 0.0,
+   "init_Furthermore": 2.5,
+   "init_Additionally": 2.5,
+   "init_Firstly": 2.5,
+   "init_Secondly": 2.5,
+   "init_Finally": 0.0,
+   "init_In": 5.0,
+   "init_The": 15.0,
+   "init_This": 12.5,
+   "init_Another": 0.0,
+   "init_Despite": 2.5,
+   "init_To": 2.5,
+   "init_It": 2.5,
+   "init_Nuclear": 0.0,
+   "init_Mandatory": 0.0,
+   "init_Globalisation": 0.0,
+   "init_Consequently": 2.5
+  }
+ },
+ "aggregate": {
+  "words": {
+   "mean": 668.8,
+   "sd": 71.22
+  },
+  "sentences": {
+   "mean": 29.0,
+   "sd": 6.1
+  },
+  "paras": {
+   "mean": 18.4,
+   "sd": 26.82
+  },
+  "sentlen_mean": {
+   "mean": 23.72,
+   "sd": 4.04
+  },
+  "sentlen_sd": {
+   "mean": 8.36,
+   "sd": 1.9
+  },
+  "burstiness_cv": {
+   "mean": 0.35,
+   "sd": 0.06
+  },
+  "sentlen_min": {
+   "mean": 11.8,
+   "sd": 3.66
+  },
+  "sentlen_max": {
+   "mean": 44.6,
+   "sd": 7.71
+  },
+  "sentlen_p90": {
+   "mean": 34.4,
+   "sd": 6.86
+  },
+  "short_sents_le10_pct": {
+   "mean": 5.76,
+   "sd": 5.96
+  },
+  "paralen_mean": {
+   "mean": 120.74,
+   "sd": 75.45
+  },
+  "paralen_max": {
+   "mean": 175.0,
+   "sd": 127.65
+  },
+  "wordlen_mean": {
+   "mean": 5.67,
+   "sd": 0.17
+  },
+  "mattr_50": {
+   "mean": 0.82,
+   "sd": 0.02
+  },
+  "comma_1k": {
+   "mean": 74.68,
+   "sd": 11.74
+  },
+  "semicolon_1k": {
+   "mean": 0.36,
+   "sd": 0.72
+  },
+  "colon_1k": {
+   "mean": 0.32,
+   "sd": 0.64
+  },
+  "emdash_1k": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "paren_1k": {
+   "mean": 12.51,
+   "sd": 0.94
+  },
+  "contraction_1k": {
+   "mean": 3.36,
+   "sd": 2.18
+  },
+  "firstperson_1k": {
+   "mean": 0.27,
+   "sd": 0.54
+  },
+  "tricolon_1k": {
+   "mean": 3.22,
+   "sd": 1.51
+  },
+  "citation_paren_1k": {
+   "mean": 11.92,
+   "sd": 1.3
+  },
+  "citation_narr_1k": {
+   "mean": 3.95,
+   "sd": 2.6
+  },
+  "notonly_butalso": {
+   "mean": 0.2,
+   "sd": 0.4
+  },
+  "beverb_1k": {
+   "mean": 18.52,
+   "sd": 3.3
+  },
+  "conn_however": {
+   "mean": 2.36,
+   "sd": 1.61
+  },
+  "conn_therefore": {
+   "mean": 2.01,
+   "sd": 1.47
+  },
+  "conn_moreover": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_furthermore": {
+   "mean": 0.27,
+   "sd": 0.54
+  },
+  "conn_additionally": {
+   "mean": 0.56,
+   "sd": 0.69
+  },
+  "conn_in_addition": {
+   "mean": 1.19,
+   "sd": 1.06
+  },
+  "conn_nevertheless": {
+   "mean": 0.65,
+   "sd": 0.81
+  },
+  "conn_meanwhile": {
+   "mean": 0.65,
+   "sd": 0.81
+  },
+  "conn_besides": {
+   "mean": 0.29,
+   "sd": 0.58
+  },
+  "conn_apart_from": {
+   "mean": 0.36,
+   "sd": 0.72
+  },
+  "conn_despite": {
+   "mean": 1.28,
+   "sd": 1.32
+  },
+  "conn_although": {
+   "mean": 0.61,
+   "sd": 0.75
+  },
+  "conn_though": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_for_instance": {
+   "mean": 1.51,
+   "sd": 0.17
+  },
+  "conn_for_example": {
+   "mean": 0.29,
+   "sd": 0.58
+  },
+  "conn_according_to": {
+   "mean": 1.51,
+   "sd": 0.87
+  },
+  "conn_firstly": {
+   "mean": 0.59,
+   "sd": 0.73
+  },
+  "conn_secondly": {
+   "mean": 0.59,
+   "sd": 0.73
+  },
+  "conn_finally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_in_conclusion": {
+   "mean": 0.9,
+   "sd": 0.75
+  },
+  "conn_to_conclude": {
+   "mean": 0.61,
+   "sd": 0.75
+  },
+  "conn_in_summary": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "conn_overall": {
+   "mean": 0.68,
+   "sd": 0.84
+  },
+  "conn_hence": {
+   "mean": 0.86,
+   "sd": 1.11
+  },
+  "conn_thus": {
+   "mean": 0.32,
+   "sd": 0.64
+  },
+  "conn_consequently": {
+   "mean": 0.27,
+   "sd": 0.54
+  },
+  "tells_total": {
+   "mean": 0.6,
+   "sd": 0.8
+  },
+  "tells_1k": {
+   "mean": 0.85,
+   "sd": 1.16
+  },
+  "init_However": {
+   "mean": 5.28,
+   "sd": 3.32
+  },
+  "init_Therefore": {
+   "mean": 4.28,
+   "sd": 3.1
+  },
+  "init_Moreover": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_Furthermore": {
+   "mean": 0.5,
+   "sd": 1.0
+  },
+  "init_Additionally": {
+   "mean": 1.26,
+   "sd": 1.6
+  },
+  "init_Firstly": {
+   "mean": 1.14,
+   "sd": 1.41
+  },
+  "init_Secondly": {
+   "mean": 1.14,
+   "sd": 1.41
+  },
+  "init_Finally": {
+   "mean": 0.0,
+   "sd": 0.0
+  },
+  "init_In": {
+   "mean": 9.06,
+   "sd": 5.12
+  },
+  "init_The": {
+   "mean": 7.6,
+   "sd": 4.76
+  },
+  "init_This": {
+   "mean": 8.12,
+   "sd": 7.2
+  },
+  "init_Another": {
+   "mean": 1.62,
+   "sd": 1.99
+  },
+  "init_Despite": {
+   "mean": 3.0,
+   "sd": 3.21
+  },
+  "init_To": {
+   "mean": 1.9,
+   "sd": 1.6
+  },
+  "init_It": {
+   "mean": 2.44,
+   "sd": 3.76
+  },
+  "init_Nuclear": {
+   "mean": 1.74,
+   "sd": 3.48
+  },
+  "init_Mandatory": {
+   "mean": 1.54,
+   "sd": 3.08
+  },
+  "init_Globalisation": {
+   "mean": 1.6,
+   "sd": 3.2
+  },
+  "init_Consequently": {
+   "mean": 0.5,
+   "sd": 1.0
+  }
+ }
+}

@@ -1,0 +1,136 @@
+{
+ "auc_journals": 0.998,
+ "auc_learners": 0.992,
+ "top_features": [
+  {
+   "feat": "hapax_ratio",
+   "coef": 0.225
+  },
+  {
+   "feat": "cite_narr_per1k",
+   "coef": 0.197
+  },
+  {
+   "feat": "ttr",
+   "coef": 0.192
+  },
+  {
+   "feat": "copula_per1k",
+   "coef": -0.19
+  },
+  {
+   "feat": "fw_than_per1k",
+   "coef": 0.189
+  },
+  {
+   "feat": "punct_comma_per1k",
+   "coef": 0.184
+  },
+  {
+   "feat": "content_ttr",
+   "coef": 0.18
+  },
+  {
+   "feat": "adjacent_jaccard",
+   "coef": -0.177
+  },
+  {
+   "feat": "fw_we_per1k",
+   "coef": -0.177
+  },
+  {
+   "feat": "init_discourse_pct",
+   "coef": 0.176
+  },
+  {
+   "feat": "pos_SCONJ_pct",
+   "coef": 0.171
+  },
+  {
+   "feat": "fin_subclause",
+   "coef": 0.169
+  },
+  {
+   "feat": "first_person_per1k",
+   "coef": -0.166
+  },
+  {
+   "feat": "pos_ADJ_pct",
+   "coef": -0.162
+  },
+  {
+   "feat": "punct_quote_per1k",
+   "coef": 0.159
+  },
+  {
+   "feat": "n_paras",
+   "coef": 0.159
+  },
+  {
+   "feat": "verb_unique_ratio",
+   "coef": 0.153
+  },
+  {
+   "feat": "init_it_pct",
+   "coef": 0.153
+  },
+  {
+   "feat": "consequence_per1k",
+   "coef": 0.148
+  },
+  {
+   "feat": "fw_the_per1k",
+   "coef": 0.147
+  },
+  {
+   "feat": "pos_ADV_pct",
+   "coef": 0.145
+  },
+  {
+   "feat": "fw_can_per1k",
+   "coef": 0.141
+  },
+  {
+   "feat": "flesch",
+   "coef": 0.14
+  },
+  {
+   "feat": "pct_word_ge9",
+   "coef": -0.139
+  },
+  {
+   "feat": "syl_per_word",
+   "coef": -0.137
+  },
+  {
+   "feat": "relcl_per_sent",
+   "coef": 0.134
+  },
+  {
+   "feat": "pct_short_sent_le10",
+   "coef": 0.133
+  },
+  {
+   "feat": "sconj_per_sent",
+   "coef": 0.133
+  },
+  {
+   "feat": "zlib_ratio",
+   "coef": 0.133
+  },
+  {
+   "feat": "pos_DET_pct",
+   "coef": 0.128
+  }
+ ],
+ "ladder_probs": {
+  "Asm 3 28.5_30 A+": 0.56,
+  "round4_13_urbanisation_v095": 0.962,
+  "round4_12_urbanisation": 0.956,
+  "round4_11_urbanisation": 0.959,
+  "round4_9_urbanisation": 0.973,
+  "round10_2_v12_onlineshopping": 0.981,
+  "round11_parttimejobs": 0.985
+ },
+ "loo_mae": 33.3
+}

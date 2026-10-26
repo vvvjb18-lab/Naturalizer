@@ -1,0 +1,25 @@
+Discuss the advantages and disadvantages of online shopping
+
+Online shopping, which means buying goods and services through websites and apps instead of physical stores, first became common in the late 1990s through companies like Amazon and eBay, when paying by credit card over the internet stopped being a scary idea. Statista (2023) counted that the world's online sales has passed six trillion dollar a year, which proves that shopping with a phone has already sunk into the daily routines of most families. Meanwhile, the closing of high street shops has aroused concerns from certain parties over whether online shopping genuinely benefits the public, or whether the convenience is paid by small shops and careless buyers. In this essay, it will be argued that online shopping should be regulated rather than stopped.
+
+The premier advantage of online shopping lies in how cheap and convenient it has become for the ordinary families. A product on an online store, to take an example, is often sold at a lower price than the same product on a physical shelf, because the online seller does not need to pay for the shopfront, the sales staff and the city-centre rent (OECD, 2019). Price comparison also takes seconds, with dozens of sellers is listed on one screen, meaning that a family can finish a whole shopping list within the hour after dinner (with the saving larger for the families with children). For instance, a student in Hong Kong can order a laptop stand at midnight and receive it by the next afternoon, a speed that no traditional shop could match.
+
+Besides the improvement in price, online shopping also opens the market to people whom physical stores serve badly. Elderly shoppers and residents of remote islands or villages, who find travelling to a city centre difficult, can now receive the same goods at their doors, together with the disabled buyers whom shopping trips used to exhaust. Customer reviews, for the longest time just the advice of a few friends, have became a public record of every product's quality, letting buyers to learn from thousands of strangers before to pay (European Commission, 2022). Such a market, in the eyes of many families, is more open than any shopping mall ever was.
+
+However, online shopping, considered a threat to small family shops, involves the hollowing out of high streets. When customers buy from giant platforms, the money flows away from the neighbourhood, with local shops losing the local customers who used to pass their windows every day (House of Commons, 2021). The severity differs across the towns. It ranges from shorter opening hours in small towns to whole rows of shutters in the worst-hit centres; the first victim is always the shop with the oldest owner. The jobs lost behind those shutters are rarely replaced by the warehouse work that platforms create elsewhere. In this situation, a town can lose its centre without anybody deciding to close it.
+
+Another drawback of online shopping is the problem of frauds, the impulse buying and the mountain of returned goods. Fake reviews and fake shops trick careless buyers into paying for goods which never arrive, and the platforms, despite their promises, is slow to remove them. The Baymard Institute (2023) found that around seven out of ten online shopping carts is abandoned, mostly after the buyer sees the shipping cost, and the goods returned each year add up to billions of dollars, with many returned items never resold but simply destroyed (Baymard Institute, 2023). The ease of one-click payment, at the same time, pushes shoppers into buying more than their budgets can carry, presumably because the money does not feel real until the credit card bill arrive.
+
+To conclude, online shopping is not only an effective way to lower prices and widen choice for families, but buyers can also enjoy the door-to-door convenience that physical stores never offered. Nevertheless, the convenience can be immoral in effect, as high streets are hollowed out, and careless buyers face frauds and mounting debts. In addition, the mountain of returned goods also creates a deterrent effect for cities to embrace online retail without limits. Despite these concerns, online shopping should still be regulated rather than stopped, with platforms verifying reviews, protecting payments and paying the fair share of local taxes, so that the convenience is not bought at the expense of the shops and the shoppers themselves.
+
+References
+
+Baymard Institute. (2023). Cart abandonment rate statistics. Baymard Institute.
+
+European Commission. (2022). Consumer attitudes towards cross-border trade and consumer protection. European Commission.
+
+House of Commons. (2021). High streets and town centres in 2030: Housing, Communities and Local Government Committee report. UK Parliament.
+
+OECD. (2019). Consumer protection in e-commerce. OECD Publishing.
+
+Statista. (2023). Global retail e-commerce sales. Statista.

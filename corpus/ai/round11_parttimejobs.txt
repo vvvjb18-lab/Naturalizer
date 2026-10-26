@@ -1,0 +1,27 @@
+Discuss the advantages and disadvantages of part-time jobs for students
+
+A part-time job, which means paid work taken alongside full-time study, has become a normal part of student life in most countries. The National Center for Education Statistics (2022) counted that around forty percent of full-time university students in the United States was holding a job during term time, with the share rising above seventy percent for the part-time students. For many families, the choice is not really a choice, because the rent and the food does not pay themselves. This essay, therefore, will examine both the benefits and drawbacks of part-time jobs for students, and argue that the number of working hours decides whether the job helps or harms.
+
+The premier advantage of a part-time job lies in the money it puts into a student's own pocket. A waiter in a Hong Kong tea restaurant can earn around sixty dollars an hour, enough to cover the transport, the phone bill and occasional dinner with classmates, so the student stops asking the family for every small sum. Surveys of student money habits keep finding the same picture, with most working students saying the wage goes straight into daily costs rather than savings (Save the Student, 2023). The effect reaches beyond the wallet. A student who has earned the money spends it more carefully, presumably because a hundred dollar means six hours of carrying plates, and the habit of counting the cost is itself a lesson which no lecture teaches.
+
+Besides the income, a part-time job also teaches the workplace itself. Turning up on time, taking orders from a manager younger than one's parents and dealing with an angry customer are small tests of character. Many students report that the first month of work taught them more about people than the first year of the university.
+
+But the picture above is not the whole truth. The same students who praise their jobs also admit the cost: the hours after class is no longer free, the group meetings are missed and the Sunday shift swallows the only day left for the rest. A job which builds character in one student can hollow out another, because the two students do not start from the same place.
+
+The most serious drawback is the harm to study when the hours climb too high. Riggert et al. (2006) reviewed the research on student employment and found that the effects depend heavily on the weekly load, with modest hours showing little harm while long hours pulls both attendance and grades downwards. The line is roughly twenty hours a week (Riggert et al., 2006). A student who works beyond it arrives at the lecture already tired, with the homework of one life unfinished in other life (NCES, 2022). Therefore, students need to check their own limit before to accept more shifts, since grade point average is a heavier price than any wage.
+
+Another drawback of student part-time work is the low pay and the weak protection. Student jobs gather in the least protected corners of the economy, in restaurants, shops and delivery platforms, where the wages are the lowest and the contracts are thinnest. In the United Kingdom, one student in five works extra hours to cover living costs, and the employers know the supply of student labour never run out, so the bargaining power stays close to zero (Low Pay Commission, 2022). Across the wider youth labour market, the same weak position repeats itself from country to country (ILO, 2020).
+
+To conclude, a part-time job is not only an effective way to ease the pressure on the family budget, but students can also collect the early lessons of workplace. Nevertheless, the convenience can be deceptive in effect, because hours beyond twenty attack the very studies the money is meant to support, and the weakest students are pushed into the worst jobs. Despite these concerns, part-time work should still be recommended within a clear weekly limit, with the study calendar placed above a shift calendar, so that the job serves the degree and not other way round.
+
+References
+
+International Labour Organization. (2020). Global employment trends for youth 2020: Technology and the future of jobs. ILO.
+
+Low Pay Commission. (2022). Young workers and the minimum wage: An annual review. LPC.
+
+National Center for Education Statistics. (2022). Employment and enrollment of full-time and part-time college students. NCES, U.S. Department of Education.
+
+Riggert, S. C., Boyle, M., Hewett, J. M., Jones, B., & Robinson, M. (2006). Student employment and higher education: Empiricism and dichotomy. Review of Educational Research, 76(1), 73-107.
+
+Save the Student. (2023). Money matters: The national student money survey. Save the Student.

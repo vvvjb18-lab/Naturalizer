@@ -1,0 +1,27 @@
+Discuss the advantages and disadvantages of fast fashion
+
+Fast fashion, defined as the business model of copying catwalk designs and mass-producing them at low cost within weeks, first came into the public eye through brands like Zara and H&M in the 1990s, when shopping became a weekly habit rather than a seasonal one. The Ellen MacArthur Foundation (2017) estimated that clothing production doubled between 2000 and 2015, with the equivalent of one rubbish truck of textiles landfilled or burned every second. Meanwhile, the industry's low prices and quick turnover have aroused concerns from certain parties over whether such clothing genuinely serves the public, or whether the environment and overseas workers are paying the hidden bill. This essay, therefore, will examine both the benefits and drawbacks of fast fashion.
+
+The premier advantage of fast fashion lies in how cheap and quickly updated clothing has become for ordinary shoppers. Niinimäki et al. (2020) acknowledged that low-income households, for the longest time, could not follow trends at all, yet a basic t-shirt now costs less than a cinema ticket, allowing students and large families to renew their wardrobes without breaking their budgets. The effect can be felt at every high street store. For instance, a simple top at a fast fashion chain in Hong Kong sells for around 50 dollars, a price that even part-time students can afford, and the shelves are restocked with new designs every fortnight, keeping customers returning week after week (McKinsey & Company, 2016).
+
+Besides the improvement in affordability, fast fashion also feeds millions of families in exporting countries. The garment industry in Bangladesh alone employs around four million workers, most of them women from rural villages, giving the country its largest source of export earnings (ILO, 2013). Such employment, although poorly paid by Western standards, has repeatedly served as a first step out of village poverty, presumably helping households, especially those with daughters to educate, to pull through their hardest years. Coming together with the spread of fast fashion orders, the rise of these factories has lifted parts of the country out of extreme poverty within a single generation.
+
+However, fast fashion, considered one of the most polluting industries on earth, involves serious environmental damage. The United Nations Environment Programme (2019) estimated that the industry is responsible for around 10% of global carbon emissions, more than all international flights combined, with a single cotton t-shirt drinking roughly 2,700 litres of water before it reaches the shelf (WWF, 2013). The severity of the damage differs across materials. It ranges from polyester shedding microplastics in every wash to dye runoff poisoning rivers in manufacturing zones, and the throwaway habit keeps growing, with the average garment now worn far fewer times before disposal (Ellen MacArthur Foundation, 2017).
+
+Another drawback of fast fashion is the human cost behind the low price tags. When the Rana Plaza factory complex in Bangladesh collapsed in 2013, more than one thousand garment workers died, most of them producing clothes for Western fast fashion brands (ILO, 2013). Investigations that followed revealed locked fire exits, illegal extensions and wages below the legal floor, showing how the pressure of quick, cheap orders had been passed down to the weakest links of the supply chain. Despite the promises made afterwards, complaints about excessive overtime and unsafe stairs still surface across the industry (International Labour Organization, 2013).
+
+To conclude, fast fashion is not only an effective way to keep clothing cheap and trends within reach, but exporting countries can also pick up millions of jobs that village life never offered. Nevertheless, the industry can be immoral in effect, as the environment pays through emissions and textile waste, and overseas workers pay through unsafe factories and unpaid overtime. Despite these concerns, fast fashion should still be reformed rather than abandoned, with consumers buying fewer and better pieces, and brands paying living wages on a published schedule, so that cheapness is not bought at the expense of people and the planet.
+
+References
+
+Ellen MacArthur Foundation. (2017). A new textiles economy: Redesigning fashion's future. Ellen MacArthur Foundation.
+
+International Labour Organization. (2013). Reacting to the Rana Plaza disaster: Improving safety and health in the garment industry. ILO.
+
+McKinsey & Company. (2016). Style that's sustainable: A new fast-fashion formula. McKinsey & Company.
+
+Niinimäki, K., Peters, G., Dahlbo, H., Perry, P., Rissanen, T., & Gwilt, A. (2020). The environmental price of fast fashion. Nature Reviews Earth & Environment, 1(4), 189-200.
+
+United Nations Environment Programme. (2019). UN alliance for sustainable fashion. UNEP.
+
+WWF. (2013). The impact of a cotton t-shirt: How much water does it take to produce? World Wide Fund for Nature.

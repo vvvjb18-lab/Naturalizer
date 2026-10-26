@@ -1,0 +1,27 @@
+Evaluate the impact of video games on young people
+
+Video games have moved from arcades into nearly every pocket. Around two thirds of Americans, and most teenagers across the developed world, now play regularly (Entertainment Software Association, 2023), with the average player being far older than the schoolboy stereotype. Given this scale, the influence of games on young people has aroused concerns from certain parties over whether they sharpen the mind or quietly eat the years of adolescence. Therefore, this essay will analyse the influence of video games on young people in three aspects: the training of reaction and teamwork, the relief of stress and social connection, and the risks of addiction and lost sleep.
+
+Firstly, video games can train reaction, planning and teamwork at a speed that classrooms struggle to match. Green and Bavelier (2003) found that regular action players showed measurably faster visual attention and hand-eye coordination, while team games demand the same coordination, communication and role discipline as any sports team. In short, the better games are gyms for quick thinking. For instance, a squad in a team shooter must call out positions, share resources and adjust the plan within seconds, repeating dozens of decision cycles in a single match.
+
+Secondly, moderate play appears to relieve stress and connect friends. Przybylski and Weinstein (2017), studying more than 120,000 teenagers, found that a moderate level of gaming was still within the healthy band of daily screen time, with wellbeing dipping only at very high hours, much like the sugar in a normal meal compared with a feast. Online worlds also keep friendships alive across distances, with schoolmates who have moved cities still meeting nightly in the same lobby. Presumably for such reasons, most families report no visible harm from the hobby, as long as the hours stay within bounds (Przybylski and Weinstein, 2017).
+
+However, the pull of games, built by design to keep players returning, involves real risks of addiction and lost sleep. The World Health Organization (2022) officially listed gaming disorder in its disease handbook, describing players who lose control over the hours, put games ahead of life duties and keep playing despite the harm. The severity differs across designs. It ranges from harmless late nights before a holiday to school years quietly hollowed out by daily marathons, and sleep is the first sacrifice of the gaming night, carrying the cost forward into a student's mood, memory and grades (Twenge, 2017).
+
+Another drawback of video games lies in the content itself. Anderson et al. (2010), after reviewing hundreds of studies, concluded that violent games raise aggressive thoughts and behaviour in the short term, with the effect being small for a single player but meaningful across millions of players. They further warn that young players rarely notice the shift in themselves, leaving parents and teachers to read the signs. In this situation, the rating labels exist for a reason, and the youngest players are the least equipped to browse the same shelves as adults.
+
+To conclude, this essay has outlined three influences of video games on young people. Games are not only a gym for reaction and teamwork, but young players can also collect stress relief and friendships from the same screens. Nevertheless, the pull of the next round is not harmless in effect, as addiction and lost sleep hollow out school years, and violent content leaves small marks that add up across millions of players. Despite these concerns, video games should still be managed rather than banned, with fixed hours agreed in advance and age ratings enforced by parents rather than ignored, together with sleep protected as the non-negotiable line, so that play sharpens young people instead of swallowing them.
+
+References
+
+Anderson, C. A., Shibuya, A., Ihori, N., Swing, E. L., Bushman, B. J., Sakamoto, A., Rothstein, H. R., & Saleem, M. (2010). Violent video game effects on aggression, empathy, and prosocial behavior in Eastern and Western countries: A meta-analytic review. Psychological Bulletin, 136(2), 151-173.
+
+Entertainment Software Association. (2023). Essential facts about the US video game industry. ESA.
+
+Green, C. S., & Bavelier, D. (2003). Action video game modifies visual attention. Nature, 423(6939), 534-537.
+
+Przybylski, A. K., & Weinstein, N. (2017). A large-scale test of the Goldilocks hypothesis: Quantifying the relations between digital-screen use and the mental well-being of adolescents. Psychological Science, 28(2), 204-215.
+
+Twenge, J. M. (2017). iGen: Why today's super-connected kids are growing up less rebellious, more tolerant, less happy. Atria Books.
+
+World Health Organization. (2022). International classification of diseases (11th revision). WHO.

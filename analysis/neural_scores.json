@@ -1,0 +1,1490 @@
+{
+ "ai_baseline_nuclear.txt": {
+  "doc": {
+   "nll_performer": 2.3395,
+   "nll_observer": 2.8882,
+   "binoc_ratio": 1.2346,
+   "ppl_performer": 10.4
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    1.799,
+    "The most obvious is the risk of catastrophic accidents."
+   ],
+   [
+    1.995,
+    "The energy density of uranium is approximately two million times higher than that of coal, which means that a "
+   ],
+   [
+    2.057,
+    "Unlike coal or natural gas plants, nuclear reactors release virtually no greenhouse gases during operation."
+   ],
+   [
+    2.072,
+    "Moreover, nuclear plants provide stable baseload power regardless of weather conditions, which gives them a cr"
+   ],
+   [
+    2.079,
+    "This essay will examine both sides of the debate and argue that, on balance, the advantages of nuclear energy "
+   ]
+  ]
+ },
+ "Asm 3 28.5_30 A+.txt": {
+  "doc": {
+   "nll_performer": 3.1748,
+   "nll_observer": 3.4529,
+   "binoc_ratio": 1.0876,
+   "ppl_performer": 23.9
+  },
+  "n_sents": 26,
+  "riskiest": [
+   [
+    1.996,
+    "The most common side effects reported were fatigue and sleepiness."
+   ],
+   [
+    3.006,
+    "Research has shown that relying on social media as the primary source of information has contributed to vaccin"
+   ],
+   [
+    3.075,
+    "This essay, therefore, will examine both the benefits and drawbacks of mandatory vaccinations."
+   ],
+   [
+    3.099,
+    "The severity of punishment can vary depending on the country\u2019s policies, ranging from restricted access to cer"
+   ],
+   [
+    3.123,
+    "Given that 60% of the world population has been vaccinated against COVID-19, society would attain herd immunit"
+   ]
+  ]
+ },
+ "IAE Essay.txt": {
+  "doc": {
+   "nll_performer": 2.5324,
+   "nll_observer": 2.8534,
+   "binoc_ratio": 1.1267,
+   "ppl_performer": 12.6
+  },
+  "n_sents": 31,
+  "riskiest": [
+   [
+    1.752,
+    "When the cost of owning\n\nelectric vehicles is lower, it will encourage more people to\n\nbuy electric vehicles i"
+   ],
+   [
+    2.393,
+    "If people have\n\nmore money, their motivation to make purchasing decisions\n\nwill be increased."
+   ],
+   [
+    2.479,
+    "In order to encourage the public to\n\nuse electric vehicles instead of traditional cars, many\n\ncountries provid"
+   ],
+   [
+    2.601,
+    "A battery's service life is around 7 to\n\n15 years and millions of EV batteries will end their life cycle\n\nin t"
+   ],
+   [
+    2.671,
+    "Secondly, the use of electric vehicles can stimulate\n\nconsumption."
+   ]
+  ]
+ },
+ "iae Essay (1).txt": {
+  "doc": {
+   "nll_performer": 3.2953,
+   "nll_observer": 3.6103,
+   "binoc_ratio": 1.0956,
+   "ppl_performer": 27.0
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.93,
+    "Globalisation has significantly influenced the original status of English as a colonial language to an interna"
+   ],
+   [
+    3.274,
+    "Describe How Globalisation has Influenced the Meaning and Use of English Worldwide\n\nIt is fascinating how Engl"
+   ],
+   [
+    3.396,
+    "The rise of digital platforms such as social media has accelerated the rate of globalisation and hence enhance"
+   ],
+   [
+    3.535,
+    "These authors have a strong conviction that countries' cooperation and harmony, as an aspect of globalisation,"
+   ],
+   [
+    3.626,
+    "However, the amplification of English through globalisation has posed a challenge to other native languages, w"
+   ]
+  ]
+ },
+ "Eap_Asm 3_Essay.txt": {
+  "doc": {
+   "nll_performer": 2.9513,
+   "nll_observer": 3.2773,
+   "binoc_ratio": 1.1105,
+   "ppl_performer": 19.1
+  },
+  "n_sents": 23,
+  "riskiest": [
+   [
+    1.891,
+    "A high level of radiation exposure, for instance, could lead to radiation sickness, an increased risk of cance"
+   ],
+   [
+    2.554,
+    "In conclusion, nuclear energy is overall an impressive energy source due to its high potential for large-scale"
+   ],
+   [
+    2.652,
+    "Apart from reducing harm to the environment, nuclear energy is also safe and sustainable."
+   ],
+   [
+    2.653,
+    "Coming to 2021, nuclear power generated 2,653 TWh of electricity, accounting for almost 10% of the world's tot"
+   ],
+   [
+    2.844,
+    "In any event of a nuclear disaster, it could even result in long-term drastic harm to the environment and publ"
+   ]
+  ]
+ },
+ "iae essay(1).txt": {
+  "doc": {
+   "nll_performer": 2.8582,
+   "nll_observer": 3.1655,
+   "binoc_ratio": 1.1075,
+   "ppl_performer": 17.4
+  },
+  "n_sents": 40,
+  "riskiest": [
+   [
+    2.333,
+    "In the past few years, many unauthorised immigrants have gained legal status through family reunification."
+   ],
+   [
+    2.43,
+    "However, it also places a significant strain on public resources and services."
+   ],
+   [
+    2.571,
+    "Many families flee their home countries due to war and political persecution in search of a safer and more sta"
+   ],
+   [
+    2.71,
+    "This increased demand can strain resources and diminish the quality of education, particularly in communities "
+   ],
+   [
+    2.715,
+    "For instance, in the United States, while illegal immigrants have high work rates and pay taxes, their low ave"
+   ]
+  ]
+ },
+ "round1_1_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.6565,
+   "nll_observer": 3.0803,
+   "binoc_ratio": 1.1595,
+   "ppl_performer": 14.2
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.257,
+    "This essay, therefore, will examine both the benefits and drawbacks of a cashless society."
+   ],
+   [
+    2.293,
+    "The premier advantage of a cashless society lies in the convenience and efficiency of digital payments for bot"
+   ],
+   [
+    2.375,
+    "According to the Bank for International Settlements (2021), the value of cash in circulation has been falling "
+   ],
+   [
+    2.426,
+    "Another drawback of a cashless society is the erosion of privacy and the rising threat of cybercrime."
+   ],
+   [
+    2.557,
+    "For example, after the Indian government withdrew high-denomination banknotes in 2016 with the aim of cracking"
+   ]
+  ]
+ },
+ "round2_1_wfh.txt": {
+  "doc": {
+   "nll_performer": 3.1573,
+   "nll_observer": 3.5332,
+   "binoc_ratio": 1.119,
+   "ppl_performer": 23.5
+  },
+  "n_sents": 26,
+  "riskiest": [
+   [
+    2.421,
+    "This essay, therefore, will examine both the benefits and drawbacks of working from home."
+   ],
+   [
+    2.582,
+    "The premier advantage of working from home lies in the improvement in productivity and the reduction of costs "
+   ],
+   [
+    2.773,
+    "To conclude, working from home is not only an effective way to raise productivity and cut office expenses, but"
+   ],
+   [
+    2.776,
+    "For instance, workers in the United States spend an average of nearly one hour travelling to and from work eve"
+   ],
+   [
+    2.961,
+    "It ranges from mild loneliness among employees who live with family to serious depression among those who live"
+   ]
+  ]
+ },
+ "round3_1_sharing.txt": {
+  "doc": {
+   "nll_performer": 2.9202,
+   "nll_observer": 3.4037,
+   "binoc_ratio": 1.1656,
+   "ppl_performer": 18.5
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.337,
+    "The sharing economy, defined as an economic model in which individuals borrow or rent assets and services owne"
+   ],
+   [
+    2.495,
+    "Hall and Krueger (2018) found that the majority of Uber's driver-partners treated the platform as a supplement"
+   ],
+   [
+    2.5,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.721,
+    "The premier advantage of the sharing economy lies in the more efficient use of idle resources and the lower pr"
+   ],
+   [
+    3.105,
+    "Such conversion directly reduces the supply of housing for local residents, worsening the affordability crisis"
+   ]
+  ]
+ },
+ "round4_1_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.6732,
+   "nll_observer": 3.0689,
+   "binoc_ratio": 1.148,
+   "ppl_performer": 14.5
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.053,
+    "More than half of the world's population already lives in urban areas, and the share is projected to reach 68%"
+   ],
+   [
+    2.283,
+    "On the other hand, urbanisation also brings significant economic benefits."
+   ],
+   [
+    2.479,
+    "However, it also places a significant strain on housing, services and the environment."
+   ],
+   [
+    2.578,
+    "In countries such as Syria and South Sudan, years of armed conflict have destroyed villages and farmland, forc"
+   ],
+   [
+    2.622,
+    "Additionally, the mechanisation of agriculture has steadily reduced the demand for farm labour."
+   ]
+  ]
+ },
+ "round5_2_ai_education.txt": {
+  "doc": {
+   "nll_performer": 3.0665,
+   "nll_observer": 3.4705,
+   "binoc_ratio": 1.1318,
+   "ppl_performer": 21.5
+  },
+  "n_sents": 27,
+  "riskiest": [
+   [
+    2.678,
+    "Therefore, this essay will analyze the influence of artificial intelligence on education in three aspects: the"
+   ],
+   [
+    2.695,
+    "Teachers currently spend a large portion of their evenings and weekends marking assignments, writing feedback "
+   ],
+   [
+    2.722,
+    "Human tutors, however, are far too expensive for most public schools to hire in sufficient numbers."
+   ],
+   [
+    2.865,
+    "Bloom (1984) found that students who received one-to-one tutoring performed around two standard deviations bet"
+   ],
+   [
+    3.055,
+    "Hence, artificial intelligence has the potential to narrow the long-standing achievement gap between privilege"
+   ]
+  ]
+ },
+ "round3_2_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.0909,
+   "nll_observer": 3.5624,
+   "binoc_ratio": 1.1526,
+   "ppl_performer": 22.0
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.547,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.759,
+    "Hall and Krueger (2018) found that most of Uber's driver-partners treated the platform as an extra source of p"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.854,
+    "The sharing economy, by which people rent assets and services owned by other individuals through online platfo"
+   ],
+   [
+    3.033,
+    "The premier advantage of the sharing economy lies in the fuller use of idle resources and the lower prices cha"
+   ]
+  ]
+ },
+ "round1_2_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.8513,
+   "nll_observer": 3.2807,
+   "binoc_ratio": 1.1506,
+   "ppl_performer": 17.3
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.57,
+    "Figures from the Bank for International Settlements (2021) show that the value of cash in circulation has kept"
+   ],
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.908,
+    "For example, when the Indian government called back its high-denomination banknotes overnight in 2016 with the"
+   ]
+  ]
+ },
+ "round1_3_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.8798,
+   "nll_observer": 3.2877,
+   "binoc_ratio": 1.1416,
+   "ppl_performer": 17.8
+  },
+  "n_sents": 31,
+  "riskiest": [
+   [
+    2.539,
+    "The speed of such a change, in fact, has rarely been seen in the history of money."
+   ],
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.879,
+    "For example, when the Indian government called back its high-denomination banknotes overnight in 2016 with the"
+   ]
+  ]
+ },
+ "round1_4_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.9232,
+   "nll_observer": 3.3161,
+   "binoc_ratio": 1.1344,
+   "ppl_performer": 18.6
+  },
+  "n_sents": 32,
+  "riskiest": [
+   [
+    2.539,
+    "The speed of such a change, in fact, has rarely been seen in the history of money."
+   ],
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.971,
+    "Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would"
+   ]
+  ]
+ },
+ "round1_5_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.9289,
+   "nll_observer": 3.3185,
+   "binoc_ratio": 1.133,
+   "ppl_performer": 18.7
+  },
+  "n_sents": 32,
+  "riskiest": [
+   [
+    2.539,
+    "The speed of such a change, in fact, has rarely been seen in the history of money."
+   ],
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.971,
+    "Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would"
+   ]
+  ]
+ },
+ "round3_3_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.106,
+   "nll_observer": 3.5786,
+   "binoc_ratio": 1.1522,
+   "ppl_performer": 22.3
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.547,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.716,
+    "Hall and Krueger (2018) found that most of Uber's driver-partners treated the platform as an extra source of p"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.854,
+    "The sharing economy, by which people rent assets and services owned by other individuals through online platfo"
+   ],
+   [
+    3.033,
+    "The premier advantage of the sharing economy lies in the fuller use of idle resources and the lower prices cha"
+   ]
+  ]
+ },
+ "round4_2_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.7361,
+   "nll_observer": 3.1297,
+   "binoc_ratio": 1.1438,
+   "ppl_performer": 15.4
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.343,
+    "Over half of the world's population are already living in urban areas, and the share is forecast to touch 68% "
+   ],
+   [
+    2.444,
+    "On the other hand, urbanisation also brings significant economic gains."
+   ],
+   [
+    2.479,
+    "However, it also places a significant strain on housing, services and the environment."
+   ],
+   [
+    2.776,
+    "In countries torn by years of fighting such as Syria and South Sudan, villages and farmland have been destroye"
+   ],
+   [
+    2.818,
+    "More than one billion people currently live in slums or informal settlements without safe water, sanitation or"
+   ]
+  ]
+ },
+ "round3_4_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.1293,
+   "nll_observer": 3.5899,
+   "binoc_ratio": 1.1472,
+   "ppl_performer": 22.9
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.547,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.716,
+    "Hall and Krueger (2018) found that most of Uber's driver-partners treated the platform as an extra source of p"
+   ],
+   [
+    2.794,
+    "The sharing economy, by which people rent assets and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    3.033,
+    "The premier advantage of the sharing economy lies in the fuller use of idle resources and the lower prices cha"
+   ]
+  ]
+ },
+ "round4_3_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.8029,
+   "nll_observer": 3.1965,
+   "binoc_ratio": 1.1404,
+   "ppl_performer": 16.5
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.214,
+    "Over half of the world's population are already living in urban areas, and the share is forecast to climb to 6"
+   ],
+   [
+    2.444,
+    "On the other hand, urbanisation also brings significant economic gains."
+   ],
+   [
+    2.506,
+    "However, it also places a significant strain on housing, services and the environment."
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.764,
+    "In countries torn by years of fighting such as Syria and South Sudan, villages and farmland have been destroye"
+   ]
+  ]
+ },
+ "round3_5_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.151,
+   "nll_observer": 3.6125,
+   "binoc_ratio": 1.1465,
+   "ppl_performer": 23.4
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.547,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.716,
+    "Hall and Krueger (2018) found that most of Uber's driver-partners treated the platform as an extra source of p"
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    3.052,
+    "The premier advantage of the sharing economy lies in the fuller use of unused resources and the lower prices c"
+   ]
+  ]
+ },
+ "round4_4_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.8327,
+   "nll_observer": 3.2271,
+   "binoc_ratio": 1.1392,
+   "ppl_performer": 17.0
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.214,
+    "Over half of the world's population are already living in urban areas, and the share is forecast to climb to 6"
+   ],
+   [
+    2.444,
+    "On the other hand, urbanisation also brings significant economic gains."
+   ],
+   [
+    2.506,
+    "However, it also places a significant strain on housing, services and the environment."
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.802,
+    "In countries torn by years of fighting such as Syria and South Sudan, villages and farmland have been destroye"
+   ]
+  ]
+ },
+ "round3_6_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.191,
+   "nll_observer": 3.6266,
+   "binoc_ratio": 1.1365,
+   "ppl_performer": 24.3
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.547,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.862,
+    "Most of Uber's driver-partners, as found by Hall and Krueger (2018), treated the platform as an extra source o"
+   ],
+   [
+    3.052,
+    "The premier advantage of the sharing economy lies in the fuller use of unused resources and the lower prices c"
+   ]
+  ]
+ },
+ "round4_5_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.8797,
+   "nll_observer": 3.2595,
+   "binoc_ratio": 1.1319,
+   "ppl_performer": 17.8
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.214,
+    "Over half of the world's population are already living in urban areas, and the share is forecast to climb to 6"
+   ],
+   [
+    2.444,
+    "On the other hand, urbanisation also brings significant economic gains."
+   ],
+   [
+    2.506,
+    "However, it also places a significant strain on housing, services and the environment."
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.802,
+    "In countries torn by years of fighting such as Syria and South Sudan, villages and farmland have been destroye"
+   ]
+  ]
+ },
+ "round3_7_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.1905,
+   "nll_observer": 3.6163,
+   "binoc_ratio": 1.1335,
+   "ppl_performer": 24.3
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.622,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy."
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.862,
+    "Most of Uber's driver-partners, as found by Hall and Krueger (2018), treated the platform as an extra source o"
+   ],
+   [
+    3.052,
+    "The premier advantage of the sharing economy lies in the fuller use of unused resources and the lower prices c"
+   ]
+  ]
+ },
+ "round3_8_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.1098,
+   "nll_observer": 3.5851,
+   "binoc_ratio": 1.1528,
+   "ppl_performer": 22.4
+  },
+  "n_sents": 24,
+  "riskiest": [
+   [
+    2.54,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy and argue that the "
+   ],
+   [
+    2.692,
+    "Uber's own driver survey, covering its driver-partners across the United States, found that most treated the p"
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.963,
+    "The first advantage of the sharing economy lies in the fuller use of unused resources and the lower prices cha"
+   ]
+  ]
+ },
+ "round3_9_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.1058,
+   "nll_observer": 3.5845,
+   "binoc_ratio": 1.1541,
+   "ppl_performer": 22.3
+  },
+  "n_sents": 24,
+  "riskiest": [
+   [
+    2.54,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy and argue that the "
+   ],
+   [
+    2.692,
+    "Uber's own driver survey, covering its driver-partners across the United States, found that most treated the p"
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    2.852,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.963,
+    "The first advantage of the sharing economy lies in the fuller use of unused resources and the lower prices cha"
+   ]
+  ]
+ },
+ "round3_10_sharing.txt": {
+  "doc": {
+   "nll_performer": 3.1234,
+   "nll_observer": 3.5872,
+   "binoc_ratio": 1.1485,
+   "ppl_performer": 22.7
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.54,
+    "This essay, therefore, will examine both the benefits and drawbacks of the sharing economy and argue that the "
+   ],
+   [
+    2.692,
+    "Uber's own driver survey, covering its driver-partners across the United States, found that most treated the p"
+   ],
+   [
+    2.796,
+    "For the longest time, owning a car or booking a hotel room were considered the only choices, yet the sector's "
+   ],
+   [
+    2.828,
+    "The sharing economy, by which people rent things and services owned by other individuals through online platfo"
+   ],
+   [
+    3.077,
+    "The first advantage of the sharing economy lies in the fuller use of unused resources, together with the lower"
+   ]
+  ]
+ },
+ "round1_6_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.9081,
+   "nll_observer": 3.3545,
+   "binoc_ratio": 1.1535,
+   "ppl_performer": 18.3
+  },
+  "n_sents": 27,
+  "riskiest": [
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.938,
+    "Elderly citizens and residents of rural areas, who are less familiar with smartphones and stable internet acce"
+   ],
+   [
+    2.971,
+    "Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would"
+   ]
+  ]
+ },
+ "round2_2_wfh.txt": {
+  "doc": {
+   "nll_performer": 3.1552,
+   "nll_observer": 3.5602,
+   "binoc_ratio": 1.1284,
+   "ppl_performer": 23.5
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.421,
+    "This essay, therefore, will examine both the benefits and drawbacks of working from home."
+   ],
+   [
+    2.582,
+    "The premier advantage of working from home lies in the improvement in productivity and the reduction of costs "
+   ],
+   [
+    2.773,
+    "To conclude, working from home is not only an effective way to raise productivity and cut office expenses, but"
+   ],
+   [
+    2.776,
+    "For instance, workers in the United States spend an average of nearly one hour travelling to and from work eve"
+   ],
+   [
+    2.961,
+    "It ranges from mild loneliness among employees who live with family to serious depression among those who live"
+   ]
+  ]
+ },
+ "round4_6_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.7711,
+   "nll_observer": 3.1668,
+   "binoc_ratio": 1.1428,
+   "ppl_performer": 16.0
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.214,
+    "Over half of the world's population are already living in urban areas, and the share is forecast to climb to 6"
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.608,
+    "In countries torn by years of conflict such as Syria and South Sudan, villages and farmland have been destroye"
+   ],
+   [
+    2.814,
+    "Despite these concerns, urbanisation itself is not the problem, and the lack of planning is."
+   ],
+   [
+    2.88,
+    "Firstly, the concentration of industry and services in cities is a key cause of urbanisation."
+   ]
+  ]
+ },
+ "round5_3_ai_education.txt": {
+  "doc": {
+   "nll_performer": 3.0846,
+   "nll_observer": 3.4678,
+   "binoc_ratio": 1.1242,
+   "ppl_performer": 21.9
+  },
+  "n_sents": 27,
+  "riskiest": [
+   [
+    2.679,
+    "Therefore, this essay will analyse the influence of artificial intelligence on education in three aspects: the"
+   ],
+   [
+    2.68,
+    "Teachers currently spend a large portion of their evenings and weekends marking assignments, writing feedback "
+   ],
+   [
+    2.722,
+    "Human tutors, however, are far too expensive for most public schools to hire in sufficient numbers."
+   ],
+   [
+    2.853,
+    "Bloom (1984) found that students who received one-to-one tutoring performed around two standard deviations bet"
+   ],
+   [
+    3.055,
+    "Hence, artificial intelligence has the potential to narrow the long-standing achievement gap between privilege"
+   ]
+  ]
+ },
+ "round1_7_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.9185,
+   "nll_observer": 3.37,
+   "binoc_ratio": 1.1547,
+   "ppl_performer": 18.5
+  },
+  "n_sents": 27,
+  "riskiest": [
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.938,
+    "Elderly citizens and residents of rural areas, who are less familiar with smartphones and stable internet acce"
+   ],
+   [
+    2.971,
+    "Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would"
+   ]
+  ]
+ },
+ "round4_7_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.7997,
+   "nll_observer": 3.1953,
+   "binoc_ratio": 1.1413,
+   "ppl_performer": 16.4
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.258,
+    "Over half of the world's population are already living in urban areas, with the share forecast to climb to 68%"
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.608,
+    "In countries torn by years of conflict such as Syria and South Sudan, villages and farmland have been destroye"
+   ],
+   [
+    2.814,
+    "Despite these concerns, urbanisation itself is not the problem, and the lack of planning is."
+   ],
+   [
+    2.88,
+    "Firstly, the concentration of industry and services in cities is a key cause of urbanisation."
+   ]
+  ]
+ },
+ "round1_8_cashless.txt": {
+  "doc": {
+   "nll_performer": 2.9175,
+   "nll_observer": 3.3679,
+   "binoc_ratio": 1.1544,
+   "ppl_performer": 18.5
+  },
+  "n_sents": 27,
+  "riskiest": [
+   [
+    2.584,
+    "Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the fin"
+   ],
+   [
+    2.837,
+    "Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and"
+   ],
+   [
+    2.866,
+    "The severity of exclusion can vary depending on the country's infrastructure."
+   ],
+   [
+    2.938,
+    "Elderly citizens and residents of rural areas, who are less familiar with smartphones and stable internet acce"
+   ],
+   [
+    2.971,
+    "Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would"
+   ]
+  ]
+ },
+ "round4_8_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.8311,
+   "nll_observer": 3.2153,
+   "binoc_ratio": 1.1357,
+   "ppl_performer": 17.0
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.258,
+    "Over half of the world's population are already living in urban areas, with the share forecast to climb to 68%"
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.608,
+    "In countries torn by years of conflict such as Syria and South Sudan, villages and farmland have been destroye"
+   ],
+   [
+    2.88,
+    "Firstly, the concentration of industry and services in cities is a key cause of urbanisation."
+   ],
+   [
+    2.901,
+    "Despite these concerns, urbanisation itself is not the problem, and the lack of planning is."
+   ]
+  ]
+ },
+ "round4_9_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.8245,
+   "nll_observer": 3.203,
+   "binoc_ratio": 1.134,
+   "ppl_performer": 16.9
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.258,
+    "Over half of the world's population are already living in urban areas, with the share forecast to climb to 68%"
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.608,
+    "In countries torn by years of conflict such as Syria and South Sudan, villages and farmland have been destroye"
+   ],
+   [
+    2.808,
+    "For instance, remittances sent home by overseas workers and city residents have become a major source of house"
+   ],
+   [
+    2.88,
+    "Firstly, the concentration of industry and services in cities is a key cause of urbanisation."
+   ]
+  ]
+ },
+ "round6_fastfashion.txt": {
+  "doc": {
+   "nll_performer": 3.0762,
+   "nll_observer": 3.5755,
+   "binoc_ratio": 1.1623,
+   "ppl_performer": 21.7
+  },
+  "n_sents": 23,
+  "riskiest": [
+   [
+    2.468,
+    "The garment industry in Bangladesh alone employs around four million workers, most of them women from rural vi"
+   ],
+   [
+    2.718,
+    "The United Nations Environment Programme (2019) estimated that the industry is responsible for around 10% of g"
+   ],
+   [
+    2.741,
+    "This essay, therefore, will examine both the benefits and drawbacks of fast fashion."
+   ],
+   [
+    2.806,
+    "Fast fashion, defined as the business model of copying catwalk designs and mass-producing them at low cost wit"
+   ],
+   [
+    2.812,
+    "When the Rana Plaza factory complex in Bangladesh collapsed in 2013, more than one thousand garment workers di"
+   ]
+  ]
+ },
+ "round7_foodwaste.txt": {
+  "doc": {
+   "nll_performer": 2.9889,
+   "nll_observer": 3.5307,
+   "binoc_ratio": 1.1813,
+   "ppl_performer": 19.9
+  },
+  "n_sents": 23,
+  "riskiest": [
+   [
+    2.201,
+    "When food is thrown away, the water, fuel and fertiliser spent on growing it are wasted along with it, and the"
+   ],
+   [
+    2.602,
+    "The Intergovernmental Panel on Climate Change (2019) estimated that food loss and waste together account for a"
+   ],
+   [
+    2.759,
+    "The United Nations Environment Programme (2021) estimated that 931 million tonnes of food were wasted in a sin"
+   ],
+   [
+    3.007,
+    "The financial bill is equally heavy, with the global cost of wasted food running into hundreds of billions of "
+   ],
+   [
+    3.178,
+    "Roughly one third of the food produced for human beings never gets eaten."
+   ]
+  ]
+ },
+ "round6_1_fastfashion.txt": {
+  "doc": {
+   "nll_performer": 3.0751,
+   "nll_observer": 3.5874,
+   "binoc_ratio": 1.1666,
+   "ppl_performer": 21.7
+  },
+  "n_sents": 23,
+  "riskiest": [
+   [
+    2.672,
+    "The garment industry in Bangladesh alone employs around four million workers, most of them women from rural vi"
+   ],
+   [
+    2.718,
+    "The United Nations Environment Programme (2019) estimated that the industry is responsible for around 10% of g"
+   ],
+   [
+    2.741,
+    "This essay, therefore, will examine both the benefits and drawbacks of fast fashion."
+   ],
+   [
+    2.806,
+    "Fast fashion, defined as the business model of copying catwalk designs and mass-producing them at low cost wit"
+   ],
+   [
+    2.812,
+    "When the Rana Plaza factory complex in Bangladesh collapsed in 2013, more than one thousand garment workers di"
+   ]
+  ]
+ },
+ "round7_1_foodwaste.txt": {
+  "doc": {
+   "nll_performer": 3.0067,
+   "nll_observer": 3.5537,
+   "binoc_ratio": 1.1819,
+   "ppl_performer": 20.2
+  },
+  "n_sents": 23,
+  "riskiest": [
+   [
+    2.219,
+    "When food is thrown away, the water, fuel and fertiliser spent on growing it are wasted along with it, and the"
+   ],
+   [
+    2.602,
+    "The Intergovernmental Panel on Climate Change (2019) estimated that food loss and waste together account for a"
+   ],
+   [
+    2.759,
+    "The United Nations Environment Programme (2021) estimated that 931 million tonnes of food were wasted in a sin"
+   ],
+   [
+    3.007,
+    "The financial bill is equally heavy, with the global cost of wasted food running into hundreds of billions of "
+   ],
+   [
+    3.178,
+    "Roughly one third of the food produced for human beings never gets eaten."
+   ]
+  ]
+ },
+ "round6_2_fastfashion.txt": {
+  "doc": {
+   "nll_performer": 3.0484,
+   "nll_observer": 3.5553,
+   "binoc_ratio": 1.1663,
+   "ppl_performer": 21.1
+  },
+  "n_sents": 24,
+  "riskiest": [
+   [
+    2.642,
+    "The United Nations Environment Programme (2019) estimated that the industry is responsible for around 10% of t"
+   ],
+   [
+    2.672,
+    "The garment industry in Bangladesh alone employs around four million workers, most of them women from rural vi"
+   ],
+   [
+    2.741,
+    "This essay, therefore, will examine both the benefits and drawbacks of fast fashion."
+   ],
+   [
+    2.806,
+    "Fast fashion, defined as the business model of copying catwalk designs and mass-producing them at low cost wit"
+   ],
+   [
+    2.812,
+    "When the Rana Plaza factory complex in Bangladesh collapsed in 2013, more than one thousand garment workers di"
+   ]
+  ]
+ },
+ "round7_2_foodwaste.txt": {
+  "doc": {
+   "nll_performer": 3.021,
+   "nll_observer": 3.5612,
+   "binoc_ratio": 1.1788,
+   "ppl_performer": 20.5
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.303,
+    "When food is thrown away, the water, fuel and fertiliser spent on growing it are wasted along with it, and the"
+   ],
+   [
+    2.555,
+    "In short, much of the food disappears before it ever reaches a shopping trolley, let alone a plate."
+   ],
+   [
+    2.759,
+    "The United Nations Environment Programme (2021) estimated that 931 million tonnes of food were wasted in a sin"
+   ],
+   [
+    2.955,
+    "The bin, in this sense, has quietly become one of the largest single sources of the world's climate problem."
+   ],
+   [
+    2.986,
+    "The Intergovernmental Panel on Climate Change (2019) estimated that food loss and waste together stand behind "
+   ]
+  ]
+ },
+ "round8_abroad.txt": {
+  "doc": {
+   "nll_performer": 3.3315,
+   "nll_observer": 3.7844,
+   "binoc_ratio": 1.136,
+   "ppl_performer": 28.0
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.679,
+    "This essay, therefore, will examine both the benefits and drawbacks of studying abroad."
+   ],
+   [
+    2.882,
+    "Studying abroad, defined as pursuing a degree or an exchange programme in a foreign country, has grown from a "
+   ],
+   [
+    3.008,
+    "Graduates with overseas degrees are often preferred by employers for their supposed independence and English s"
+   ],
+   [
+    3.117,
+    "The OECD (2022) counted more than six million international students worldwide, almost triple the figure of tw"
+   ],
+   [
+    3.229,
+    "The effect can be felt within a single semester."
+   ]
+  ]
+ },
+ "round9_videogames.txt": {
+  "doc": {
+   "nll_performer": 3.4759,
+   "nll_observer": 3.878,
+   "binoc_ratio": 1.1157,
+   "ppl_performer": 32.3
+  },
+  "n_sents": 24,
+  "riskiest": [
+   [
+    3.153,
+    "Anderson et al. (2010), after reviewing hundreds of studies, concluded that violent games raise aggressive tho"
+   ],
+   [
+    3.245,
+    "Another drawback of video games lies in the content itself."
+   ],
+   [
+    3.367,
+    "Therefore, this essay will analyse the influence of video games on young people in three aspects: the training"
+   ],
+   [
+    3.482,
+    "Around two thirds of Americans, and most teenagers across the developed world, now play regularly (Entertainme"
+   ],
+   [
+    3.609,
+    "In this situation, the rating labels exist for a reason, and the youngest players are the least equipped to br"
+   ]
+  ]
+ },
+ "round8_1_abroad.txt": {
+  "doc": {
+   "nll_performer": 3.3302,
+   "nll_observer": 3.7659,
+   "binoc_ratio": 1.1308,
+   "ppl_performer": 27.9
+  },
+  "n_sents": 25,
+  "riskiest": [
+   [
+    2.679,
+    "This essay, therefore, will examine both the benefits and drawbacks of studying abroad."
+   ],
+   [
+    2.882,
+    "Studying abroad, defined as pursuing a degree or an exchange programme in a foreign country, has grown from a "
+   ],
+   [
+    3.117,
+    "The OECD (2022) counted more than six million international students worldwide, almost triple the figure of tw"
+   ],
+   [
+    3.221,
+    "Graduates with overseas degrees are often preferred by employers for their supposed independence and English s"
+   ],
+   [
+    3.229,
+    "The effect can be felt within a single semester."
+   ]
+  ]
+ },
+ "round9_1_videogames.txt": {
+  "doc": {
+   "nll_performer": 3.4968,
+   "nll_observer": 3.8699,
+   "binoc_ratio": 1.1067,
+   "ppl_performer": 33.0
+  },
+  "n_sents": 24,
+  "riskiest": [
+   [
+    3.094,
+    "Anderson et al. (2010), after reviewing hundreds of studies, concluded that violent games raise aggressive tho"
+   ],
+   [
+    3.135,
+    "Another drawback of video games lies in the content itself."
+   ],
+   [
+    3.367,
+    "Therefore, this essay will analyse the influence of video games on young people in three aspects: the training"
+   ],
+   [
+    3.609,
+    "In this situation, the rating labels exist for a reason, and the youngest players are the least equipped to br"
+   ],
+   [
+    3.681,
+    "Around two thirds of Americans, and most teenagers across the developed world, now play regularly (Entertainme"
+   ]
+  ]
+ },
+ "round4_10_urbanisation.txt": {
+  "doc": {
+   "nll_performer": 2.9005,
+   "nll_observer": 3.3069,
+   "binoc_ratio": 1.1401,
+   "ppl_performer": 18.2
+  },
+  "n_sents": 29,
+  "riskiest": [
+   [
+    2.258,
+    "Over half of the world's population are already living in urban areas, with the share forecast to climb to 68%"
+   ],
+   [
+    2.543,
+    "Such a scale of movement has never been seen before."
+   ],
+   [
+    2.841,
+    "For instance, remittances sent home by overseas workers and city residents have become a major source of house"
+   ],
+   [
+    2.901,
+    "Despite these concerns, urbanisation itself is not the problem, and the lack of planning is."
+   ],
+   [
+    3.03,
+    "In countries torn by years of conflict, such as Syria and South Sudan, whole villages and their farmland have "
+   ]
+  ]
+ }
+}

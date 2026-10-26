@@ -1,0 +1,31 @@
+Discuss the advantages and disadvantages of a cashless society
+
+A cashless society, defined as an economy where payments run on digital means instead of physical banknotes and coins, was first approached by Sweden during the 2010s, with the Riksbank reporting that cash payments made up only around 10% of all transactions by 2020 (Riksbank, 2021). The trend is global. Figures from the Bank for International Settlements (2021) show that the value of cash in circulation has kept sliding across most developed economies, while mobile and card payments grow at double-digit rates year after year. Meanwhile, the World Bank has recorded that approximately 1.4 billion adults worldwide still remain unbanked, meaning that they hold no account of any kind for receiving digital payments (Demirgüç-Kunt et al., 2022). These contrasting figures have aroused concerns from certain parties over whether the disappearance of cash would benefit or harm the public, particularly the elderly and low-income groups. This essay, therefore, will examine both the benefits and drawbacks of a society without physical money.
+
+The premier advantage of a cashless society lies in how cheap and convenient digital payments have become for shops and customers alike. Arvidsson (2019) indicated that mobile payment applications, such as Swish in Sweden, have consistently been used for settling debts between friends and buying goods in small shops, cutting the time and labour cost of counting banknotes. The effect reaches every shop counter. He pointed out that retailers no longer need to count the till at closing time or pay for cash-in-transit vans, which frees their money for other operations, and a survey of Swedish merchants found that over half already refused cash before the pandemic (Riksbank, 2021). For instance, in China, the total value of mobile payments reached 355 trillion yuan in 2021, which shows that paying by phone has already sunk into citizens' daily routines.
+
+Besides the improvement in efficiency, a cashless society can also assist the government in fighting crime and tax evasion. Physical cash, being anonymous and untraceable, has long been abused for money laundering, bribery and the financing of illegal activities. According to the Indian Ministry of Finance (2017), digital transactions leave verifiable records that allow authorities to follow suspicious flows of money, thereby raising the cost of corruption. For example, when the Indian government called back its high-denomination banknotes overnight in 2016 with the aim of cracking down on the shadow economy, the number of income tax returns filed jumped by around 25% in the following year, presumably because more activities were dragged into the formal economy.
+
+However, a cashless society, considered a form of digital exclusion, involves inequality issues. Elderly citizens and residents of rural areas, who are less familiar with smartphones and stable internet access, would be punished by the disappearance of cash counters and ATMs. The harm is not evenly distributed. In accordance with a survey conducted by the UK Financial Conduct Authority (2022), around 1.1 million adults in the United Kingdom remained unbanked, most of whom relied entirely on cash to collect wages and settle bills, and similar exclusion has been documented among rural communities in developing countries (Demirgüç-Kunt et al., 2022). The severity of exclusion can vary depending on the country's infrastructure. It ranges from minor inconvenience to a complete loss of access to essential services, which has led to street protests in countries like Nigeria after the central bank restricted cash withdrawals in 2023 (Reuters, 2023).
+
+Another drawback of a cashless society is that privacy wears away and cybercrime keeps growing. Since every digital transaction records the time, place and counterparties of a purchase, companies and governments are able to build detailed profiles of consumers' behaviour, which may be abused for commercial or surveillance purposes. Research has also shown that card fraud and phishing attacks climb hand in hand with the spread of digital payments. The European Central Bank (2022) reported that card fraud losses within the Single Euro Payments Area stayed in the hundreds of millions of euros each year despite improved security technology, particularly in countries rushing to adopt mobile banking. Although banks usually compensate victims of unauthorised transactions, the anxiety created by these crimes still discourages a portion of the public from giving up cash.
+
+To conclude, a cashless society is not only an effective way to raise the efficiency of payments and strengthen the monitoring of illegal activities, but consumers can also enjoy the convenience brought by mobile applications. Nevertheless, the adoption of digital payments can be unequal in effect, as the elderly and the unbanked would be deprived of their access to financial services. In addition, the possibility of mass data leakage and fraud also creates a deterrent effect for individuals to fully embrace digital money. Despite these concerns, the transition towards a cashless society should still proceed gradually. The value of efficiency overrides the temporary inconvenience, and governments, after a short period of adaptation, should keep cash alternatives alive for vulnerable groups.
+
+References
+
+Arvidsson, N. (2019). The persistence of cash: An interview study of Swedish consumers. Journal of Payments Strategy & Systems, 13(4), 328-339.
+
+Bank for International Settlements. (2021). CPMI annual report on payments and market infrastructures. BIS.
+
+Demirgüç-Kunt, A., Klapper, L., Singer, D., & Ansar, S. (2022). The Global Findex Database 2021: Financial inclusion, digital payments, and resilience in the age of COVID-19. World Bank.
+
+European Central Bank. (2022). Report on card fraud. ECB.
+
+Indian Ministry of Finance. (2017). Annual report 2016-17. Government of India.
+
+Reuters. (2023). Nigeria's cash crunch: Protests and shortages amid naira redesign. Reuters.
+
+Riksbank. (2021). Payments report 2021. Sveriges Riksbank.
+
+UK Financial Conduct Authority. (2022). Financial lives survey 2022. FCA.

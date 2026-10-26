@@ -1,0 +1,25 @@
+Describe the cause and effect of urbanisation
+
+Cities have become the default home of humanity. Over half of the world's population are already living in urban areas, and the share is forecast to climb to 68% by 2050, meaning that another 2.5 billion people will move into cities within three decades (UN-Habitat, 2022). Such a scale of movement has never been seen before. The movement has been driven by the search for employment, together with the pressures pushing farmers away from the countryside, following the industrialisation of the past century, while its consequences now reach the economy, the environment and the health of billions of residents. Therefore, this essay explores the causes of urbanisation driven by the moving of factories and rural hardship, discusses how cities concentrate wealth and opportunity, and examines why uncontrolled urban growth overwhelms housing and public services.
+
+Firstly, the concentration of industry and services in cities is a key cause of urbanisation. Young people in rural areas can rarely find employment that matches their education, since factories, companies and universities are overwhelmingly located in city centres where roads and customers gather. Urban income in developing countries, as noted by the World Bank (2021), is often double or even triple the rural income for the same occupation, a gap which gives village youth a strong push towards the cities. Additionally, the mechanisation of agriculture has eaten steadily into the demand for farm labour. One combine harvester, during the harvest season, can replace dozens of workers, with the displaced villagers heading naturally towards the cities in search of wages.
+
+Secondly, rural hardship, including poverty, fighting and the worsening of the land, drives residents away from the countryside. In countries torn by years of fighting such as Syria and South Sudan, villages and farmland have been destroyed, forcing millions of families to leave their homes, with the majority ending up in urban areas rather than refugee camps (UNHCR, 2022). Meanwhile, a farming living has been made increasingly hard to keep by soil erosion, drought and river pollution across parts of Africa and South Asia. Therefore, many migrants aspire to settle permanently in cities and give their children access to schools and hospitals that their home regions cannot provide, resulting in a steady increase in urban populations.
+
+On the other hand, urbanisation also brings significant economic gains. Cities concentrate workers, capital and knowledge within a small area, which allows division of labour and cooperation that would be impossible in scattered villages. It is widely estimated that city regions produce over 80% of the global GDP despite covering less than 3% of the land surface (UN-Habitat, 2022). Migrants reaching cities usually gain higher wages, better education and wider career choices, with the money sent back home supporting the development of their original villages and towns. For instance, remittances sent by overseas workers and urban residents have become a major source of household income in countries like the Philippines, reaching tens of billions of dollars each year (World Bank, 2023).
+
+Nevertheless, uncontrolled urban growth puts heavy pressure on housing and public services. More than one billion people currently live in slum districts or self-built housing without safe tap water, proper drains or a legal address, and the figure keeps rising in fast-growing cities of Africa and Asia (UN-Habitat, 2022). The influx of the newcomers also dilutes medical and educational resources, resulting in classrooms packed with students, roads jammed at all hours and hospitals without enough hands. Air pollution from traffic and factories further weakens residents' lungs over the years, with city air pollution blamed for millions of early deaths every year (WHO, 2022). The pursuit of a better life thus turns, for the poorest newcomers, into a threat to health itself.
+
+In conclusion, urbanisation is primarily driven by the concentration of jobs in cities and by the hardships of rural life. It concentrates wealth and opportunity, lifting the productivity of entire nations. However, it also places a significant strain on housing, services and the environment. To sum up, while urbanisation improves individual prospects, further planning is necessary to absorb new arrivals without collapsing public services. Possible solutions, such as investing in secondary cities and rural infrastructure, should be offered to spread opportunity more evenly across each country's territory.
+
+References
+
+UN-Habitat. (2022). World cities report 2022: Envisaging the future of cities. United Nations Human Settlements Programme.
+
+UNHCR. (2022). Global trends: Forced displacement in 2021. United Nations High Commissioner for Refugees.
+
+World Bank. (2021). Rural-urban disparities in income and opportunity. World Bank Group.
+
+World Bank. (2023). Migration and development brief: Remittance flows. World Bank Group.
+
+World Health Organization. (2022). Ambient (outdoor) air pollution fact sheet. WHO.

@@ -1,0 +1,22 @@
+# ---- large / licensed corpora (rebuildable via analysis/*_bulk.py) ----
+corpus/bulk/
+corpus/human/student/
+corpus/human/journals/
+corpus/human/journals2/
+corpus/human/zip/
+
+# ---- regenerable feature matrices ----
+analysis/feats_journal2.json
+analysis/feats_student.json
+analysis/feats_journal.json
+
+# ---- scratch ----
+tmp/
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# ---- local model caches ----
+.cache/
+*.gguf
